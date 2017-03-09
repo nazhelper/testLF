@@ -17,7 +17,8 @@ body, html {
 		background-color: #f2f2f2;
 		font-family: HelveticaNeueLTStd-Lt;
 		color: #424f53;
-		font-size: 1.2em;
+		font-size: 1em;
+		line-height: 1.42857143;
 	}
 	
   	input,
@@ -924,8 +925,8 @@ boxcheck {
 	width: 100%;
 	background-color: #424f53;
 	color: white;
-	min-height: 18em;
-	margin-top: -18em;
+/* 	min-height: 18em;
+	margin-top: -18em; */
 	/* overflow: hidden; */
 }
 .footer ul {
@@ -949,6 +950,10 @@ boxcheck {
 .footer a:hover, .footer a:focus {
 	color: #ffffff;
 }
+.footer .row-fluid{
+	padding: 0 8px;
+}
+
  @media (  min-width: 768px) {
 	.navbar-nav > li > a {
 		padding-top: 24px;
