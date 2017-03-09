@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+<html class="$root_css_class" dir="#language ("lang.dir")" lang="$w3c_language_id">
+
+<head>
+	<title>$the_title - $company_name</title>
+
+	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
+	<script type="text/javascript" src="$javascript_folder/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="$javascript_folder/theme-effects.js"></script>
+	$theme.include($top_head_include)
+</head>
+
+<body class="$css_class">
+
+<a href="#main-content" id="skip-to-content">#language ("skip-to-content")</a>
+
+$theme.include($body_top_include)
+
+#if ($is_signed_in)
+	#dockbar()
+
+	<div class="contenedor" id="wrapper">
+		<header id="banner" role="banner">
+			<div id="heading" class="header">
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
+	        			<div class="row"> 
+	        				<a class="navbar-brand" href="$site_default_url" title="#language_format ("go-to-x", [$site_name])">
+	        					<img alt="$logo_description" src="$images_folder/AF_VP_Positiva.png" />
+	        				</a>
+	        			</div>
+	        		</div>
+				</nav>
+			</div>
+	
+			#if ($has_navigation)
+				<div class="row menu-principal">
+					#parse ("$full_templates_path/navigation.vm")
+				</div>
+			#end
+		</header>
+	
+		<div id="content">
+			#if ($selectable)
+				$theme.include($content_include)
+			#else
+				$portletDisplay.recycle()
+	
+				$portletDisplay.setTitle($the_title)
+	
+				$theme.wrapPortlet("portlet.vm", $content_include)
+			#end
+		</div>
+		
+	</div>
+	<div type="button" class="btn btn-default	irarriba oculto"><i class="glyphicon glyphicon-chevron-up"></i></div>
+	<div class="push"></div>
+	<footer id="footer" role="contentinfo" class="footer">
+		<div class="span12"></div>
+		<div class="clearfix"></div>
+		<div class="divider"></div>
+		<div class="span9">
+			<p class="small">Copyright © 2015 Allfunds Bank S.A., Allfunds Bank is a registered trademark. All rights reserved.</p>
+		</div>
+		
+		<div class="span3">
+			<p class="small text-right"><a href="#">Terms & Conditions</a></p>
+		</div>
+		
+		<div class="clearfix"></div>
+	</footer>
+
+#else 
+<div class="contenedor login">
+	<div class="container">
+		<div class="card card-container">
+			<img class="login-logo zoomIn animated" alt="" src="$images_folder/AF_VP_Positiva.png">
+			<div class="cont-log">
+				<h4>$company_name</h4>
+				<div id="content">
+					<div class="">
+						$theme.include($content_include)
+					</div>
+				</div>		
+			</div>
+		</div>
+	</div>
+</div>
+
+#end
+
+$theme.include($body_bottom_include)
+
+$theme.include($bottom_include)
+
+</body>
+
+</html>
