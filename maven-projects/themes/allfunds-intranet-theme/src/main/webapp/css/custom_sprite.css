@@ -1,0 +1,58 @@
+.events .indicador{
+	background-color: #815374 !important;
+}
+
+.indicador {
+    background-image: url(../images/sprite-icons-01.png) !important;
+    background-repeat: no-repeat !important;
+    float: left !important;
+    position: relative !important;
+    top: 5px !important;
+    left: -7px !important;
+    display: inline-block !important;
+    height: 32px !important;
+    width: 34px !important;
+}
+
+.news .indicador {
+	background-color: #da5f60 !important;
+}
+
+.icon-noticia {
+    background-position: -128px 0px !important;
+}
+
+.icon-documento {
+    background-position: -97px -1px !important;
+}
+
+.icon-solidario {
+    background-position: -33px 0px !important;
+}
+
+.leyenda.csr, .csr .indicador {
+    background-color: #003863 !important;
+}
+
+.icon-video {
+    background-position: -65px -1px !important;
+}
+
+.icon-send {
+    background-position: -160px -1px !important;
+}
+
+.indicador.new {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    background-image: url(../images/new-01.png) !important;
+    background-repeat: no-repeat !important;
+    float: right !important;
+    position: relative !important;
+    top: -18px !important;
+    left: 65px !important;
+    height: 90px !important;
+    width: 180px !important;
+    transform: rotate(45deg) !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05) !important;
+}
