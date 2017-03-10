@@ -193,10 +193,6 @@ a {
 }
 
 /*Home*/
-.navbar-brand > img {
-	height:55px;
-	margin-top:-5px;
-}
 
 #carousel-menu .carousel-control{
 	background:none;
@@ -606,6 +602,16 @@ a {
 .navbar-brand {
 	min-height: 65px;
 	margin-left: 0 !important;
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    
+     > img {
+		height:55px;
+		margin-top:-5px;
+	}
 }
 .navbar-nav {
 	margin: 0;

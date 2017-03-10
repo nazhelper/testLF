@@ -3,5 +3,10 @@
 }
 
 .aui .dockbar-split .dockbar.navbar-static-top .collapse .nav-account-controls {
-    position: relative;
+    position: absolute;
+}
+
+.aui .dockbar-split .dockbar.navbar-static-top .collapse{
+	position: static;
+	
 }

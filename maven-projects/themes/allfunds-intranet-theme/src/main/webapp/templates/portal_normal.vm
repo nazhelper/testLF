@@ -24,20 +24,18 @@ $theme.include($body_top_include)
 		<header id="banner" role="banner">
 			<div id="heading" class="header">
 				<nav class="navbar navbar-default">
-					<div class="container-fluid">
-	        			<div class="row-fluid"> 
-	        				<a class="navbar-brand" href="$site_default_url" title="#language_format ("go-to-x", [$site_name])">
-	        					<img alt="$logo_description" src="$images_folder/AF_VP_Positiva.png" />
-								#dockbar()
-	        				</a>
-	        			</div>
+	        		<div class="row-fluid"> 
+	        			<a class="navbar-brand" href="$site_default_url" title="#language_format ("go-to-x", [$site_name])">
+	        				<img alt="$logo_description" src="$images_folder/AF_VP_Positiva.png" />
+							#dockbar()
+	        			</a>
 	        		</div>
 	
-			#if ($has_navigation)
-				<div class="row-fluid menu-principal">
-					#parse ("$full_templates_path/navigation.vm")
-				</div>
-			#end
+					#if ($has_navigation)
+						<div class="row-fluid menu-principal">
+							#parse ("$full_templates_path/navigation.vm")
+						</div>
+					#end
 				</nav>
 			</div>
 		</header>
