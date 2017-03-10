@@ -6,6 +6,8 @@
 
 @import url(master.css);
 @import url(master-dockbar.css);
+@import url(custom_sprite.css);
+@import url(modalImage.css);
 
 /*login */
 .login-logo {
@@ -39,7 +41,6 @@
 		display: none;
 	}
 }
-
 
 .panel-call-to-action {
 	/* height: 130px; */
