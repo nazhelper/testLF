@@ -1,0 +1,7 @@
+.aui .dockbar-split .dockbar .navbar-inner .nav-add-controls {
+    top: 25%;
+}
+
+.aui .dockbar-split .dockbar.navbar-static-top .collapse .nav-account-controls {
+    position: relative;
+}

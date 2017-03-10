@@ -20,7 +20,6 @@
 $theme.include($body_top_include)
 
 #if ($is_signed_in)
-	#dockbar()
 	<div class="contenedor" id="">
 		<header id="banner" role="banner">
 			<div id="heading" class="header">
@@ -29,6 +28,7 @@ $theme.include($body_top_include)
 	        			<div class="row-fluid"> 
 	        				<a class="navbar-brand" href="$site_default_url" title="#language_format ("go-to-x", [$site_name])">
 	        					<img alt="$logo_description" src="$images_folder/AF_VP_Positiva.png" />
+								#dockbar()
 	        				</a>
 	        			</div>
 	        		</div>
