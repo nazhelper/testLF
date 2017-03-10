@@ -3,6 +3,8 @@
 	border-radius: 5px;
 	cursor: pointer;
 	transition: 0.3s;
+	height: 175px;
+	width: 100%;
 }
 
 #myImg:hover {
@@ -100,5 +102,20 @@ to {
 }
 
 .marginTopParrafo{
-	margin-top: 10% !important;
+	margin-top: 20% !important;
+}
+
+.marginTopParrafoTitular{
+	margin-top: 3% !important;
+}
+
+.marginTopParrafoTitular2{
+	margin-top: 1.4% !important;
+}
+.noticiaMargenIzquierda{
+	margin-left: 0px !important;
+}
+
+.marginTopParrafoHorizontal{
+	margin-top: 7% !important;
 }

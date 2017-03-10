@@ -8,7 +8,7 @@
     float: left !important;
     position: relative !important;
     top: 5px !important;
-    left: -7px !important;
+    left: 5px !important;
     display: inline-block !important;
     height: 32px !important;
     width: 34px !important;
@@ -125,4 +125,12 @@
     background-position: -0px -106px !important;
     width: 25px !important;
     height: 25px !important;
+}
+
+#adtNoticias .span6 .marginLeft{
+	margin-left: 5% !important;
+}
+
+.footer ul li{
+	list-style: none;
 }
