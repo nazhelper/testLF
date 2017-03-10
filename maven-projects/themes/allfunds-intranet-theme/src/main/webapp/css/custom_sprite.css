@@ -56,3 +56,73 @@
     transform: rotate(45deg) !important;
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05) !important;
 }
+
+.icon-menu {
+    background-image: url(../images/sprite-icons-01.png) !important;
+    background-repeat: no-repeat !important;
+    height: 35px !important;
+    width: 30px !important;
+    display: inline-block !important;
+    background-position: -3px -33px !important;
+    padding: 0px !important;
+    vertical-align: middle !important;
+}
+
+.panelMenu a, .panelMenu a:hover {
+    color: #da5f60 !important;
+}
+
+.carousel-controlMenu:hover, .carousel-controlMenu:focus {
+    color: #da5f60 !important;
+    text-decoration: none !important;
+    filter: alpha(opacity=90) !important;
+    outline: 0 !important;
+    opacity: .9 !important;
+}
+
+.carousel-controlMenu.right {
+    right: 5% !important;
+    left: auto !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1) !important;
+    background-repeat: repeat-x !important;
+}
+
+.carousel-controlMenu {
+    position: absolute !important;
+    top: 45% !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 15% !important;
+    font-size: 20px !important;
+    color: #da5f60 !important;
+    text-align: center !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6) !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+    filter: alpha(opacity=50) !important;
+    opacity: .5 !important;
+}
+
+.carousel-controlMenu.left {
+    left: 5% !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+    background-repeat: repeat-x;
+}
+
+.icon-negativoMenu {
+    background-position: -30px -106px!important;
+    width: 25px !important;
+    height: 25px !important;
+}
+
+.iconMenu {
+    background-image: url(../images/sprite-icons-01.png) !important;
+    background-repeat: no-repeat !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+}
+
+.icon-okMenu {
+    background-position: -0px -106px !important;
+    width: 25px !important;
+    height: 25px !important;
+}
