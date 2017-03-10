@@ -21,26 +21,25 @@ $theme.include($body_top_include)
 
 #if ($is_signed_in)
 	#dockbar()
-
-	<div class="contenedor" id="wrapper">
+	<div class="contenedor" id="">
 		<header id="banner" role="banner">
 			<div id="heading" class="header">
 				<nav class="navbar navbar-default">
 					<div class="container-fluid">
-	        			<div class="row"> 
+	        			<div class="row-fluid"> 
 	        				<a class="navbar-brand" href="$site_default_url" title="#language_format ("go-to-x", [$site_name])">
 	        					<img alt="$logo_description" src="$images_folder/AF_VP_Positiva.png" />
 	        				</a>
 	        			</div>
 	        		</div>
-				</nav>
-			</div>
 	
 			#if ($has_navigation)
-				<div class="row menu-principal">
+				<div class="row-fluid menu-principal">
 					#parse ("$full_templates_path/navigation.vm")
 				</div>
 			#end
+				</nav>
+			</div>
 		</header>
 	
 		<div id="content">
