@@ -10,6 +10,7 @@
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
 	<script type="text/javascript" src="$javascript_folder/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="$javascript_folder/theme-effects.js"></script>
+		<script type="text/javascript" src="$javascript_folder/bootstrap.js"></script>
 	$theme.include($top_head_include)
 </head>
 
@@ -20,7 +21,6 @@
 $theme.include($body_top_include)
 
 #if ($is_signed_in)
-	#dockbar()
 	<div class="contenedor" id="">
 		<header id="banner" role="banner">
 			<div id="heading" class="header">
@@ -29,6 +29,7 @@ $theme.include($body_top_include)
 	        			<div class="row-fluid"> 
 	        				<a class="navbar-brand" href="$site_default_url" title="#language_format ("go-to-x", [$site_name])">
 	        					<img alt="$logo_description" src="$images_folder/AF_VP_Positiva.png" />
+								#dockbar()
 	        				</a>
 	        			</div>
 	        		</div>
