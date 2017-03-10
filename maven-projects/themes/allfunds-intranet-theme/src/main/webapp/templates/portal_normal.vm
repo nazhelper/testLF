@@ -41,7 +41,7 @@ $theme.include($body_top_include)
 			</div>
 		</header>
 	
-		<div id="content">
+		<div id="content" class="container content">
 			#if ($selectable)
 				$theme.include($content_include)
 			#else
@@ -56,9 +56,16 @@ $theme.include($body_top_include)
 	</div>
 	<div type="button" class="btn btn-default irarriba oculto"><i class="glyphicon glyphicon-chevron-up"></i></div>
 	##<div class="push"></div>
+	
 	<footer id="footer" role="contentinfo" class="footer">
 		<div class="row-fluid">
-			<div class="span12"></div>
+			<div class="span12">
+				$velocityPortletPreferences.setValue("portletSetupShowBorders", "false")
+				$velocityPortletPreferences.setValue("group-id", "$group_id")
+				$velocityPortletPreferences.setValue("displayStyle", "ddmTemplate_7e5d1825-74f2-4935-8447-218c30f95e3f")
+				$theme.runtime("85_INSTANCE_FOOTER_3X275", "", $velocityPortletPreferences.toString())
+				$velocityPortletPreferences.reset()
+			</div>
 		</div>
 		<div class="clearfix"></div>
 		<div class="divider"></div>
@@ -98,6 +105,7 @@ $theme.include($body_bottom_include)
 
 $theme.include($bottom_include)
 
+<div class="clearfix"></div>
 </body>
 
 </html>
