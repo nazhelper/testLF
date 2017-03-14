@@ -3,25 +3,44 @@
 
 <layout-templates>
 	<custom>
-		<layout-template id="three_columns_255025" name="3 Columns (25/50/25)">
+		<layout-template id="three_columns_255025"
+			name="3 Columns (25/50/25)">
 			<template-path>/three_columns_255025.tpl</template-path>
-			<wap-template-path>/three_columns_255025.wap.tpl</wap-template-path>
+			<wap-template-path>
+				/three_columns_255025.wap.tpl
+			</wap-template-path>
 			<thumbnail-path>/three_columns_255025.png</thumbnail-path>
 		</layout-template>
-		<layout-template id="two_columns_2080" name="2-Columns (20/80)">
+		<layout-template id="two_columns_2080"
+			name="2-Columns (20/80)">
 			<template-path>/two_columns_2080.tpl</template-path>
-			<wap-template-path>/two_columns_2080.wap.tpl</wap-template-path>
+			<wap-template-path>
+				/two_columns_2080.wap.tpl
+			</wap-template-path>
 			<thumbnail-path>/two_columns_2080.png</thumbnail-path>
 		</layout-template>
-		<layout-template id="three_columns_206020" name="3 Columns (20/60/20)">
+		<layout-template id="three_columns_206020"
+			name="3 Columns (20/60/20)">
 			<template-path>/three_columns_206020.tpl</template-path>
-			<wap-template-path>/three_columns_206020.wap.tpl</wap-template-path>
+			<wap-template-path>
+				/three_columns_206020.wap.tpl
+			</wap-template-path>
 			<thumbnail-path>/three_columns_206020.png</thumbnail-path>
 		</layout-template>
-		<layout-template id="three_columns_156025" name="3 Columns (15/60/25)">
+		<layout-template id="three_columns_156025"
+			name="3 Columns (15/60/25)">
 			<template-path>/three_columns_156025.tpl</template-path>
-			<wap-template-path>/three_columns_156025.wap.tpl</wap-template-path>
+			<wap-template-path>
+				/three_columns_156025.wap.tpl
+			</wap-template-path>
 			<thumbnail-path>/three_columns_156025.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="column_1_center" name="1 Column (Center Content)">
+			<template-path>/column_1_center.tpl</template-path>
+			<wap-template-path> 
+				/column_1_center.wap.tpl
+			</wap-template-path>
+			<thumbnail-path>/column_1_center.png</thumbnail-path>
 		</layout-template>
 	</custom>
 </layout-templates>

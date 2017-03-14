@@ -1,4 +1,4 @@
-<div class="three_columns_255025" id="main-content" role="main">
+<div class="three_columns_255025 container" id="main-content" role="main">
 	<div class="portlet-layout row-fluid">
 		<div class="portlet-column portlet-column-first span3" id="column-1">
 			$processor.processColumn("column-1", "portlet-column-content portlet-column-content-first")
