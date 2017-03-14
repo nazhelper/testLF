@@ -181,6 +181,31 @@ td,
 th {
   padding: 0;
 }
+.aui textarea, .aui input[type="text"], .aui input[type="password"], 
+.aui input[type="datetime"], .aui input[type="datetime-local"], 
+.aui input[type="date"], .aui input[type="month"], .aui input[type="time"], 
+.aui input[type="week"], .aui input[type="number"], .aui input[type="email"], 
+.aui input[type="url"], .aui input[type="search"], .aui input[type="tel"], 
+.aui input[type="color"], .aui .uneditable-input,
+.form-control, .field {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
   *,
@@ -1573,31 +1598,22 @@ pre code {
   max-height: 340px;
   overflow-y: scroll;
 }
-.container {
-  padding-right: 15px;
-  padding-left: 15px;
+.aui .container {
   margin-right: auto;
   margin-left: auto;
-}
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
-}
-
-@media (min-width: 1400px) {
-  .container {
-    width: 1370px;
-  }
+  
+	@media (min-width: 768px) {
+	    width: 750px;
+	}
+	@media (min-width: 992px) {
+	    width: 970px;
+	}
+	@media (min-width: 1200px) {
+	    width: 1170px;
+	}
+	
+	@media (min-width: 1400px) {
+	    width: 1370px;
+	}
 }
 

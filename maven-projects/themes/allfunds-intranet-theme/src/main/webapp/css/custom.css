@@ -6,6 +6,7 @@
 
 @import url(master.css);
 @import url(master-dockbar.css);
+@import url(flaticon.css);
 @import url(custom_sprite.css);
 @import url(modalImage.css);
 
@@ -473,33 +474,41 @@
 }
 
 /*menu vertical*/
-.nav-stacked {
+.nav-menu .layouts {
 	margin-bottom: 20px;
+	margin-left: 0;
+	padding: 0;
+	list-style: none;
 }
 
-.nav-stacked li {
+.nav-menu .layouts li {
 	background-color: #ffffff;
 	border: 1px solid #dadada;
 }
 
-.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+.nav-menu .layouts li.selected a, .nav-menu .layouts li.selected a:hover, .nav-menu .layouts li.selected a:focus {
 	border-left: 4px solid #da5f60;
 	color: #da5f60;
 	background-color: transparent;
+	font-weight: normal;
+
 }
 
-.nav-pills>li>a {
+.nav-menu .layouts li a {
 	border-radius: 0px;
 	padding: 20px 15px;
-	color: #424f53
+	color: #424f53;
+	position: relative;
+	display: block;
 }
 
-.nav-pills>li>a:hover, .nav-pills>li>a:focus {
+.nav-menu .layouts li a:hover, .nav-menu .layouts li a:focus {
 	background: transparent;
 	color: #da5f60;
+	text-decoration: none;
 }
 
-.nav-stacked>li+li {
+.nav-menu .layouts  li+li {
 	margin-top: 5px;
 	margin-left: 0;
 	border-bottom: 1px solid #dadada;

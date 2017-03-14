@@ -28,15 +28,30 @@ $theme.include($body_top_include)
 	        		<div class="row-fluid"> 
 	        			<a class="navbar-brand" href="$site_default_url" title="#language_format ("go-to-x", [$site_name])">
 	        				<img alt="$logo_description" src="$images_folder/AF_VP_Positiva.png" />
-							#dockbar()
-	        			</a>
+	        			</a> 
+						#dockbar()
+	        			<div class="box-search">
+		        			#set ($VOID = $velocityPortletPreferences.setValue('display-style', '1'))
+							#set ($instanceId = 'E3j7')
+							#set ($myPortletId = "77_INSTANCE_${instanceId}")$theme.runtime($myPortletId, '', $velocityPortletPreferences.toString())
+							#set ($VOID = $velocityPortletPreferences.reset())
+						</div>
 	        		</div>
 	
-					#if ($has_navigation)
-						<div class="row-fluid menu-principal">
+					<div class="row-fluid menu-principal">
+						#if ($has_navigation)
 							#parse ("$full_templates_path/navigation.vm")
-						</div>
-					#end
+						#end
+						<ul class="nav navbar-nav navbar-right aadd-home">
+    	       				<li><a href="#"><span class="flaticon-interface"></span></a></li>
+	           				<li><a a="" href="#" ><span class="flaticon-music"></span><span class="new-alerts">2</span></a></li>
+							<li><a class="aadd aadd-app-magic" href="#"></a></li>
+				            <li><a class="aadd aadd-app-host" href="#"></a></li>
+				            <li><a class="aadd aadd-app-pegaso" href="#"></a></li>
+				            <li><a class="aadd aadd-app-vega" href="#"></a></li>
+				            <li><a class="aadd aadd-app-iris" href="#"></a></li>
+            			</ul>
+					</div>
 				</nav>
 			</div>
 		</header>
@@ -60,11 +75,24 @@ $theme.include($body_top_include)
 	<footer id="footer" role="contentinfo" class="footer">
 		<div class="row-fluid">
 			<div class="span12">
-				$velocityPortletPreferences.setValue("portletSetupShowBorders", "false")
-				$velocityPortletPreferences.setValue("group-id", "$group_id")
-				$velocityPortletPreferences.setValue("displayStyle", "ddmTemplate_7e5d1825-74f2-4935-8447-218c30f95e3f")
-				$theme.runtime("85_INSTANCE_FOOTER_3X275", "", $velocityPortletPreferences.toString())
-				$velocityPortletPreferences.reset()
+				#if ($has_navigation)
+					#foreach ($nav_item in $nav_items)
+					<div class="span2">
+						<ul>
+						$nav_item.getName()
+						#if ($nav_item.hasChildren())
+							#foreach ($nav_child in $nav_item.getChildren())
+						    	<li>
+						    		<a aria-labelledby="layout_$nav_child.getLayoutId()" href="$nav_child.getURL()" $nav_child.getTarget() role="menuitem">
+						    		$nav_child.getName()
+						    		</a>
+						    	</li>
+							#end
+						#end
+						</ul>
+				    </div>
+					#end
+				#end
 			</div>
 		</div>
 		<div class="clearfix"></div>

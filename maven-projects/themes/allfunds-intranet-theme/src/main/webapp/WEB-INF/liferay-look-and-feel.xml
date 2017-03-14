@@ -5,5 +5,9 @@
 	<compatibility>
 		<version>6.2.4+</version>
 	</compatibility>
-	<theme id="allfunds-intranet" name="AllFunds Intranet" />
+	<theme id="allfunds-intranet" name="AllFunds Intranet">
+		<settings>
+			<setting key="portlet-setup-show-borders-default" value="false"></setting>
+		</settings>
+	</theme>
 </look-and-feel>
