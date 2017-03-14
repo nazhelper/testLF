@@ -22,6 +22,8 @@ $(function() {
 	var accordion = $(".panel-accordion").parent();
 	
 	accordion.accordion({
-		collapsible : true
+		active: 1,
+		collapsible : true,
+		animate: 200
 	});
 });
