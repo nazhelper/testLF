@@ -13,8 +13,15 @@
  *
  */
 --%>
-
+<%
+String customDockbar = themeDisplay.getTheme().getSetting("custom-dockbar");
+%>
 <liferay-util:buffer var="userName">
+<%
+if(customDockbar != null && Boolean.parseBoolean(customDockbar)){
+%>
+	<span class="glyphicon glyphicon-menu-hamburger"></span>
+<%}else{ %>
 	<c:if test="<%= themeDisplay.isImpersonated() %>">
 		<b class="alert-icon icon-warning-sign"></b>
 	</c:if>
@@ -24,19 +31,20 @@
 	<span class="user-full-name">
 		<%= HtmlUtil.escape(user.getFullName()) %>
 	</span>
-</liferay-util:buffer>
-
-<liferay-util:buffer var="userMenu">
-	<span class="glyphicon glyphicon-menu-hamburger"></span>
+<%} %>
 </liferay-util:buffer>
 <c:choose>
 	<c:when test="<%= themeDisplay.isSignedIn() %>">
+	<%
+		if(customDockbar != null  && Boolean.parseBoolean(customDockbar)){
+	%>
 		<aui:nav-item>
 			<div class="box-header">
 				<img alt="<liferay-ui:message key="my-account" />" class="img-user img-circle user-avatar-image" src="<%= HtmlUtil.escape(user.getPortraitURL(themeDisplay)) %>" />
 			</div>
 		</aui:nav-item>
-		<aui:nav-item anchorCssClass="user-avatar-link" cssClass='<%= themeDisplay.isImpersonated() ? "user-avatar impersonating-user" : "user-avatar" %>' dropdown="<%= true %>" id="userAvatar" label="<%= userMenu %>">
+	<%} %>
+		<aui:nav-item anchorCssClass="user-avatar-link" cssClass='<%= themeDisplay.isImpersonated() ? "user-avatar impersonating-user" : "user-avatar" %>' dropdown="<%= true %>" id="userAvatar" label="<%= userName %>">
 			<c:if test="<%= themeDisplay.isImpersonated() %>">
 
 				<%
