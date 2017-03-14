@@ -8,6 +8,7 @@
 	<theme id="allfunds-intranet" name="AllFunds Intranet">
 		<settings>
 			<setting key="portlet-setup-show-borders-default" value="false"></setting>
+			<setting key="custom-dockbar" value="true" ></setting>
 		</settings>
 	</theme>
 </look-and-feel>

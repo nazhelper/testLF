@@ -8,9 +8,13 @@
 	<title>$the_title - $company_name</title>
 
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
-	<script type="text/javascript" src="$javascript_folder/jquery-1.11.3.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	##<script type="text/javascript" src="$javascript_folder/jquery-1.11.3.min.js"></script>##
 	<script type="text/javascript" src="$javascript_folder/theme-effects.js"></script>
-		<script type="text/javascript" src="$javascript_folder/bootstrap.js"></script>
+	<script type="text/javascript" src="$javascript_folder/bootstrap.js"></script>
+    
+    
 	$theme.include($top_head_include)
 </head>
 
@@ -56,7 +60,7 @@ $theme.include($body_top_include)
 			</div>
 		</header>
 	
-		<div id="content" class="container content">
+		<div id="content" class="content">
 			#if ($selectable)
 				$theme.include($content_include)
 			#else
@@ -68,9 +72,9 @@ $theme.include($body_top_include)
 			#end
 		</div>
 		
+	<div class="push"></div>
 	</div>
 	<div type="button" class="btn btn-default irarriba oculto"><i class="glyphicon glyphicon-chevron-up"></i></div>
-	##<div class="push"></div>
 	
 	<footer id="footer" role="contentinfo" class="footer">
 		<div class="row-fluid">

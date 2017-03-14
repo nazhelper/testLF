@@ -187,7 +187,7 @@ th {
 .aui input[type="week"], .aui input[type="number"], .aui input[type="email"], 
 .aui input[type="url"], .aui input[type="search"], .aui input[type="tel"], 
 .aui input[type="color"], .aui .uneditable-input,
-.form-control, .field {
+.form-control {
     display: block;
     width: 100%;
     height: 34px;
@@ -1598,7 +1598,7 @@ pre code {
   max-height: 340px;
   overflow-y: scroll;
 }
-.aui .container {
+.aui .container, .aui #main-content.column-1 {
   margin-right: auto;
   margin-left: auto;
   

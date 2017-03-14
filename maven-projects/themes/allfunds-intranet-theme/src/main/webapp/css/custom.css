@@ -569,6 +569,9 @@
 }
 
 /*Modales*/
+body.site.dialog-iframe-popup {
+    background: none;
+}
 .modal-content {
 	border-radius: 0px;
 }
