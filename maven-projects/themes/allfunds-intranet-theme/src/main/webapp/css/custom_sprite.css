@@ -299,3 +299,17 @@
 .noMarginLeftNoticia.span1{
 	margin-left: 0px !important;
 }
+.events:nth-child(-n+3) > .indicador.new {
+    color: #ffffff;
+    font-size: 16px;
+    background-image: url(../images/new-01.png);
+    background-repeat: no-repeat;
+    float: right;
+    position: relative;
+    top: -18px;
+    left: 65px;
+    height: 90px;
+    width: 180px;
+    transform: rotate(45deg);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}

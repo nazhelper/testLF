@@ -48,6 +48,7 @@ Autocomplete is also available and can be invoked by typing "${".
 		        </div>
 	        </#list>
           </#if>
+          </div>
         
           <!-- Controls --> 
           

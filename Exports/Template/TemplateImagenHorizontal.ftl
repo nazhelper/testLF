@@ -5,30 +5,37 @@ content structure.
 Please use the left panel to quickly add commonly used variables.
 Autocomplete is also available and can be invoked by typing "${".
 -->
+<#assign tipoNoticia = "">
+<#assign journalArticleId = .vars['reserved-article-id'].data>
+<#assign journalArticleResourceLocalServiceUtil = staticUtil["com.liferay.portlet.journal.service.JournalArticleResourceLocalServiceUtil"]>
+<#assign assetCategoryLocalServiceUtil = staticUtil["com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil"]>
 
+<#assign articleResourcePK = journalArticleResourceLocalServiceUtil.getArticleResourcePrimKey(groupId, journalArticleId)/>
+<#assign categoryList=assetCategoryLocalServiceUtil.getCategories("com.liferay.portlet.journal.model.JournalArticle",articleResourcePK) >
+
+<#list categoryList as categoryList>
+<#assign tipoNoticia = categoryList.getName()>
+</#list>
 
 <div class="span12 events">
-<#assign tipoNoticia = SelectTipoNoticia.getData()>
 <#if (imagenNoticia.getData() != "")>
    <p> <img id="myImg" src="${imagenNoticia.getData()}" alt="Ejemplo" > </p>
 </#if>
-<div class="span1">
- <#if tipoNoticia == "1">
+<div class="noMarginLeftNoticia span1">
+ <#if tipoNoticia == "AllFunds Bank News">
         <span class="indicador icon-noticia"></span>
-    <#elseif tipoNoticia == "2">
+    <#elseif tipoNoticia == "CSR News">
+        <span class="indicador icon-solidario"></span>
+    <#elseif tipoNoticia == "Fund Industry News">
         <span class="indicador icon-noticia"></span>
-    <#elseif tipoNoticia == "3">
+    <#elseif tipoNoticia == "Press Clipping">
         <span class="indicador icon-documento"></span>
-    <#elseif tipoNoticia == "4">
+    <#elseif tipoNoticia == "CSR Events">
         <span class="indicador icon-event"></span>
-    <#elseif tipoNoticia == "5">
-        <span class="indicador icon-noticia"></span>
-    <#elseif tipoNoticia == "6">
+    <#elseif tipoNoticia == "Fund Industry Events">
         <span class="indicador icon-event"></span>
-    <#elseif tipoNoticia == "7">
+    <#elseif tipoNoticia == "Internal Events">
         <span class="indicador icon-event"></span>
-     <#elseif tipoNoticia == "8">
-        <span class="indicador icon-video"></span>
     </#if>
 </div>    
 <div class="span10 noticiaMargenIzquierda">    

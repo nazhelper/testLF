@@ -32,7 +32,7 @@ Autocomplete is also available and can be invoked by typing "${".
     <#assign journalArticleDisplay = journalContentUtil.getDisplay(groupId,latestArticle.getArticleId(), "", languageId , themeDisplay)>
     
     ${journalArticleDisplay.getContent()}
-    
+  
 </#list>
 </#if>
 <div class="clearfix">
@@ -40,10 +40,9 @@ Autocomplete is also available and can be invoked by typing "${".
 </div>
 </div>
 <script>
-// Get the modal
+
 var modal = document.getElementById('myModal');
 
-// Get the image and insert it inside the modal - use its "alt" text as a caption
 var img = document.getElementById('myImg');
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
@@ -53,10 +52,8 @@ img.onclick = function(){
     captionText.innerHTML = this.alt;
 }
 
-// Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on <span> (x), close the modal
 span.onclick = function() { 
     modal.style.display = "none";
 }
