@@ -58,10 +58,10 @@ Autocomplete is also available and can be invoked by typing "${".
 <p class="marginTopParrafoHorizontal">
     <#if TextBoxNoticia?size &gt; 220>
         ${TextBoxNoticia.getData()?substring(0,150)}
+        <@liferay.language key="allfunds.template.points" /> 
     <#else>
         ${TextBoxNoticia.getData()}
-    </#if>
-    <@liferay.language key="allfunds.template.points" /> 
+    </#if>   
     <#if (PDFNoticia)??> 
         <a target="_blank" href="${PDFNoticia.getData()}"> 
     </#if>
