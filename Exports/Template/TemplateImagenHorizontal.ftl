@@ -31,10 +31,12 @@ Autocomplete is also available and can be invoked by typing "${".
     <#elseif tipoNoticia == "Press Clipping">
         <span class="indicador icon-documento"></span>
     <#elseif tipoNoticia == "CSR Events">
-        <span class="indicador icon-event"></span>
+        <span class="indicador icon-solidario"></span>
     <#elseif tipoNoticia == "Fund Industry Events">
         <span class="indicador icon-event"></span>
     <#elseif tipoNoticia == "Internal Events">
+        <span class="indicador icon-event"></span>
+    <#else>
         <span class="indicador icon-event"></span>
     </#if>
 </div>    
@@ -48,8 +50,8 @@ Autocomplete is also available and can be invoked by typing "${".
 	${dateUtil.getDate(FechaNoticia_DateObj, "MMMM yyyy", locale)}
 </#if>
 </p>
-<p class="marginTopParrafoHorizontal">${TextBoxNoticia.getData()?substring(0,150)}...<a target="_blank" href="${PDFNoticia.getData()}">
-	read more
+<p class="marginTopParrafoHorizontal">${TextBoxNoticia.getData()?substring(0,150)}<@liferay.language key="allfunds.template.points" /><a target="_blank" href="${PDFNoticia.getData()}">
+	<@liferay.language key="allfunds.template.readmore" />
  </a></p>
 </div>
 </div>

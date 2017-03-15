@@ -32,6 +32,8 @@ Autocomplete is also available and can be invoked by typing "${".
         <span class="indicador icon-event"></span>
     <#elseif tipoNoticia == "Internal Events">
         <span class="indicador icon-event"></span>
+    <#else>
+        <span class="indicador icon-event"></span>
     </#if>
 <div class="span5">
 <p class="marginTopParrafoTitular"><a href="${PDFNoticia.getData()}">
@@ -42,8 +44,8 @@ Autocomplete is also available and can be invoked by typing "${".
 
 	${dateUtil.getDate(FechaNoticia_DateObj, "MMMM yyyy", locale)}
 </#if></p>
-<p class="marginTopParrafo">${TextBoxNoticia.getData()?substring(0,150)}...<a target="_blank" href="${PDFNoticia.getData()}">
-	read more
+<p class="marginTopParrafo">${TextBoxNoticia.getData()?substring(0,150)}<@liferay.language key="allfunds.template.points" /><a target="_blank" href="${PDFNoticia.getData()}">
+	<@liferay.language key="allfunds.template.readmore" />
  </a></p>
 </div>
 <#if (imagenNoticia.getData() != "")>

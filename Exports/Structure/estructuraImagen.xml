@@ -16,7 +16,7 @@
 	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="tamanoBanner" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Tamaño]]>
+				<![CDATA[TamaÃ±o]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>

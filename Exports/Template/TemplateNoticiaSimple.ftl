@@ -34,6 +34,8 @@ Autocomplete is also available and can be invoked by typing "${".
         <span class="indicador icon-event"></span>
     <#elseif tipoNoticia == "Internal Events">
         <span class="indicador icon-event"></span>
+    <#else>
+        <span class="indicador icon-event"></span>
     </#if>
     </div>
     <div class="span5 marginLeft">
@@ -47,8 +49,8 @@ Autocomplete is also available and can be invoked by typing "${".
 	${dateUtil.getDate(FechaNoticia_DateObj, "MMMM yyyy", locale)}
 </#if>
 <div class="span12">
-<p>${TextBoxNoticia.getData()?substring(0,150)}...<a target="_blank" href="${PDFNoticia.getData()}">
-	read more
+<p>${TextBoxNoticia.getData()?substring(0,150)}<@liferay.language key="allfunds.template.points" /><a target="_blank" href="${PDFNoticia.getData()}">
+	<@liferay.language key="allfunds.template.readmore" />
  </a></p>
     </div>
     </div>
