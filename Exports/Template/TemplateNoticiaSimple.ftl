@@ -18,8 +18,8 @@ Autocomplete is also available and can be invoked by typing "${".
     <#assign tipoNoticia = categoryList.getName()>
     </#list>
 
-    <div class="span6 events">
-    <div class="span1">
+<div class="span6 panel panel-default clearfix news">
+    <div class="span12 omega">
     <#if tipoNoticia == "AllFunds Bank News">
         <span class="indicador icon-noticia"></span>
     <#elseif tipoNoticia == "CSR News">
@@ -37,21 +37,34 @@ Autocomplete is also available and can be invoked by typing "${".
     <#else>
         <span class="indicador icon-event"></span>
     </#if>
+    
+        <div class="panel-body panel-big-text">
+            <h4 class="titular">
+            <a href="${PDFNoticia.getData()}">
+                ${TextTitularNoticia.getData()},
+            </a>
+            <#assign FechaNoticia_Data = getterUtil.getLong(FechaNoticia.getData())>
+            
+            <#if (FechaNoticia_Data > 0)>
+                <#assign FechaNoticia_DateObj = dateUtil.newDate(FechaNoticia_Data)>
+            
+            	<small>${dateUtil.getDate(FechaNoticia_DateObj, "MMMM yyyy", locale)}</small>
+            </#if>
+            </h4>
+            <p>
+                <#if TextBoxNoticia.getData()?length &gt; 150>
+                    <#assign textBoxSub = TextBoxNoticia.getData()?substring(0,150)/>
+                    ${textBoxSub}
+                    <@liferay.language key="allfunds.template.points" /> 
+                <#else>
+                    ${TextBoxNoticia.getData()}
+                </#if>
+                <#if (PDFNoticia)??> 
+                    <a target="_blank" href="${PDFNoticia.getData()}"> 
+                    	<@liferay.language key="allfunds.template.readmore" />
+                    </a>
+                </#if>
+            </p>
+        </div>
     </div>
-    <div class="span5 marginLeft">
- <a href="${PDFNoticia.getData()}">
-	${TextTitularNoticia.getData()}
- </a> ,<#assign FechaNoticia_Data = getterUtil.getLong(FechaNoticia.getData())>
-
-<#if (FechaNoticia_Data > 0)>
-	<#assign FechaNoticia_DateObj = dateUtil.newDate(FechaNoticia_Data)>
-
-	${dateUtil.getDate(FechaNoticia_DateObj, "MMMM yyyy", locale)}
-</#if>
-<div class="span12">
-<p>${TextBoxNoticia.getData()?substring(0,150)}<@liferay.language key="allfunds.template.points" /><a target="_blank" href="${PDFNoticia.getData()}">
-	<@liferay.language key="allfunds.template.readmore" />
- </a></p>
-    </div>
-    </div>
-    </div>
+</div>

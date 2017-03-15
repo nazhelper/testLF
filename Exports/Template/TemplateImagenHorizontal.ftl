@@ -21,12 +21,12 @@ Autocomplete is also available and can be invoked by typing "${".
 
 <#assign isVisible = ""> 
 
-<div class="span12 events">
-<#if (imagenNoticia.getData() != "")>
-   <p> <img id="myImg" src="${imagenNoticia.getData()}" alt="Ejemplo" > </p>
-</#if>
-<div class="noMarginLeftNoticia span1">
- <#if tipoNoticia == "AllFunds Bank News">
+<div class="span12 panel panel-default clearfix news">
+    <#if (imagenNoticia.getData() != "")>
+        <div class="span12 omega img-panel-big" style="background-image: url(${imagenNoticia.getData()});"></div>
+    </#if>
+    <div class="span12 omega">
+    <#if tipoNoticia == "AllFunds Bank News">
         <span class="indicador icon-noticia"></span>
     <#elseif tipoNoticia == "CSR News">
         <span class="indicador icon-solidario"></span>
@@ -43,38 +43,41 @@ Autocomplete is also available and can be invoked by typing "${".
     <#else>
         <span class="indicador icon-event"></span>
     </#if>
-</div>    
-<div class="span10 noticiaMargenIzquierda">    
-    <p class="marginTopParrafoTitular2">
-    <#if (PDFNoticia)??>
-    <a href="${PDFNoticia.getData()}">
-    </#if>
-	${TextTitularNoticia.getData()}
- </a>,<#assign FechaNoticia_Data = getterUtil.getLong(FechaNoticia.getData())>
-<#if (FechaNoticia_Data > 0)>
-	<#assign FechaNoticia_DateObj = dateUtil.newDate(FechaNoticia_Data)>
-
-	${dateUtil.getDate(FechaNoticia_DateObj, "MMMM yyyy", locale)}
-</#if>
-</p>
-<p class="marginTopParrafo">
-    <#if TextBoxNoticia.getData()?length &gt; 150>
-        <#assign textBoxSub = TextBoxNoticia.getData()?substring(0,150)/>
-        ${textBoxSub}
-        <@liferay.language key="allfunds.template.points" /> 
-    <#else>
-        ${TextBoxNoticia.getData()}
-    </#if>
-    <#if (PDFNoticia)??> 
-        <a target="_blank" href="${PDFNoticia.getData()}"> 
-    </#if>
-	<@liferay.language key="allfunds.template.readmore" />
- </a></p>
-</div>
+        <div class="panel-body panel-big-text">    
+            <h4 class="titular">
+                <#assign anchorHREF = "">
+                <#if (PDFNoticia)??>
+                    <#assign anchorHREF = PDFNoticia.getData() >
+                </#if>
+                <a href="${anchorHREF}">
+            	    ${TextTitularNoticia.getData()},
+                </a>
+                <#assign FechaNoticia_Data = getterUtil.getLong(FechaNoticia.getData())>
+                <#if (FechaNoticia_Data > 0)>
+            	    <#assign FechaNoticia_DateObj = dateUtil.newDate(FechaNoticia_Data)>
+            
+            	    <small>${dateUtil.getDate(FechaNoticia_DateObj, "MMMM yyyy", locale)}</small>
+                </#if>
+            </h4>
+            <p>
+                <#if TextBoxNoticia.getData()?length &gt; 220>
+                    <#assign textBoxSub = TextBoxNoticia.getData()?substring(0,220)/>
+                    ${textBoxSub}
+                    <@liferay.language key="allfunds.template.points" /> 
+                <#else>
+                    ${TextBoxNoticia.getData()}
+                </#if>
+                <#if (PDFNoticia)??> 
+                    <a target="_blank" href="${PDFNoticia.getData()}"> 
+                    	<@liferay.language key="allfunds.template.readmore" />
+                    </a>
+                </#if>
+             </p>
+        </div>
+    </div>
 </div>
 
 <div id="myModal" class="modalImagen">
-
   <!-- The Close Button -->
   <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
 

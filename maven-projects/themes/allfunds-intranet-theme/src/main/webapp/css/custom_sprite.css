@@ -1,4 +1,11 @@
+#adtNoticias > .span6, #adtNoticias > .span12 {
+	margin-left: 0px !important;
+}
 
+#adtNoticias > .span6+.span6 {
+	margin-left: 2.5641% !important;
+}
+/* 
 .events .indicador {
 	background-color: #815374 !important;
 }
@@ -17,7 +24,7 @@
 
 .news .indicador {
 	background-color: #da5f60 !important;
-}
+} */
 
 .icon-noticia {
 	background-position: -128px 0px !important;
