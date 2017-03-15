@@ -17,7 +17,8 @@ Autocomplete is also available and can be invoked by typing "${".
 <#assign tipoNoticia = categoryList.getName()>
 </#list>
 
-<div class="span12 events">
+<div class="span12 panel panel-default clearfix events">
+<div class="span6">
      <#if tipoNoticia == "AllFunds Bank News">
         <span class="indicador icon-noticia"></span>
     <#elseif tipoNoticia == "CSR News">
@@ -35,22 +36,33 @@ Autocomplete is also available and can be invoked by typing "${".
     <#else>
         <span class="indicador icon-event"></span>
     </#if>
-<div class="span5">
-<p class="marginTopParrafoTitular"><a href="${PDFNoticia.getData()}">
-	${TextTitularNoticia.getData()}
- </a>,<#assign FechaNoticia_Data = getterUtil.getLong(FechaNoticia.getData())>
-<#if (FechaNoticia_Data > 0)>
-	<#assign FechaNoticia_DateObj = dateUtil.newDate(FechaNoticia_Data)>
+    <div class="panel-body panel-big-text">
+        <h4 class="titular">
+            <a href="${PDFNoticia.getData()}">
+	        ${TextTitularNoticia.getData()},
+            </a>
+            <#assign FechaNoticia_Data = getterUtil.getLong(FechaNoticia.getData())>
+            <#if (FechaNoticia_Data > 0)>
+	            <#assign FechaNoticia_DateObj = dateUtil.newDate(FechaNoticia_Data)>
 
-	${dateUtil.getDate(FechaNoticia_DateObj, "MMMM yyyy", locale)}
-</#if></p>
-<p class="marginTopParrafo">${TextBoxNoticia.getData()?substring(0,150)}<@liferay.language key="allfunds.template.points" /><a target="_blank" href="${PDFNoticia.getData()}">
-	<@liferay.language key="allfunds.template.readmore" />
- </a></p>
+	            <small>${dateUtil.getDate(FechaNoticia_DateObj, "MMMM yyyy", locale)}</small>
+            </#if>
+        </h4>
+        <p>
+           	<#if TextBoxNoticia.getData()?length &gt; 150>
+        		${TextBoxNoticia.getData()?substring(0,150)}
+       			 <@liferay.language key="allfunds.template.points" /> 
+    		<#else>
+        		${TextBoxNoticia.getData()}
+    		</#if>  
+            <a target="_blank" href="${PDFNoticia.getData()}">
+				<@liferay.language key="allfunds.template.readmore" />
+            </a>
+        </p>
+    </div>
 </div>
 <#if (imagenNoticia.getData() != "")>
-    <div class="span6">
-        <img alt="Foto" src="${imagenNoticia.getData()}" />
+    <div class="span6 img-panel-big" style="background-image: url(${imagenNoticia.getData()});">
     </div>
 </#if>
 </div>
