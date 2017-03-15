@@ -1598,7 +1598,7 @@ pre code {
   max-height: 340px;
   overflow-y: scroll;
 }
-.aui .container, .aui #main-content.column-1 {
+.aui .container, .aui #main-content.column-1, .aui #main-content.columns-max {
   margin-right: auto;
   margin-left: auto;
   
@@ -1617,3 +1617,15 @@ pre code {
 	}
 }
 
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.panel-default {
+    border-color: #ddd;
+}
