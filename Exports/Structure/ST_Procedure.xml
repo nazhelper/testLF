@@ -1,0 +1,83 @@
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element dataType="date" fieldNamespace="ddm" indexType="keyword" localizable="true" name="startDate" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-date" width="small">
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Start Date]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="descriptionProc" readOnly="false" repeatable="false" required="false" showLabel="true" type="textarea" width="small">
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Description]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="document-library" fieldNamespace="ddm" indexType="keyword" localizable="true" name="documentProc" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-documentlibrary" width="">
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[PDF]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" multiple="false" name="languageSelect" readOnly="false" repeatable="false" required="false" showLabel="true" type="select" width="">
+		<dynamic-element name="option5016" type="option" value="es">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Spanish]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element name="option5017" type="option" value="en">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[English]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element name="option5018" type="option" value="it">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Italian]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element name="option5019" type="option" value="por">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Portuguese]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Language]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[[""]]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+</root>

@@ -1,0 +1,205 @@
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element dataType="date" fieldNamespace="ddm" indexType="keyword" localizable="true" name="valueDateCorp" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-date" width="small">
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Value Date]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" multiple="false" name="rolVisible" readOnly="false" repeatable="false" required="false" showLabel="true" type="select" width="">
+		<dynamic-element name="option6050" type="option" value="Todos">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[All the areas]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element name="option6051" type="option" value="Rol_Empleado_Externo">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Role External Employee]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element name="option6052" type="option" value="Rol_Empleado">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Role Employee]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element name="option6053" type="option" value="Rol_Empleado_Madrid">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Role Madrid Employee]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element name="option6054" type="option" value="Rol_Empleado_Bogota">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Rol Bogota Employee]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element name="option6055" type="option" value="Rol_Empleado_Santiago">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Rol Santiago Employee]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element name="option6056" type="option" value="Rol_Empleado_Londres">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Rol Londres Employee]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element name="option6057" type="option" value="Rol_Empleado_Luxemburgo">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Rol Luxemburgo Employee]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element name="option6058" type="option" value="Rol_Empleado_Milan">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Rol Milan Employee]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element name="option6059" type="option" value="Rol_Empleado_Zurich">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Rol Zurich Employee]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element name="option6060" type="option" value="Rol_Empleado_Dubai">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Rol Dubai Employee]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element name="option6061" type="option" value="Rol_Empleado_Singapur">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Rol Singapur Employee]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Rol]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[[""]]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" multiple="false" name="oficGloSelect" readOnly="false" repeatable="false" required="false" showLabel="true" type="select" width="">
+		<dynamic-element name="option9119" type="option" value="1">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Oficina]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element name="option9120" type="option" value="2">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Global]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Oficina/Global]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[[""]]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="descrTextBox" readOnly="false" repeatable="false" required="false" showLabel="true" type="textarea" width="small">
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Description]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="document-library" fieldNamespace="ddm" indexType="keyword" localizable="true" name="templateWord" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-documentlibrary" width="">
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Template Word]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="document-library" fieldNamespace="ddm" indexType="keyword" localizable="true" name="templateExcel" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-documentlibrary" width="">
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Template Excel]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="document-library" fieldNamespace="ddm" indexType="keyword" localizable="true" name="templatePP" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-documentlibrary" width="">
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Template PowerPoint]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="document-library" fieldNamespace="ddm" indexType="keyword" localizable="true" name="templatePDF" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-documentlibrary" width="">
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Template PDF]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+</root>

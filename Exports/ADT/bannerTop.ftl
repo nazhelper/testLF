@@ -10,7 +10,6 @@ Autocomplete is also available and can be invoked by typing "${".
 <#assign aui = taglibLiferayHash["/WEB-INF/tld/aui.tld"] />
 
 <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel"> 
-          <!-- Indicators -->
           <#if entries?has_content>
             <ol class="carousel-indicators topBanner">
 	            <#list entries as curEntryOl>
@@ -54,11 +53,11 @@ Autocomplete is also available and can be invoked by typing "${".
           
           <a class="leftBannerTop carousel-controlBannerTop" href="#carousel-example-generic" role="button" data-slide="prev"> 
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 
-            <span class="sr-only">Previous</span> 
+            <span class="sr-only"><@liferay.language key="allfunds.template.previous" /></span> 
           </a> 
           
           <a class="rightBannerTop carousel-controlBannerTop" href="#carousel-example-generic" role="button" data-slide="next"> 
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> 
-            <span class="sr-only">Next</span> 
+            <span class="sr-only"><@liferay.language key="allfunds.template.next" /></span> 
           </a> 
 </div>

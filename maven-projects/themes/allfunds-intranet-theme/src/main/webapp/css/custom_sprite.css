@@ -299,3 +299,56 @@
 .noMarginLeftNoticia.span1{
 	margin-left: 0px !important;
 }
+
+.btn-rounder-tb {
+		background-image: url(../images/sprite-icons-01.png);
+}
+	
+.btn-download-pdf {
+    background-position: -3px -195px !important;
+    border: 1px solid #ff4d4c !important;
+}
+.btn-download-doc {
+    background-position: -103px -195px !important;
+    border: 1px solid #00add8 !important;
+}
+.btn-download-xls {
+    background-position: -70px -195px !important;
+    border: 1px solid #00bf68 !important;
+}
+.btn-download-ppt {
+    background-position: -37px -195px !important;
+    border: 1px solid #ff8600 !important;
+}
+
+.btnTable {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.btn-rounder {
+    margin: 0 3px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-color: transparent;
+}
