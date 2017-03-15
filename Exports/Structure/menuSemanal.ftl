@@ -1,458 +1,202 @@
+<#--
+Web content templates are used to lay out the fields defined in a web
+content structure.
 
-<root available-locales="en_US" default-locale="en_US">
-	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="diaSemLun" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-		<dynamic-element dataType="boolean" indexType="keyword" localizable="true" name="serDesLun" readOnly="false" repeatable="false" required="false" showLabel="true" type="checkbox" width="">
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="compDesLun" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Composicion del Desayuno]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<meta-data locale="en_US">
-				<entry name="label">
-					<![CDATA[Servicio del Desayuno]]>
-				</entry>
-				<entry name="predefinedValue">
-					<![CDATA[false]]>
-				</entry>
-				<entry name="tip">
-					<![CDATA[]]>
-				</entry>
-			</meta-data>
-		</dynamic-element>
-		<dynamic-element dataType="boolean" indexType="keyword" localizable="true" name="serCaterLun" readOnly="false" repeatable="false" required="false" showLabel="true" type="checkbox" width="">
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="primPlatoLun" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Primer Plato]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="segunPlatoLun" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Segundo Plato]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="postreLunes" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Postre]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<meta-data locale="en_US">
-				<entry name="label">
-					<![CDATA[Servicio de Catering]]>
-				</entry>
-				<entry name="predefinedValue">
-					<![CDATA[true]]>
-				</entry>
-				<entry name="tip">
-					<![CDATA[]]>
-				</entry>
-			</meta-data>
-		</dynamic-element>
-		<meta-data locale="en_US">
-			<entry name="label">
-				<![CDATA[Dia de la Semana]]>
-			</entry>
-			<entry name="predefinedValue">
-				<![CDATA[Lunes]]>
-			</entry>
-			<entry name="tip">
-				<![CDATA[]]>
-			</entry>
-		</meta-data>
-	</dynamic-element>
-	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="diaSemMar" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-		<dynamic-element dataType="boolean" indexType="keyword" localizable="true" name="serDesMar" readOnly="false" repeatable="false" required="false" showLabel="true" type="checkbox" width="">
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="compDesMar" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Composicion del Desayuno]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<meta-data locale="en_US">
-				<entry name="label">
-					<![CDATA[Servicio del Desayuno]]>
-				</entry>
-				<entry name="predefinedValue">
-					<![CDATA[false]]>
-				</entry>
-				<entry name="tip">
-					<![CDATA[]]>
-				</entry>
-			</meta-data>
-		</dynamic-element>
-		<dynamic-element dataType="boolean" indexType="keyword" localizable="true" name="serCaterMar" readOnly="false" repeatable="false" required="false" showLabel="true" type="checkbox" width="">
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="primPlatoMar" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Primer Plato]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="segunPlatoMar" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Segundo Plato]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="postreMartes" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Postre]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<meta-data locale="en_US">
-				<entry name="label">
-					<![CDATA[Servicio de Catering]]>
-				</entry>
-				<entry name="predefinedValue">
-					<![CDATA[true]]>
-				</entry>
-				<entry name="tip">
-					<![CDATA[]]>
-				</entry>
-			</meta-data>
-		</dynamic-element>
-		<meta-data locale="en_US">
-			<entry name="label">
-				<![CDATA[Dia de la Semana]]>
-			</entry>
-			<entry name="predefinedValue">
-				<![CDATA[Martes]]>
-			</entry>
-			<entry name="tip">
-				<![CDATA[]]>
-			</entry>
-		</meta-data>
-	</dynamic-element>
-	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="diaSemMier" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-		<dynamic-element dataType="boolean" indexType="keyword" localizable="true" name="serDesMier" readOnly="false" repeatable="false" required="false" showLabel="true" type="checkbox" width="">
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="compDesMier" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Composicion del Desayuno]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<meta-data locale="en_US">
-				<entry name="label">
-					<![CDATA[Servicio del Desayuno]]>
-				</entry>
-				<entry name="predefinedValue">
-					<![CDATA[false]]>
-				</entry>
-				<entry name="tip">
-					<![CDATA[]]>
-				</entry>
-			</meta-data>
-		</dynamic-element>
-		<dynamic-element dataType="boolean" indexType="keyword" localizable="true" name="serCaterMier" readOnly="false" repeatable="false" required="false" showLabel="true" type="checkbox" width="">
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="primPlatoMier" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Primer Plato]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="segunPlatoMier" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Segundo Plato]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="postreMiercoles" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Postre]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<meta-data locale="en_US">
-				<entry name="label">
-					<![CDATA[Servicio de Catering]]>
-				</entry>
-				<entry name="predefinedValue">
-					<![CDATA[true]]>
-				</entry>
-				<entry name="tip">
-					<![CDATA[]]>
-				</entry>
-			</meta-data>
-		</dynamic-element>
-		<meta-data locale="en_US">
-			<entry name="label">
-				<![CDATA[Dia de la Semana]]>
-			</entry>
-			<entry name="predefinedValue">
-				<![CDATA[Miercoles]]>
-			</entry>
-			<entry name="tip">
-				<![CDATA[]]>
-			</entry>
-		</meta-data>
-	</dynamic-element>
-	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="diaSemJueves" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-		<dynamic-element dataType="boolean" indexType="keyword" localizable="true" name="serDesJueves" readOnly="false" repeatable="false" required="false" showLabel="true" type="checkbox" width="">
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="compDesJueves" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Composicion del Desayuno]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<meta-data locale="en_US">
-				<entry name="label">
-					<![CDATA[Servicio del Desayuno]]>
-				</entry>
-				<entry name="predefinedValue">
-					<![CDATA[false]]>
-				</entry>
-				<entry name="tip">
-					<![CDATA[]]>
-				</entry>
-			</meta-data>
-		</dynamic-element>
-		<dynamic-element dataType="boolean" indexType="keyword" localizable="true" name="serCaterJueves" readOnly="false" repeatable="false" required="false" showLabel="true" type="checkbox" width="">
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="primPlatoJueves" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Primer Plato]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="segunPlatoJueves" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Segundo Plato]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="postreJueves" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Postre]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<meta-data locale="en_US">
-				<entry name="label">
-					<![CDATA[Servicio de Catering]]>
-				</entry>
-				<entry name="predefinedValue">
-					<![CDATA[true]]>
-				</entry>
-				<entry name="tip">
-					<![CDATA[]]>
-				</entry>
-			</meta-data>
-		</dynamic-element>
-		<meta-data locale="en_US">
-			<entry name="label">
-				<![CDATA[Dia de la Semana]]>
-			</entry>
-			<entry name="predefinedValue">
-				<![CDATA[Jueves]]>
-			</entry>
-			<entry name="tip">
-				<![CDATA[]]>
-			</entry>
-		</meta-data>
-	</dynamic-element>
-	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="diaSemViernes" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-		<dynamic-element dataType="boolean" indexType="keyword" localizable="true" name="serDesViernes" readOnly="false" repeatable="false" required="false" showLabel="true" type="checkbox" width="">
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="compDesViernes" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Composicion del Desayuno]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<meta-data locale="en_US">
-				<entry name="label">
-					<![CDATA[Servicio del Desayuno]]>
-				</entry>
-				<entry name="predefinedValue">
-					<![CDATA[false]]>
-				</entry>
-				<entry name="tip">
-					<![CDATA[]]>
-				</entry>
-			</meta-data>
-		</dynamic-element>
-		<dynamic-element dataType="boolean" indexType="keyword" localizable="true" name="serCaterViernes" readOnly="false" repeatable="false" required="false" showLabel="true" type="checkbox" width="">
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="primPlatoViernes" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Primer Plato]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="segunPlatoViernes" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Segundo Plato]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="postreViernes" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-				<meta-data locale="en_US">
-					<entry name="label">
-						<![CDATA[Postre]]>
-					</entry>
-					<entry name="predefinedValue">
-						<![CDATA[]]>
-					</entry>
-					<entry name="tip">
-						<![CDATA[]]>
-					</entry>
-				</meta-data>
-			</dynamic-element>
-			<meta-data locale="en_US">
-				<entry name="label">
-					<![CDATA[Servicio de Catering]]>
-				</entry>
-				<entry name="predefinedValue">
-					<![CDATA[true]]>
-				</entry>
-				<entry name="tip">
-					<![CDATA[]]>
-				</entry>
-			</meta-data>
-		</dynamic-element>
-		<meta-data locale="en_US">
-			<entry name="label">
-				<![CDATA[Dia de la Semana]]>
-			</entry>
-			<entry name="predefinedValue">
-				<![CDATA[Viernes]]>
-			</entry>
-			<entry name="tip">
-				<![CDATA[]]>
-			</entry>
-		</meta-data>
-	</dynamic-element>
-</root>
+Please use the left panel to quickly add commonly used variables.
+Autocomplete is also available and can be invoked by typing "${".
+-->
+
+<#assign date = .vars['reserved-article-display-date'].data>
+
+<#setting time_zone = languageUtil.get(locale, "template-timezone")>
+
+<#assign originalLocale = locale>
+
+<#setting locale = localeUtil.getDefault()>
+
+<#assign date = date?datetime("EEE, d MMM yyyy HH:mm:ss Z")>
+
+<#setting locale = originalLocale>
+
+<#assign dateTimeFormat = "d MMMM">
+ 
+<#assign date = date?string(dateTimeFormat)>
+
+<#assign themeDisplay = objectUtil("com.liferay.portal.theme.ThemeDisplay") />
+
+<#assign journalArticleLocalService = serviceLocator.findService("com.liferay.portlet.journal.service.JournalArticleLocalService")>
+
+<#assign journalArticleId = .vars['reserved-article-id'].data>
+
+<#assign ja = journalArticleLocalService.getArticle(groupId, journalArticleId)>
+
+<#assign resourcePrimKey = ja.getResourcePrimKey()>
+
+<#assign assetEntryLocalService = serviceLocator.findService("com.liferay.portlet.asset.service.AssetEntryLocalService")>
+
+<#assign assetEntry = assetEntryLocalService.getEntry("com.liferay.portlet.journal.model.JournalArticle", resourcePrimKey)>
+
+<div class="panel panel-default panelMenu">
+              <div id="carousel-menu" class="carousel slide" data-ride="carousel"> 
+                <!-- Wrapper for slides -->
+                <div>
+                  <h4 class="text-center"><span class="icon-menu"></span>Menu: <small> ${date} to ${assetEntry.getExpirationDate()?string["d MMMM"]} </small></h4>
+                  <div class="divider pad-bottom"></div>
+                  <div class="">
+                    <div class="col-xs-12">
+                      <div class="carousel-inner text-center">
+                        <div class="item active">
+                          <div class="carousel-content" style="height: 311px;">
+                            <div>
+                              <h4 class="red">${diaSemLun.getData()}</h4>
+                              <h5>
+                                Servicio de desayuno: 
+                            <#if diaSemLun.serDesLun.getData() == "true">
+                                <span class="iconMenu icon-okMenu"></span>
+                              </h5>
+                              <p>${diaSemLun.serDesLun.compDesLun.getData()}</p>
+                            <#else>
+                                <span class="iconMenu icon-negativoMenu"></span>
+                              </h5>
+                            </#if>
+                              <h5>Servicio de Catering: 
+                            <#if diaSemLun.serCaterLun.getData() == "true">
+                                <span class="iconMenu icon-okMenu"></span>
+                                <h5 class="content">Primer Plato</h5>
+                                <p class="pad-bottom">${diaSemLun.serCaterLun.primPlatoLun.getData()}</p>
+                                <h5 class="content">Segundo Plato</h5>
+                                <p>${diaSemLun.serCaterLun.segunPlatoLun.getData()}</p>
+                                <h5 class="content">Postre</h5>
+                                <p>${diaSemLun.serCaterLun.postreLunes.getData()}</p>
+                            <#else>
+                                <span class="iconMenu icon-negativoMenu"></span></h5>
+                            </#if>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <div class="carousel-content" style="height: 311px;">
+                            <div>
+                              <h4 class="red">${diaSemMar.getData()}</h4>
+                              <h5>
+                                Servicio de desayuno: 
+                            <#if diaSemMar.serDesMar.getData() == "true">
+                                <span class="iconMenu icon-okMenu"></span>
+                              </h5>
+                              <p>${diaSemMar.serDesMar.compDesMar.getData()}</p>
+                            <#else>
+                              <span class="iconMenu icon-negativoMenu"></span>
+                              </h5>
+                            </#if>
+                              <h5>Servicio de Catering: 
+                              <#if diaSemMar.serCaterMar.getData() == "true">
+                                <span class="iconMenu icon-okMenu"></span>
+                                <h5 class="content">Primer Plato</h5>
+                                <p class="pad-bottom">${diaSemMar.serCaterMar.primPlatoMar.getData()}</p>
+                                <h5 class="content">Segundo Plato</h5>
+                                <p>${diaSemMar.serCaterMar.segunPlatoMar.getData()}</p>
+                                <h5 class="content">Postre</h5>
+                                <p>${diaSemMar.serCaterMar.postreMartes.getData()}</p>
+                              <#else>
+                                <span class="iconMenu icon-negativoMenu"></span>
+                              </#if>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <div class="carousel-content" style="height: 311px;">
+                            <div>
+                              <h4 class="red">${diaSemMier.getData()}</h4>
+                              <h5>
+                                Servicio de desayuno: 
+                              <#if diaSemMier.serDesMier.getData() == "true">
+                                <span class="iconMenu icon-okMenu"></span>
+                                </h5>
+                                <p>${diaSemMier.serDesMier.compDesMier.getData()}</p>
+                              <#else>
+                                <span class="iconMenu icon-negativoMenu"></span>
+                                </h5>
+                              </#if>
+                              <h5>Servicio de Catering: 
+                              <#if diaSemMier.serCaterMier.getData() == "true"><span class="iconMenu icon-okMenu"></span>
+                              <h5 class="content">Primer Plato</h5>
+                              <p class="pad-bottom">${diaSemMier.serCaterMier.primPlatoMier.getData()}</p>
+                              <h5 class="content">Segundo Plato</h5>
+                              <p>${diaSemMier.serCaterMier.segunPlatoMier.getData()}</p>
+                              <h5 class="content">Postre</h5>
+                              <p>${diaSemMier.serCaterMier.postreMiercoles.getData()}</p>
+                              <#else>
+                              <span class="iconMenu icon-negativoMenu"></span>
+                              </h5>                 
+                              </#if>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <div class="carousel-content" style="height: 311px;">
+                            <div>
+                              <h4 class="red">${diaSemJueves.getData()}</h4>
+                              <h5>
+                                Servicio de desayuno: 
+                              <#if diaSemJueves.serDesJueves.getData() == "true">
+                                <span class="iconMenu icon-okMenu"></span>
+                              </h5>
+                                <p>${diaSemJueves.serDesJueves.compDesJueves.getData()}</p>
+                              <#else>
+                                <span class="iconMenu icon-negativoMenu"></span>
+                              </h5>
+                              </#if>
+                              <h5>Servicio de Catering: <#if diaSemJueves.serCaterJueves.getData() == "true">
+                              <span class="iconMenu icon-okMenu"></span>
+                              <h5 class="content">Primer Plato</h5>
+                              <p class="pad-bottom">${diaSemJueves.serCaterJueves.primPlatoJueves.getData()}</p>
+                              <h5 class="content">Segundo Plato</h5>
+                              <p>${diaSemJueves.serCaterJueves.segunPlatoJueves.getData()}</p>
+                              <h5 class="content">Postre</h5>
+                              <p>${diaSemJueves.serCaterJueves.postreJueves.getData()}</p>
+                              
+                              <#else>
+                              <span class="iconMenu icon-negativoMenu"></span>
+                              </h5>                             
+                              </#if>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <div class="carousel-content" style="height: 311px;">
+                            <div>
+                              <h4 class="red">${diaSemViernes.getData()}</h4>
+                              <h5>
+                              Servicio de desayuno: 
+                              <#if diaSemViernes.serDesViernes.getData() == "true">
+                                <span class="iconMenu icon-okMenu"></span>
+                              </h5>
+                                <p>${diaSemViernes.serDesViernes.compDesViernes.getData()}</p>
+                              <#else>
+                                <span class="iconMenu icon-negativoMenu"></span>
+                              </h5>
+                              </#if>
+                              <h5>Servicio de Catering: 
+                              <#if diaSemViernes.serCaterViernes.getData() == "true"><span class="iconMenu icon-okMenu"></span>                              
+                              <h5 class="content">Primer Plato</h5>
+                              <p class="pad-bottom">${diaSemViernes.serCaterViernes.primPlatoViernes.getData()}</p>
+                              <h5 class="content">Segundo Plato</h5>
+                              <p>${diaSemViernes.serCaterViernes.segunPlatoViernes.getData()}</p>
+                              <h5 class="content">Postre</h5>
+                              <p>${diaSemViernes.serCaterViernes.postreViernes.getData()}</p>
+                              
+                              <#else>
+                              <span class="iconMenu icon-negativoMenu"></span></h5>   
+                              </#if>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+                <!-- Controls -->
+                <a class="left carousel-controlMenu" href="#carousel-menu" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a> 
+                <a class="right carousel-controlMenu" href="#carousel-menu" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a> </div>
+            </div>
