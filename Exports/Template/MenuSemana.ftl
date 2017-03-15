@@ -36,7 +36,7 @@ Autocomplete is also available and can be invoked by typing "${".
 
 <#assign assetEntry = assetEntryLocalService.getEntry("com.liferay.portlet.journal.model.JournalArticle", resourcePrimKey)>
 
-<div class="panelMenu">
+<div class="panel panel-default panelMenu">
               <div id="carousel-menu" class="carousel slide" data-ride="carousel"> 
                 <!-- Wrapper for slides -->
                 <div>
@@ -50,13 +50,16 @@ Autocomplete is also available and can be invoked by typing "${".
                             <div>
                               <h4 class="red">${diaSemLun.getData()}</h4>
                               <h5>
-                              Servicio de desayuno: <#if diaSemLun.serDesLun.getData() == "true">
-                              <span class="iconMenu icon-okMenu"></span>
+                                Servicio de desayuno: 
+                            <#if diaSemLun.serDesLun.getData() == "true">
+                                <span class="iconMenu icon-okMenu"></span>
+                              </h5>
                               <p>${diaSemLun.serDesLun.compDesLun.getData()}</p>
-                              <#else>
-                              <span class="iconMenu icon-negativoMenu"></span>
-                              </#if>
-                              </h5><h5>Servicio de Catering: 
+                            <#else>
+                                <span class="iconMenu icon-negativoMenu"></span>
+                              </h5>
+                            </#if>
+                              <h5>Servicio de Catering: 
                             <#if diaSemLun.serCaterLun.getData() == "true">
                                 <span class="iconMenu icon-okMenu"></span>
                                 <h5 class="content">Primer Plato</h5>
@@ -76,12 +79,16 @@ Autocomplete is also available and can be invoked by typing "${".
                             <div>
                               <h4 class="red">${diaSemMar.getData()}</h4>
                               <h5>
-                              Servicio de desayuno: <#if diaSemMar.serDesMar.getData() == "true"><span class="iconMenu icon-okMenu"></span>
+                                Servicio de desayuno: 
+                            <#if diaSemMar.serDesMar.getData() == "true">
+                                <span class="iconMenu icon-okMenu"></span>
+                              </h5>
                               <p>${diaSemMar.serDesMar.compDesMar.getData()}</p>
-                              <#else>
+                            <#else>
                               <span class="iconMenu icon-negativoMenu"></span>
-                              </#if>
-                              </h5><h5>Servicio de Catering: 
+                              </h5>
+                            </#if>
+                              <h5>Servicio de Catering: 
                               <#if diaSemMar.serCaterMar.getData() == "true">
                                 <span class="iconMenu icon-okMenu"></span>
                                 <h5 class="content">Primer Plato</h5>
@@ -101,13 +108,16 @@ Autocomplete is also available and can be invoked by typing "${".
                             <div>
                               <h4 class="red">${diaSemMier.getData()}</h4>
                               <h5>
-                              Servicio de desayuno: <#if diaSemMier.serDesMier.getData() == "true">
-                              <span class="iconMenu icon-okMenu"></span>
-                              <p>${diaSemMier.serDesMier.compDesMier.getData()}</p>
+                                Servicio de desayuno: 
+                              <#if diaSemMier.serDesMier.getData() == "true">
+                                <span class="iconMenu icon-okMenu"></span>
+                                </h5>
+                                <p>${diaSemMier.serDesMier.compDesMier.getData()}</p>
                               <#else>
-                              <span class="iconMenu icon-negativoMenu"></span>
+                                <span class="iconMenu icon-negativoMenu"></span>
+                                </h5>
                               </#if>
-                              </h5><h5>Servicio de Catering: 
+                              <h5>Servicio de Catering: 
                               <#if diaSemMier.serCaterMier.getData() == "true"><span class="iconMenu icon-okMenu"></span>
                               <h5 class="content">Primer Plato</h5>
                               <p class="pad-bottom">${diaSemMier.serCaterMier.primPlatoMier.getData()}</p>
@@ -127,12 +137,16 @@ Autocomplete is also available and can be invoked by typing "${".
                             <div>
                               <h4 class="red">${diaSemJueves.getData()}</h4>
                               <h5>
-                              Servicio de desayuno: <#if diaSemJueves.serDesJueves.getData() == "true">
-                              <span class="iconMenu icon-okMenu"></span>
-                              <p>${diaSemJueves.serDesJueves.compDesJueves.getData()}</p>
-                              <#else><span class="iconMenu icon-negativoMenu"></span>
+                                Servicio de desayuno: 
+                              <#if diaSemJueves.serDesJueves.getData() == "true">
+                                <span class="iconMenu icon-okMenu"></span>
+                              </h5>
+                                <p>${diaSemJueves.serDesJueves.compDesJueves.getData()}</p>
+                              <#else>
+                                <span class="iconMenu icon-negativoMenu"></span>
+                              </h5>
                               </#if>
-                              </h5><h5>Servicio de Catering: <#if diaSemJueves.serCaterJueves.getData() == "true">
+                              <h5>Servicio de Catering: <#if diaSemJueves.serCaterJueves.getData() == "true">
                               <span class="iconMenu icon-okMenu"></span>
                               <h5 class="content">Primer Plato</h5>
                               <p class="pad-bottom">${diaSemJueves.serCaterJueves.primPlatoJueves.getData()}</p>
@@ -153,12 +167,16 @@ Autocomplete is also available and can be invoked by typing "${".
                             <div>
                               <h4 class="red">${diaSemViernes.getData()}</h4>
                               <h5>
-                              Servicio de desayuno: <#if diaSemViernes.serDesViernes.getData() == "true">
-                              <span class="iconMenu icon-okMenu"></span>
-                              <p>${diaSemViernes.serDesViernes.compDesViernes.getData()}</p>
-                              <#else><span class="iconMenu icon-negativoMenu"></span>
+                              Servicio de desayuno: 
+                              <#if diaSemViernes.serDesViernes.getData() == "true">
+                                <span class="iconMenu icon-okMenu"></span>
+                              </h5>
+                                <p>${diaSemViernes.serDesViernes.compDesViernes.getData()}</p>
+                              <#else>
+                                <span class="iconMenu icon-negativoMenu"></span>
+                              </h5>
                               </#if>
-                              </h5><h5>Servicio de Catering: 
+                              <h5>Servicio de Catering: 
                               <#if diaSemViernes.serCaterViernes.getData() == "true"><span class="iconMenu icon-okMenu"></span>                              
                               <h5 class="content">Primer Plato</h5>
                               <p class="pad-bottom">${diaSemViernes.serCaterViernes.primPlatoViernes.getData()}</p>
