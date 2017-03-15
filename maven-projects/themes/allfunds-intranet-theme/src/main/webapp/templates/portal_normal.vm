@@ -60,7 +60,7 @@ $theme.include($body_top_include)
 			</div>
 		</header>
 	
-		<div id="content" class="content">
+		<div id="content" class="wrapper">
 			#if ($selectable)
 				$theme.include($content_include)
 			#else
@@ -104,11 +104,14 @@ $theme.include($body_top_include)
 		
 		<div class="row-fluid">
 			<div class="span9">
-				<p class="small">Copyright © 2015 Allfunds Bank S.A., Allfunds Bank is a registered trademark. All rights reserved.</p>
+				#set ($date = $dateUtil)
+				#set ($current_time = $date.getCurrentDate())
+				#set ($year = $date.getCurrentDate("yyyy", $locale))
+				<p class="small">$languageUtil.format($locale,"allfunds.theme.copyright.message",$year)</p>
 			</div>
 			
 			<div class="span3">
-				<p class="small text-right"><a href="#">Terms & Conditions</a></p>
+				<p class="small text-right"><a href="/terms-conditions">#language ("allfunds.theme.terms.condition.link")</a></p>
 			</div>
 		</div>
 		<div class="clearfix"></div>
