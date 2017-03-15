@@ -5,22 +5,20 @@ content structure.
 Please use the left panel to quickly add commonly used variables.
 Autocomplete is also available and can be invoked by typing "${".
 -->
-    
-    <#assign expirationDate = "">
-    
-    <#assign date = .vars['reserved-article-display-date'].data>
-    
-    <#setting time_zone = languageUtil.get(locale, "template-timezone")>
 
-    <#assign originalLocale = locale>
+<#assign date = .vars['reserved-article-display-date'].data>
 
-    <#setting locale = localeUtil.getDefault()>
+<#setting time_zone = languageUtil.get(locale, "template-timezone")>
 
-    <#assign date = date?datetime("EEE, d MMM yyyy HH:mm:ss Z")>
+<#assign originalLocale = locale>
 
-    <#setting locale = originalLocale>
+<#setting locale = localeUtil.getDefault()>
 
-    <#assign dateTimeFormat = "d MMMM">
+<#assign date = date?datetime("EEE, d MMM yyyy HH:mm:ss Z")>
+
+<#setting locale = originalLocale>
+
+<#assign dateTimeFormat = "d MMMM">
  
     <#assign date = date?string(dateTimeFormat)>
 
@@ -45,7 +43,7 @@ Autocomplete is also available and can be invoked by typing "${".
         <#assign expirationDate = "-">
     </#if>
     
-<div class="panelMenu">
+<div class="panel panel-default panelMenu">
               <div id="carousel-menu" class="carousel slide" data-ride="carousel"> 
                 <!-- Wrapper for slides -->
                 <div>
@@ -59,17 +57,20 @@ Autocomplete is also available and can be invoked by typing "${".
                             <div>
                               <h4 class="red">${diaSemLun.getData()}</h4>
                               <h5>
-                              <@liferay.language key="allfunds.template.menu.serDes" /> <#if diaSemLun.serDesLun.getData() == "true">
+                              <@liferay.language key="allfunds.template.menu.serDes" /> 
+		              <#if diaSemLun.serDesLun.getData() == "true">
                               <span class="iconMenu icon-okMenu"></span>
+                              </h5>
                               <#if diaSemLun.serDesLun.compDesLun.getSiblings()?has_content>
                                 <#list diaSemLun.serDesLun.compDesLun.getSiblings() as currentInputValue>
                                     <p class="pad-bottom"> ${currentInputValue.data}</p>
                                 </#list>
                               </#if>
-                              <#else>
+                            <#else>
                               <span class="iconMenu icon-negativoMenu"></span>
-                              </#if>
-                              </h5><h5><@liferay.language key="allfunds.template.menu.serCat" /> 
+                              </h5>
+                            </#if>
+                              <h5><@liferay.language key="allfunds.template.menu.serCat" />
                             <#if diaSemLun.serCaterLun.getData() == "true">
                                 <span class="iconMenu icon-okMenu"></span>
                                 <h5 class="content"><@liferay.language key="allfunds.template.menu.primPlato" /></h5>
@@ -101,16 +102,20 @@ Autocomplete is also available and can be invoked by typing "${".
                             <div>
                               <h4 class="red">${diaSemMar.getData()}</h4>
                               <h5>
-                              <@liferay.language key="allfunds.template.menu.serDes" /> <#if diaSemMar.serDesMar.getData() == "true"><span class="iconMenu icon-okMenu"></span>
+                              <@liferay.language key="allfunds.template.menu.serDes" /> 
+                            <#if diaSemMar.serDesMar.getData() == "true">
+                                <span class="iconMenu icon-okMenu"></span>
+                              </h5>
                               <#if diaSemMar.serDesMar.compDesMar.getSiblings()?has_content>
                                 <#list diaSemMar.serDesMar.compDesMar.getSiblings() as currentInputValue>
                                     <p class="pad-bottom"> ${currentInputValue.data}</p>
                                 </#list>
                               </#if>
-                              <#else>
+                            <#else>
                               <span class="iconMenu icon-negativoMenu"></span>
-                              </#if>
-                              </h5><h5><@liferay.language key="allfunds.template.menu.serCat" /> 
+                              </h5>
+                            </#if>
+                              <h5><@liferay.language key="allfunds.template.menu.serCat" /> 
                               <#if diaSemMar.serCaterMar.getData() == "true">
                                 <span class="iconMenu icon-okMenu"></span>
                                 <h5 class="content"><@liferay.language key="allfunds.template.menu.primPlato" /></h5>
@@ -142,17 +147,20 @@ Autocomplete is also available and can be invoked by typing "${".
                             <div>
                               <h4 class="red">${diaSemMier.getData()}</h4>
                               <h5>
-                              <@liferay.language key="allfunds.template.menu.serDes" /> <#if diaSemMier.serDesMier.getData() == "true">
-                              <span class="iconMenu icon-okMenu"></span>
-                               <#if diaSemMier.serDesMier.compDesMier.getSiblings()?has_content>
+                                <@liferay.language key="allfunds.template.menu.serDes" /> 
+                              <#if diaSemMier.serDesMier.getData() == "true">
+                                <span class="iconMenu icon-okMenu"></span>
+                                </h5>
+                                <#if diaSemMier.serDesMier.compDesMier.getSiblings()?has_content>
                                 <#list diaSemMier.serDesMier.compDesMier.getSiblings() as currentInputValue>
                                     <p class="pad-bottom"> ${currentInputValue.data}</p>
                                 </#list>
                               </#if>
                               <#else>
-                              <span class="iconMenu icon-negativoMenu"></span>
+                                <span class="iconMenu icon-negativoMenu"></span>
+                                </h5>
                               </#if>
-                              </h5><h5><@liferay.language key="allfunds.template.menu.serCat" /> 
+                              <h5><@liferay.language key="allfunds.template.menu.serCat" /> 
                               <#if diaSemMier.serCaterMier.getData() == "true"><span class="iconMenu icon-okMenu"></span>
                               <h5 class="content"><@liferay.language key="allfunds.template.menu.primPlato" /></h5>
                               <#if diaSemMier.serCaterMier.primPlatoMier.getSiblings()?has_content>
@@ -182,18 +190,23 @@ Autocomplete is also available and can be invoked by typing "${".
                         <div class="item">
                           <div class="carousel-content" style="height: 311px;">
                             <div>
-                              <h4 class="red">${diaSemJueves.getData()}</h4>
+                               <h4 class="red">${diaSemJueves.getData()}</h4>
                               <h5>
-                              <@liferay.language key="allfunds.template.menu.serDes" /> <#if diaSemJueves.serDesJueves.getData() == "true">
-                              <span class="iconMenu icon-okMenu"></span>
-                              <#if diaSemJueves.serDesJueves.compDesJueves.getSiblings()?has_content>
+                                <@liferay.language key="allfunds.template.menu.serDes" /> 
+                              <#if diaSemJueves.serDesJueves.getData() == "true">
+                                <span class="iconMenu icon-okMenu"></span>
+                                </h5>
+                                <#if diaSemJueves.serDesJueves.compDesJueves.getSiblings()?has_content>
                                 <#list diaSemJueves.serDesJueves.compDesJueves.getSiblings() as currentInputValue>
                                     <p class="pad-bottom"> ${currentInputValue.data}</p>
                                 </#list>
                               </#if>
-                              <#else><span class="iconMenu icon-negativoMenu"></span>
+                              <#else>
+                                <span class="iconMenu icon-negativoMenu"></span>
+                                </h5>
                               </#if>
-                              </h5><h5><@liferay.language key="allfunds.template.menu.serCat" /> <#if diaSemJueves.serCaterJueves.getData() == "true">
+                              <h5><@liferay.language key="allfunds.template.menu.serCat" /> 
+		             <#if diaSemJueves.serCaterJueves.getData() == "true">
                               <span class="iconMenu icon-okMenu"></span>
                               <h5 class="content"><@liferay.language key="allfunds.template.menu.primPlato" /></h5>
                               <#if diaSemJueves.serCaterJueves.primPlatoJueves.getSiblings()?has_content>
@@ -225,16 +238,20 @@ Autocomplete is also available and can be invoked by typing "${".
                             <div>
                               <h4 class="red">${diaSemViernes.getData()}</h4>
                               <h5>
-                              <@liferay.language key="allfunds.template.menu.serDes" /> <#if diaSemViernes.serDesViernes.getData() == "true">
-                              <span class="iconMenu icon-okMenu"></span>
-                              <#if diaSemViernes.serDesViernes.compDesViernes.getSiblings()?has_content>
+                                <@liferay.language key="allfunds.template.menu.serDes" /> 
+                              <#if diaSemViernes.serDesViernes.getData() == "true">
+                                <span class="iconMenu icon-okMenu"></span>
+                                </h5>
+                                <#if diaSemViernes.serDesViernes.compDesViernes.getSiblings()?has_content>
                                 <#list diaSemViernes.serDesViernes.compDesViernes.getSiblings() as currentInputValue>
                                     <p class="pad-bottom"> ${currentInputValue.data}</p>
                                 </#list>
                               </#if>
-                              <#else><span class="iconMenu icon-negativoMenu"></span>
+                              <#else>
+                                <span class="iconMenu icon-negativoMenu"></span>
+                                </h5>
                               </#if>
-                              </h5><h5><@liferay.language key="allfunds.template.menu.serCat" /> 
+                              <h5><@liferay.language key="allfunds.template.menu.serCat" /> 
                               <#if diaSemViernes.serCaterViernes.getData() == "true"><span class="iconMenu icon-okMenu"></span>                              
                               <h5 class="content"><@liferay.language key="allfunds.template.menu.primPlato" /></h5>
                               <#if diaSemViernes.serCaterViernes.primPlatoViernes.getSiblings()?has_content>
@@ -253,7 +270,7 @@ Autocomplete is also available and can be invoked by typing "${".
                                 <#list diaSemViernes.serCaterViernes.postreViernes.getSiblings() as currentInputValue>
                                     <p class="pad-bottom"> ${currentInputValue.data}</p>
                                 </#list>
-                              </#if>
+                              </#if>                              
                               <#else>
                               <span class="iconMenu icon-negativoMenu"></span></h5>   
                               </#if>
