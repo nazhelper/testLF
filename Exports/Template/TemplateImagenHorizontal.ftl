@@ -5,6 +5,8 @@ content structure.
 Please use the left panel to quickly add commonly used variables.
 Autocomplete is also available and can be invoked by typing "${".
 -->
+
+<#assign textBoxSub = "">
 <#assign tipoNoticia = "">
 <#assign journalArticleId = .vars['reserved-article-id'].data>
 <#assign journalArticleResourceLocalServiceUtil = staticUtil["com.liferay.portlet.journal.service.JournalArticleResourceLocalServiceUtil"]>
@@ -55,13 +57,14 @@ Autocomplete is also available and can be invoked by typing "${".
 	${dateUtil.getDate(FechaNoticia_DateObj, "MMMM yyyy", locale)}
 </#if>
 </p>
-<p class="marginTopParrafoHorizontal">
-    <#if TextBoxNoticia?size &gt; 220>
-        ${TextBoxNoticia.getData()?substring(0,150)}
+<p class="marginTopParrafo">
+    <#if TextBoxNoticia.getData()?length &gt; 150>
+        <#assign textBoxSub = TextBoxNoticia.getData()?substring(0,150)/>
+        ${textBoxSub}
         <@liferay.language key="allfunds.template.points" /> 
     <#else>
         ${TextBoxNoticia.getData()}
-    </#if>   
+    </#if>
     <#if (PDFNoticia)??> 
         <a target="_blank" href="${PDFNoticia.getData()}"> 
     </#if>
