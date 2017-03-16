@@ -1,4 +1,4 @@
-<div class="column_1_full container" id="main-content" role="main">
+<div class="column_1_center container content" id="main-content" role="main">
 	<div class="portlet-layout row-fluid">
 		<div class="portlet-column portlet-column-only span12" id="column-1">
 			$processor.processColumn("column-1", "portlet-column-content portlet-column-content-only")

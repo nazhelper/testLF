@@ -320,24 +320,59 @@ body, html {
 		vertical-align: middle;
 	}
 	.icon-noticia {
+			background-image: url(../images/sprite-icons-01.png);
+		background-repeat: no-repeat;
+		height: 40px;
+		width: 40px;
+		display: block;
 		background-position: -128px 0px;
 	}
 	.icon-fecha {
+			background-image: url(../images/sprite-icons-01.png);
+		background-repeat: no-repeat;
+		height: 40px;
+		width: 40px;
+		display: block;
 		background-position: -193px 0px;
 	}
 	.icon-evento {
+			background-image: url(../images/sprite-icons-01.png);
+		background-repeat: no-repeat;
+		height: 40px;
+		width: 40px;
+		display: block;
 		background-position: -1px -1px;
 	}
 	.icon-solidario {
+			background-image: url(../images/sprite-icons-01.png);
+		background-repeat: no-repeat;
+		height: 40px;
+		width: 40px;
+		display: block;
 		background-position: -33px 0px;
 	}
 	.icon-video {
+			background-image: url(../images/sprite-icons-01.png);
+		background-repeat: no-repeat;
+		height: 40px;
+		width: 40px;
+		display: block;
 		background-position: -65px -1px;
 	}
 	.icon-documento {
+			background-image: url(../images/sprite-icons-01.png);
+		background-repeat: no-repeat;
+		height: 40px;
+		width: 40px;
+		display: block;
 		background-position: -97px -1px;
 	}
 	.icon-acceso-directo {
+			background-image: url(../images/sprite-icons-01.png);
+		background-repeat: no-repeat;
+		height: 40px;
+		width: 40px;
+		display: block;
 		background-position: -160px 0px;
 	}
 	.icon-view-more {
@@ -458,37 +493,61 @@ body, html {
 		padding: 0px;
 		vertical-align: middle;
 	}
-	.icon {
+/* 	.icon {
 		background-image: url(../images/sprite-icons-01.png);
 		background-repeat: no-repeat;
-		width: 40px;
-		height: 40px;
 		display: inline-block;
 		vertical-align: middle;
-	}
+		width: 40px;
+		height: 40px;
+	} */
 	
 	.icon-download-pdf {
 		background-position: 0px -190px;
+		background-image: url(../images/sprite-icons-01.png);
+		background-repeat: no-repeat;
+		display: inline-block;
+		vertical-align: middle;
+		width: 40px;
+		height: 40px;
 		}
-	.icon-rrss {
+	.icon-rrss, .portlet-rss .portlet .portlet-title > span:first-child {
 		background-position: -201px -38px;
+		background-image: url(../images/sprite-icons-01.png);
+		background-repeat: no-repeat;
+		display: inline-block;
+		vertical-align: middle;
 		width: 25px;
 		height: 25px;
+		
+		img{
+			display: none;
+		}
 		}
 	.icon-events-red {
 		background-position: -226px -6px;
+				background-image: url(../images/sprite-icons-01.png);
+		background-repeat: no-repeat;
+		display: inline-block;
+		vertical-align: middle;
 		width: 25px;
 		height: 25px;
 		}
 	.icon-ok {
 		background-position: -0px -106px;
-		
+				background-image: url(../images/sprite-icons-01.png);
+		background-repeat: no-repeat;
+		display: inline-block;
+		vertical-align: middle;
 		width: 25px;
 		height: 25px;
 	}
 	.icon-negativo{
 		background-position: -30px -106px;
-		
+				background-image: url(../images/sprite-icons-01.png);
+		background-repeat: no-repeat;
+		display: inline-block;
+		vertical-align: middle;
 		width: 25px;
 		height: 25px;
 	
@@ -496,16 +555,40 @@ body, html {
 	}
 	.icon-logo-jpg {
 		background-position: -133px -188px;
+				background-image: url(../images/sprite-icons-01.png);
+		background-repeat: no-repeat;
+		display: inline-block;
+		vertical-align: middle;
+		width: 40px;
+		height: 40px;
 	}
 	.icon-logo-png {
 		background-position: -202px -187px;
+				background-image: url(../images/sprite-icons-01.png);
+		background-repeat: no-repeat;
+		display: inline-block;
+		vertical-align: middle;
+		width: 40px;
+		height: 40px;
 	}
 	.icon-logo-png.background-inverse {
 		background-position: -202px -189px;
+				background-image: url(../images/sprite-icons-01.png);
+		background-repeat: no-repeat;
+		display: inline-block;
+		vertical-align: middle;
+		width: 40px;
+		height: 40px;
 	
 	}
 	.icon-logo-pdf {
 		background-position: -167px -190px;
+				background-image: url(../images/sprite-icons-01.png);
+		background-repeat: no-repeat;
+		display: inline-block;
+		vertical-align: middle;
+		width: 40px;
+		height: 40px;
 	}
 	.row-col {
 		margin-left: -5px;
