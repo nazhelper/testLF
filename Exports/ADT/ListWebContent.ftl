@@ -6,6 +6,7 @@ Please use the left panel to quickly add commonly used variables.
 Autocomplete is also available and can be invoked by typing "${".
 -->
 
+<div class="container-fluid">
 <div id="adtNoticias">
 <#assign assetEntryService = serviceLocator.findService("com.liferay.portlet.asset.service.AssetEntryLocalService")>
 
@@ -37,22 +38,4 @@ Autocomplete is also available and can be invoked by typing "${".
 <div class="clearfix">
 </div>
 </div>
-<script>
-
-var modal = document.getElementById('myModal');
-
-var img = document.getElementById('myImg');
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
-img.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    captionText.innerHTML = this.alt;
-}
-
-var span = document.getElementsByClassName("close")[0];
-
-span.onclick = function() { 
-    modal.style.display = "none";
-}
-</script>
+</div>
