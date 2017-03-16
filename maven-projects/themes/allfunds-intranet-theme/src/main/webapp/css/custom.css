@@ -80,8 +80,91 @@
 		}
 	}
 }
-
 /* RSS portlet */
+/* Accordion Allfunds */
+
+h3.ui-accordion-header{
+	padding: 15px;
+	font-size: 16px;
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 16px;
+	border: 1px solid #ddd;
+	background-color: #ffffff;
+	color: #006d7b;
+	margin-top: 5px;
+
+	&.ui-accordion-header-collapsed{
+		background-color: #006d7b;
+		border-color: #006d7b;
+		color: #ffffff;
+		
+		&::after{
+			content: "\2b";
+			font-family: 'Glyphicons Halflings';
+			font-style: normal;
+			font-weight: normal;
+			line-height: 1;
+			position: absolute;
+			left: auto;
+			right: 15px;
+		}
+	}
+	
+	&.ui-accordion-header-active{
+		background-color: #ffffff;
+		color: #006d7b;
+		
+		&::after{
+			content: "\2212";
+			font-family: 'Glyphicons Halflings';
+			font-style: normal;
+			font-weight: normal;
+			line-height: 1;
+			position: absolute;
+			left: auto;
+			right: 15px;
+		}
+	}
+}
+
+.panel-accordion{
+	border: 1px solid #ddd;
+	background-color: #fff;
+	padding: 15px;
+	margin-bottom: 5px;
+	
+	.table-responsive{
+		min-height: .01%;
+		overflow-x: auto;
+		thead{
+			white-space:nowrap;
+		
+		}
+		
+		table{
+			@media screen and (max-width: 767px) {
+				white-space:nowrap;
+		   		margin-bottom: 0;
+			}
+		}
+		
+		@media screen and (max-width: 767px) {
+		    width: 100%;
+		    margin-bottom: 15px;
+		    overflow-y: hidden;
+		    -ms-overflow-style: -ms-autohiding-scrollbar;
+		    border: 1px solid #ddd;		
+		}
+	}
+	
+	thead{
+		background-color: #a9a9a9;
+		color: #ffffff;
+	}
+	
+}
+/* END Accordion Allfunds */
 /*login */
 .login-logo {
 	text-align: center;
