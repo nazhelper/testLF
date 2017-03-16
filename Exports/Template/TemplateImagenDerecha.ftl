@@ -13,9 +13,11 @@ Autocomplete is also available and can be invoked by typing "${".
 <#assign articleResourcePK = journalArticleResourceLocalServiceUtil.getArticleResourcePrimKey(groupId, journalArticleId)/>
 <#assign categoryList=assetCategoryLocalServiceUtil.getCategories("com.liferay.portlet.journal.model.JournalArticle",articleResourcePK) >
 
-<#list categoryList as categoryList>
-<#assign tipoNoticia = categoryList.getName()>
-</#list>
+<#if (categoryList)??>
+    <#list categoryList as categoryList>
+        <#assign tipoNoticia = categoryList.getName()>
+    </#list>
+</#if>
 
 <div class="span12 panel panel-default clearfix events">
 <div class="span6">
@@ -38,8 +40,22 @@ Autocomplete is also available and can be invoked by typing "${".
     </#if>
     <div class="panel-body panel-big-text">
         <h4 class="titular">
-            <a href="${PDFNoticia.getData()}">
-	        ${TextTitularNoticia.getData()},
+             <#if readMore.getData()?contains("pdf")> 
+                    <#if (urlPdfNews)??>
+                        <a target="_blank" href="${urlPdfNews.getData()}">
+                    </#if>
+                <#elseif readMore.getData()?contains("image")>
+                    <#if (urlImage)??>
+                        <a data-toggle="modal" href="#myModal" class="button">
+                    </#if>
+                <#elseif readMore.getData()?contains("none")>
+                    <a>
+                <#elseif readMore.getData()?contains("url")>
+                    <#if (urlExterna)??>
+                        <a target="_blank" href="${urlExterna.getData()}">
+                    </#if>
+                </#if>
+            	    ${TextTitularNoticia.getData()},
             </a>
             <#assign FechaNoticia_Data = getterUtil.getLong(FechaNoticia.getData())>
             <#if (FechaNoticia_Data > 0)>
@@ -51,18 +67,46 @@ Autocomplete is also available and can be invoked by typing "${".
         <p>
            	<#if TextBoxNoticia.getData()?length &gt; 150>
         		${TextBoxNoticia.getData()?substring(0,150)}
-       			 <@liferay.language key="allfunds.template.points" /> 
+       			 <@liferay.language key="allfunds.template.points" /> 	 
     		<#else>
         		${TextBoxNoticia.getData()}
     		</#if>  
-            <a target="_blank" href="${PDFNoticia.getData()}">
-				<@liferay.language key="allfunds.template.readmore" />
+            <#if readMore.getData()?contains("pdf")> 
+                    <#if (urlPdfNews)??>
+                        <a target="_blank" href="${urlPdfNews.getData()}">
+                    </#if>
+                <#elseif readMore.getData()?contains("image")>
+                    <#if (urlImage)??>
+                        <a data-toggle="modal" href="#myModal" class="button">
+                    </#if>
+                <#elseif readMore.getData()?contains("none")>
+                    <a>
+                <#elseif readMore.getData()?contains("url")>
+                    <#if (urlExterna)??>
+                        <a target="_blank" href="${urlExterna.getData()}">
+                    </#if>
+                </#if> 
+                    <@liferay.language key="allfunds.template.readmore" />
             </a>
         </p>
     </div>
 </div>
-<#if (imagenNoticia.getData() != "")>
-    <div class="span6 img-panel-big" style="background-image: url(${imagenNoticia.getData()});">
+<#if (imagenNews.getData() != "")>
+    <div class="span6 img-panel-big" style="background-image: url(${imagenNews.getData()});">
     </div>
 </#if>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+       <img id="myImg" alt="Image News" src="${urlImage.getData()}" />
+      </div>
+    </div>
+  </div>
+  <div id="containerModalImg">
+      <div id="modalImgText">${TextTitularNoticia.getData()}</div>
+  </div>
 </div>

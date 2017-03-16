@@ -6,17 +6,19 @@ Please use the left panel to quickly add commonly used variables.
 Autocomplete is also available and can be invoked by typing "${".
 -->
 
-    <#assign tipoNoticia = "">
-    <#assign journalArticleId = .vars['reserved-article-id'].data>
-    <#assign journalArticleResourceLocalServiceUtil = staticUtil["com.liferay.portlet.journal.service.JournalArticleResourceLocalServiceUtil"]>
-    <#assign assetCategoryLocalServiceUtil = staticUtil["com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil"]>
+<#assign tipoNoticia = "">
+<#assign journalArticleId = .vars['reserved-article-id'].data>
+<#assign journalArticleResourceLocalServiceUtil = staticUtil["com.liferay.portlet.journal.service.JournalArticleResourceLocalServiceUtil"]>
+<#assign assetCategoryLocalServiceUtil = staticUtil["com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil"]>
 
-    <#assign articleResourcePK = journalArticleResourceLocalServiceUtil.getArticleResourcePrimKey(groupId, journalArticleId)/>
-    <#assign categoryList=assetCategoryLocalServiceUtil.getCategories("com.liferay.portlet.journal.model.JournalArticle",articleResourcePK) >
+<#assign articleResourcePK = journalArticleResourceLocalServiceUtil.getArticleResourcePrimKey(groupId, journalArticleId)/>
+<#assign categoryList=assetCategoryLocalServiceUtil.getCategories("com.liferay.portlet.journal.model.JournalArticle",articleResourcePK) >
 
+<#if (categoryList)??>
     <#list categoryList as categoryList>
-    <#assign tipoNoticia = categoryList.getName()>
+        <#assign tipoNoticia = categoryList.getName()>
     </#list>
+</#if>
 
 <div class="span6 panel panel-default clearfix news">
     <div class="span12 omega">
@@ -40,9 +42,23 @@ Autocomplete is also available and can be invoked by typing "${".
     
         <div class="panel-body panel-big-text">
             <h4 class="titular">
-            <a href="${PDFNoticia.getData()}">
-                ${TextTitularNoticia.getData()},
-            </a>
+           <#if readMore.getData()?contains("pdf")> 
+                    <#if (urlPdfNews)??>
+                        <a target="_blank" href="${urlPdfNews.getData()}">
+                    </#if>
+                <#elseif readMore.getData()?contains("image")>
+                    <#if (urlImage)??>
+                    <a data-toggle="modal" href="#myModal" class="button">
+                    </#if>
+                <#elseif readMore.getData()?contains("none")>
+                    <a>
+                <#elseif readMore.getData()?contains("url")>
+                    <#if (urlExterna)??>
+                        <a target="_blank" href="${urlExterna.getData()}">
+                    </#if>
+                </#if>
+            	    ${TextTitularNoticia.getData()},
+                </a>
             <#assign FechaNoticia_Data = getterUtil.getLong(FechaNoticia.getData())>
             
             <#if (FechaNoticia_Data > 0)>
@@ -59,12 +75,39 @@ Autocomplete is also available and can be invoked by typing "${".
                 <#else>
                     ${TextBoxNoticia.getData()}
                 </#if>
-                <#if (PDFNoticia)??> 
-                    <a target="_blank" href="${PDFNoticia.getData()}"> 
-                    	<@liferay.language key="allfunds.template.readmore" />
-                    </a>
-                </#if>
+                <#if readMore.getData()?contains("pdf")> 
+                    <#if (urlPdfNews)??>
+                        <a target="_blank" href="${urlPdfNews.getData()}">
+                    </#if>
+                <#elseif readMore.getData()?contains("image")>
+                    <#if (urlImage)??>
+                        <a data-toggle="modal" href="#myModal" class="button">
+                    </#if>
+                <#elseif readMore.getData()?contains("none")>
+                    <a>
+                <#elseif readMore.getData()?contains("url")>
+                    <#if (urlExterna)??>
+                        <a target="_blank" href="${urlExterna.getData()}">
+                    </#if>
+                </#if> 
+                	<@liferay.language key="allfunds.template.readmore" />
+                </a>
             </p>
         </div>
     </div>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+       <img id="myImg" alt="Image News" src="${urlImage.getData()}" />
+      </div>
+    </div>
+  </div>
+  <div id="containerModalImg">
+      <div id="modalImgText">${TextTitularNoticia.getData()}</div>
+  </div>
 </div>

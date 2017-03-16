@@ -39,7 +39,7 @@
 			</entry>
 		</meta-data>
 	</dynamic-element>
-	<dynamic-element dataType="image" fieldNamespace="wcm" indexType="keyword" localizable="true" name="imagenNoticia" readOnly="false" repeatable="false" required="false" showLabel="true" type="wcm-image" width="">
+	<dynamic-element dataType="image" fieldNamespace="wcm" indexType="keyword" localizable="true" name="imagenNews" readOnly="false" repeatable="false" required="false" showLabel="true" type="wcm-image" width="">
 		<meta-data locale="en_US">
 			<entry name="label">
 				<![CDATA[Imagen]]>
@@ -52,10 +52,77 @@
 			</entry>
 		</meta-data>
 	</dynamic-element>
-	<dynamic-element dataType="document-library" fieldNamespace="ddm" indexType="keyword" localizable="true" name="PDFNoticia" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-documentlibrary" width="">
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="readMore" readOnly="false" repeatable="false" required="true" showLabel="true" type="radio" width="">
+		<dynamic-element name="option22399" type="option" value="pdf">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Url a PDF]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element name="option22400" type="option" value="url">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Url Externa]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element name="option5940" type="option" value="image">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Url a Imagen]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element name="option22402" type="option" value="none">
+			<meta-data locale="en_US">
+				<entry name="label">
+					<![CDATA[Ninguno]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[PDF]]>
+				<![CDATA[Tipo de Enlace para Read More]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[["pdf"]]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="document-library" fieldNamespace="ddm" indexType="keyword" localizable="true" name="urlPdfNews" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-documentlibrary" width="">
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Url a PDF]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="urlExterna" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Url Externa]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="image" fieldNamespace="wcm" indexType="keyword" localizable="true" name="urlImage" readOnly="false" repeatable="false" required="false" showLabel="true" type="wcm-image" width="">
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Url a Imagen]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
