@@ -19,7 +19,8 @@ Autocomplete is also available and can be invoked by typing "${".
 
 
 <div class="panel-accordion" id="accordion">
-        <table class="table table-hover table-striped">
+    <div class="table-responsive">
+    <table class="table table-hover table-striped">
         <thead>
             <tr>
                 <th><@liferay.language key="allfunds.adt.corporate.branding" /></th>
@@ -79,11 +80,14 @@ Autocomplete is also available and can be invoked by typing "${".
                  <td>
                     <#if fieldTemplateWord != "">
                         <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-doc" href="${fieldTemplateWord}"> </a>
-                    <#elseif fieldTemplateExcel != "">
+                    </#if>
+                    <#if fieldTemplateExcel != "">
                         <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-xls" href="${fieldTemplateExcel}"> </a>
-                    <#elseif fieldTemplatePP != "">
+                    </#if>
+                    <#if fieldTemplatePP != "">
                         <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-ppt" href="${fieldTemplatePP}"> </a>
-                    <#elseif fieldTemplatePDF != "">
+                    </#if>
+                    <#if fieldTemplatePDF != "">
                         <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-pdf" href="${fieldTemplatePDF}"> </a>
                     </#if>
                  </td>
@@ -94,4 +98,5 @@ Autocomplete is also available and can be invoked by typing "${".
         </#if>
         </tbody>
     </table>
+    </div>
 </div>
