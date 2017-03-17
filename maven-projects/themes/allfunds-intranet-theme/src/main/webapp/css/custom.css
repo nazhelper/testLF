@@ -3,12 +3,13 @@
 
 /* CSS Document */
 
-@import url(modalVideo.css);
-@import url(master-bootstrap.css);
 @import url(master.css);
 @import url(master-dockbar.css);
+@import url(master-bootstrap.css);
+@import url(custom_responsive.css);
 @import url(flaticon.css);
 @import url(custom_sprite.css);
+@import url(modalVideo.css);
 @import url(modalImage.css);
 
 /*Portlet with border */

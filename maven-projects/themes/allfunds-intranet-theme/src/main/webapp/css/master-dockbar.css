@@ -130,17 +130,6 @@
 	    	display: none;
 	    }
 	}
-	@media (max-width: 979px) {
-		#_145_navAccountControlsNavbarCollapse{
-			display: block;
-			height: auto;
-			overflow: visible;
-		}	
-		
-		#_145_navAccountControlsNavbarBtn, #_145_navAddControlsNavbarBtn, #_145_navSiteNavigationNavbarBtn{
-			display: none;
-		}
-	}
 }
 
 .aui .controls-hidden .dockbar.navbar-static-top #_145_navAddControlsNavbarCollapse li.toggle-controls .toggle-controls-link {
