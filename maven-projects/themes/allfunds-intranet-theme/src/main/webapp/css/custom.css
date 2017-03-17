@@ -1096,4 +1096,17 @@ body.site.dialog-iframe-popup {
 	color: #ffffff !important;
 }
 
+.titularCSR{
+	height: 40px;
+}
+
+.panel-big-textCSR{
+	height: none;
+	padding: 20px 20px 20px 50px;
+}
+
+.csr {
+	background-color: #003863 !important;
+}
+
 /*Tablas*/
