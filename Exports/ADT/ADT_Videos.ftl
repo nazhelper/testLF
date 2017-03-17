@@ -44,7 +44,7 @@ Autocomplete is also available and can be invoked by typing "${".
 
     <#if (imgPreVideo != "")>
             <div class="span12 omega img-panel-big" style="background-image: url(${imgPreVideo});">
-               <a id="aLinkToVideo${x}" data-toggle="modal" href="#myModalVideo${x}" class="linkToVideoJquery button"><span class="indicador icon-play-video"></span></a>
+               <a id="aLinkToVideo" data-toggle="modal" href="#myModalVideo${x}" class="linkToVideoJquery button"><span class="indicador icon-play-video"></span></a>
             </div>
     </#if>
 

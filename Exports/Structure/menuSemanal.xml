@@ -5,7 +5,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="compDesLun" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Composicion del Desayuno]]>
+						<![CDATA[Breakfast Composition]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -17,7 +17,7 @@
 			</dynamic-element>
 			<meta-data locale="en_US">
 				<entry name="label">
-					<![CDATA[Servicio del Desayuno]]>
+					<![CDATA[Breakfast service]]>
 				</entry>
 				<entry name="predefinedValue">
 					<![CDATA[false]]>
@@ -31,7 +31,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="primPlatoLun" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Primer Plato]]>
+						<![CDATA[First Course]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -44,7 +44,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="segunPlatoLun" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Segundo Plato]]>
+						<![CDATA[Second Course]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -57,7 +57,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="postreLunes" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Postre]]>
+						<![CDATA[Dessert]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -69,7 +69,7 @@
 			</dynamic-element>
 			<meta-data locale="en_US">
 				<entry name="label">
-					<![CDATA[Servicio de Catering]]>
+					<![CDATA[Catering Service]]>
 				</entry>
 				<entry name="predefinedValue">
 					<![CDATA[true]]>
@@ -81,7 +81,7 @@
 		</dynamic-element>
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Dia de la Semana]]>
+				<![CDATA[Day of the Week]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[Lunes]]>
@@ -96,7 +96,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="compDesMar" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Composicion del Desayuno]]>
+						<![CDATA[Breakfast Composition]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -108,7 +108,7 @@
 			</dynamic-element>
 			<meta-data locale="en_US">
 				<entry name="label">
-					<![CDATA[Servicio del Desayuno]]>
+					<![CDATA[Breakfast service]]>
 				</entry>
 				<entry name="predefinedValue">
 					<![CDATA[false]]>
@@ -122,7 +122,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="primPlatoMar" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Primer Plato]]>
+						<![CDATA[First Course]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -135,7 +135,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="segunPlatoMar" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Segundo Plato]]>
+						<![CDATA[Second Course]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -148,7 +148,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="postreMartes" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Postre]]>
+						<![CDATA[Dessert]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -160,7 +160,7 @@
 			</dynamic-element>
 			<meta-data locale="en_US">
 				<entry name="label">
-					<![CDATA[Servicio de Catering]]>
+					<![CDATA[Catering Service]]>
 				</entry>
 				<entry name="predefinedValue">
 					<![CDATA[true]]>
@@ -172,7 +172,7 @@
 		</dynamic-element>
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Dia de la Semana]]>
+				<![CDATA[Day of the Week]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[Martes]]>
@@ -187,7 +187,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="compDesMier" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Composicion del Desayuno]]>
+						<![CDATA[Breakfast Composition]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -199,7 +199,7 @@
 			</dynamic-element>
 			<meta-data locale="en_US">
 				<entry name="label">
-					<![CDATA[Servicio del Desayuno]]>
+					<![CDATA[Breakfast service]]>
 				</entry>
 				<entry name="predefinedValue">
 					<![CDATA[false]]>
@@ -213,7 +213,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="primPlatoMier" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Primer Plato]]>
+						<![CDATA[First Course]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -226,7 +226,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="segunPlatoMier" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Segundo Plato]]>
+						<![CDATA[Second Course]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -239,7 +239,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="postreMiercoles" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Postre]]>
+						<![CDATA[Dessert]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -251,7 +251,7 @@
 			</dynamic-element>
 			<meta-data locale="en_US">
 				<entry name="label">
-					<![CDATA[Servicio de Catering]]>
+					<![CDATA[Catering Service]]>
 				</entry>
 				<entry name="predefinedValue">
 					<![CDATA[true]]>
@@ -263,7 +263,7 @@
 		</dynamic-element>
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Dia de la Semana]]>
+				<![CDATA[Day of the Week]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[Miercoles]]>
@@ -278,7 +278,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="compDesJueves" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Composicion del Desayuno]]>
+						<![CDATA[Breakfast Composition]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -290,7 +290,7 @@
 			</dynamic-element>
 			<meta-data locale="en_US">
 				<entry name="label">
-					<![CDATA[Servicio del Desayuno]]>
+					<![CDATA[Breakfast service]]>
 				</entry>
 				<entry name="predefinedValue">
 					<![CDATA[false]]>
@@ -304,7 +304,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="primPlatoJueves" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Primer Plato]]>
+						<![CDATA[First Course]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -317,7 +317,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="segunPlatoJueves" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Segundo Plato]]>
+						<![CDATA[Second Course]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -330,7 +330,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="postreJueves" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Postre]]>
+						<![CDATA[Dessert]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -342,7 +342,7 @@
 			</dynamic-element>
 			<meta-data locale="en_US">
 				<entry name="label">
-					<![CDATA[Servicio de Catering]]>
+					<![CDATA[Catering Service]]>
 				</entry>
 				<entry name="predefinedValue">
 					<![CDATA[true]]>
@@ -354,7 +354,7 @@
 		</dynamic-element>
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Dia de la Semana]]>
+				<![CDATA[Day of the Week]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[Jueves]]>
@@ -369,7 +369,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="compDesViernes" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Composicion del Desayuno]]>
+						<![CDATA[Breakfast Composition]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -381,7 +381,7 @@
 			</dynamic-element>
 			<meta-data locale="en_US">
 				<entry name="label">
-					<![CDATA[Servicio del Desayuno]]>
+					<![CDATA[Breakfast service]]>
 				</entry>
 				<entry name="predefinedValue">
 					<![CDATA[false]]>
@@ -395,7 +395,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="primPlatoViernes" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Primer Plato]]>
+						<![CDATA[First Course]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -408,7 +408,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="segunPlatoViernes" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Segundo Plato]]>
+						<![CDATA[Second Course]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -421,7 +421,7 @@
 			<dynamic-element dataType="string" indexType="keyword" localizable="true" name="postreViernes" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 				<meta-data locale="en_US">
 					<entry name="label">
-						<![CDATA[Postre]]>
+						<![CDATA[Dessert]]>
 					</entry>
 					<entry name="predefinedValue">
 						<![CDATA[]]>
@@ -433,7 +433,7 @@
 			</dynamic-element>
 			<meta-data locale="en_US">
 				<entry name="label">
-					<![CDATA[Servicio de Catering]]>
+					<![CDATA[Catering Service]]>
 				</entry>
 				<entry name="predefinedValue">
 					<![CDATA[true]]>
@@ -445,7 +445,7 @@
 		</dynamic-element>
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Dia de la Semana]]>
+				<![CDATA[Day of the Week]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[Viernes]]>

@@ -3,7 +3,7 @@
 	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="TextTitularNoticia" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Titular]]>
+				<![CDATA[Title]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -16,7 +16,7 @@
 	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="TextBoxNoticia" readOnly="false" repeatable="false" required="true" showLabel="true" type="textarea" width="small">
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Texto de la Noticia]]>
+				<![CDATA[Description]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -29,7 +29,7 @@
 	<dynamic-element dataType="date" fieldNamespace="ddm" indexType="keyword" localizable="true" name="FechaNoticia" readOnly="false" repeatable="false" required="true" showLabel="true" type="ddm-date" width="small">
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Fecha de la Noticia]]>
+				<![CDATA[Date]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -42,7 +42,7 @@
 	<dynamic-element dataType="image" fieldNamespace="wcm" indexType="keyword" localizable="true" name="imagenNews" readOnly="false" repeatable="false" required="false" showLabel="true" type="wcm-image" width="">
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Imagen]]>
+				<![CDATA[Image]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -56,34 +56,34 @@
 		<dynamic-element name="option22399" type="option" value="pdf">
 			<meta-data locale="en_US">
 				<entry name="label">
-					<![CDATA[Url a PDF]]>
+					<![CDATA[Url to PDF]]>
 				</entry>
 			</meta-data>
 		</dynamic-element>
 		<dynamic-element name="option22400" type="option" value="url">
 			<meta-data locale="en_US">
 				<entry name="label">
-					<![CDATA[Url Externa]]>
+					<![CDATA[Url To Extern Site]]>
 				</entry>
 			</meta-data>
 		</dynamic-element>
 		<dynamic-element name="option5940" type="option" value="image">
 			<meta-data locale="en_US">
 				<entry name="label">
-					<![CDATA[Url a Imagen]]>
+					<![CDATA[Url to Image]]>
 				</entry>
 			</meta-data>
 		</dynamic-element>
 		<dynamic-element name="option22402" type="option" value="none">
 			<meta-data locale="en_US">
 				<entry name="label">
-					<![CDATA[Ninguno]]>
+					<![CDATA[None]]>
 				</entry>
 			</meta-data>
 		</dynamic-element>
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Tipo de Enlace para Read More]]>
+				<![CDATA[Type of Url]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[["pdf"]]]>
@@ -96,7 +96,7 @@
 	<dynamic-element dataType="document-library" fieldNamespace="ddm" indexType="keyword" localizable="true" name="urlPdfNews" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-documentlibrary" width="">
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Url a PDF]]>
+				<![CDATA[Url to PDF]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -109,7 +109,7 @@
 	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="urlExterna" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Url Externa]]>
+				<![CDATA[Url to Extern Site]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -122,7 +122,7 @@
 	<dynamic-element dataType="image" fieldNamespace="wcm" indexType="keyword" localizable="true" name="urlImage" readOnly="false" repeatable="false" required="false" showLabel="true" type="wcm-image" width="">
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Url a Imagen]]>
+				<![CDATA[Url to Image]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -135,7 +135,7 @@
 	<dynamic-element dataType="boolean" indexType="keyword" localizable="true" name="mostrarEnHome" readOnly="false" repeatable="false" required="false" showLabel="true" type="checkbox" width="">
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Mostrar en Home]]>
+				<![CDATA[Show in Home]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[false]]>
