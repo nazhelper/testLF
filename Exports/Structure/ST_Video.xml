@@ -67,7 +67,7 @@
 			</entry>
 		</meta-data>
 	</dynamic-element>
-	<dynamic-element dataType="document-library" fieldNamespace="ddm" indexType="keyword" localizable="true" name="video" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-documentlibrary" width="">
+	<dynamic-element dataType="document-library" fieldNamespace="ddm" indexType="keyword" localizable="true" name="video" readOnly="false" repeatable="false" required="true" showLabel="true" type="ddm-documentlibrary" width="">
 		<meta-data locale="en_US">
 			<entry name="label">
 				<![CDATA[Video]]>

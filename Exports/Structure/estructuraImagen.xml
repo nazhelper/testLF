@@ -3,7 +3,7 @@
 	<dynamic-element dataType="image" fieldNamespace="wcm" indexType="keyword" localizable="true" name="archivoImagen" readOnly="false" repeatable="false" required="false" showLabel="true" type="wcm-image" width="">
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Archivo]]>
+				<![CDATA[Archive]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -16,7 +16,7 @@
 	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="tamanoBanner" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Tamaño]]>
+				<![CDATA[Size]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -29,7 +29,7 @@
 	<dynamic-element dataType="boolean" indexType="keyword" localizable="true" name="activoBanner" readOnly="false" repeatable="false" required="false" showLabel="true" type="checkbox" width="">
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Activo]]>
+				<![CDATA[Active]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[false]]>
