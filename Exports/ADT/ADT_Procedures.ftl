@@ -10,6 +10,7 @@ Autocomplete is also available and can be invoked by typing "${".
 <#assign aui = taglibLiferayHash["/WEB-INF/tld/aui.tld"] />
 
 <div class="panel-accordion" id="accordion">
+<div class="table-responsive">
         <table class="table table-hover table-striped">
         <thead>
             <tr>
@@ -61,7 +62,7 @@ Autocomplete is also available and can be invoked by typing "${".
                  <td>${fieldDescrTextBox}</td>
                  <td>${Fecha_Noticiab}</td>
                  <td>${expirationDate}</td>
-                 <td>
+                 <td class="text-center language">
                  <#if fieldSelectLanguage == "es">
                     <img alt="Language" src="http://localhost:8080/html/themes/control_panel/images/language/es_ES.png">
                  <#elseif fieldSelectLanguage == "en">
@@ -72,11 +73,12 @@ Autocomplete is also available and can be invoked by typing "${".
                     <img alt="Language" src="http://localhost:8080/html/themes/control_panel/images/language/pt_PT.png">
                  </#if>
                  </td>
-                 <td> <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-pdf" href="${fieldTemplatePDF}"> </a> </td>
+                 <td class="text-center"> <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-pdf" href="${fieldTemplatePDF}"> </a> </td>
                 </tr>
                 
 	        </#list>
         </#if>
         </tbody>
     </table>
+    </div>
 </div>
