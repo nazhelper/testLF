@@ -45,3 +45,17 @@ $(function() {
 		animate: 200
 	});
 });
+
+$(document).ready(function(){
+
+	$('.linkToVideoJquery').click(function(){
+		var index = $('.linkToVideoJquery').index(this);
+		  $('.videoCommunicationJquery').get(index).play();
+	});
+	
+	$('.closeButtonJquery').click(function(){
+		var index = $('.closeButtonJquery').index(this);
+		  $('.videoCommunicationJquery').get(index).pause();
+	});
+	
+});
