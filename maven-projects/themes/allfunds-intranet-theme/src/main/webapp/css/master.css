@@ -646,6 +646,33 @@ body, html {
 			display: none;
 		}
 	}
+	
+	.thumbnail {
+	    display: block;
+	    padding: 4px;
+	    margin-bottom: 20px;
+	    line-height: 1.42857143;
+	    background-color: #fff;
+	    border: 1px solid #ddd;
+	    border-radius: 4px;
+	    -webkit-transition: border .2s ease-in-out;
+	    -o-transition: border .2s ease-in-out;
+	    transition: border .2s ease-in-out;
+	    
+	}
+    .img-offices.span4, .img-offices.span2 {
+	    margin-left: 0 !important;
+	    padding: 0 5px;
+	}
+	
+	.img-offices.span2 {
+	    width: 16.4% !important;
+	}
+	
+	.img-offices.span4 {
+	    width: 33% !important;
+	}
+	
 	.header {
 	}
 	.wrapper {

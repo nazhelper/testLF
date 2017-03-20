@@ -19,7 +19,23 @@ Autocomplete is also available and can be invoked by typing "${".
     </#list>
 </#if>
 
-<div class="span12 panel panel-default clearfix events">
+<#if tipoNoticia == "AllFunds Bank News">
+        <div class="span12 panel panel-default clearfix news">
+    <#elseif tipoNoticia == "CSR News">
+        <div class="span12 panel panel-default clearfix csr">
+    <#elseif tipoNoticia == "Fund Industry News">
+        <div class="span12 panel panel-default clearfix news">
+    <#elseif tipoNoticia == "Press Clipping">
+        <div class="span12 panel panel-default clearfix news">
+    <#elseif tipoNoticia == "CSR Events">
+        <div class="span12 panel panel-default clearfix csr">
+    <#elseif tipoNoticia == "Fund Industry Events">
+        <div class="span12 panel panel-default clearfix events">
+    <#elseif tipoNoticia == "Internal Events">
+        <div class="span12 panel panel-default clearfix empleados">
+    <#else>
+        <div class="span12 panel panel-default clearfix news">
+    </#if>
 <div class="span6">
      <#if tipoNoticia == "AllFunds Bank News">
         <span class="indicador icon-noticia"></span>

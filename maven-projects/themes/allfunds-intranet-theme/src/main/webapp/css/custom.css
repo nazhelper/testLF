@@ -12,9 +12,10 @@
 @import url(modalVideo.css);
 @import url(modalImage.css);
 
-/*Portlet with border */
+/*Default portlet styles */
 
-.portlet-boundary .portlet{
+.portlet-boundary .portlet, 
+.portlet-borderless-container .journal-content-article {
 	
 	border: 1px solid #ddd;
 	margin-bottom: 10px;
@@ -22,6 +23,10 @@
 	border-radius: 0px;
 	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+	
+	.panel-body{
+		padding: 15px;
+	}
 	
 	.portlet-topper{
 		padding: 15px;
@@ -35,7 +40,7 @@
 	}
 }
 
-/* end portlet with border */
+/* end default portlet styles */
 
 /* RSS portlet */
 .portlet-rss .feed{
@@ -1094,19 +1099,6 @@ body.site.dialog-iframe-popup {
 	background-color: #044f58;
 	border-color: #04424a;
 	color: #ffffff !important;
-}
-
-.titularCSR{
-	height: 40px;
-}
-
-.panel-big-textCSR{
-	height: none;
-	padding: 20px 20px 20px 50px;
-}
-
-.csr {
-	background-color: #003863 !important;
 }
 
 /*Tablas*/

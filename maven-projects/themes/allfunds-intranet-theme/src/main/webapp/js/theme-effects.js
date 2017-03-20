@@ -1,24 +1,17 @@
-/**
- * 
- */
-
-//var modal = document.getElementById('myModal');
-//
-//var img = document.getElementById('myImg');
-//var modalImg = document.getElementById("img01");
-//var captionText = document.getElementById("caption");
-//img.onclick = function(){
-//    modal.style.display = "block";
-//    modalImg.src = this.src;
-//    captionText.innerHTML = this.alt;
-//}
-//
-//var span = document.getElementsByClassName("close")[0];
-//
-//span.onclick = function() { 
-//    modal.style.display = "none";
-//}
-
+	$(function () { 
+		$("[rel='tooltip']").tooltip();
+		$("[rel]").tooltip();        
+	 
+		$('.thumbnail').hover(
+			function(){
+				$(this).find('.caption').slideDown(250); //.fadeIn(250)
+			},
+			function(){
+				$(this).find('.caption').slideUp(250); //.fadeOut(205)
+			}
+		); 
+	});
+	
 $(function() {
 	$(window).scroll(function() {
 		if (jQuery(this).scrollTop() > 200) {
