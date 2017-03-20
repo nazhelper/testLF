@@ -347,7 +347,14 @@ body, html {
 		background-position: -160px 0px;
 	}
 	.icon-view-more {
+		background-image: url(../images/sprite-icons-01.png);
 		background-position: -80px -134px;
+		background-repeat: no-repeat;
+		height: 35px;
+		width: 30px;
+		display: inline-block;
+		padding: 0px;
+		vertical-align: middle;
 	}
 	.icon-reloj {
 		background-image: url(../images/sprite-icons-01.png);
@@ -657,8 +664,8 @@ body, html {
 		margin-bottom: 0
 	}
 	
-	.navbar-right {
-	    float: right !important;
+	.navbar .nav.navbar-right {
+	    float: right;
 	}
 	
 	.navbar-brand {
@@ -691,13 +698,16 @@ body, html {
 		padding-bottom: 10px;
 		line-height: 20px;
 		
-		 @media (  min-width: 768px) {
+		 @media (  min-width: 979px) {
 				padding-top: 24px;
 				padding-bottom: 20px;
 		}
 	}
 	.navbar-default .navbar-toggle {
 		border: 1px solid #d85f5d;
+		@media (  min-width: 979px) {
+			display: none;
+		}
 	}
 	.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
 		background-color: #d85f5d;
@@ -721,8 +731,32 @@ body, html {
 		color: #ccc;
 		background-color: transparent;
 	}
-	.navbar-collapse {
+	 .navbar-default .navbar-collapse {
 		padding: 0;
+		
+		@media (min-width: 979px) {
+		  &.collapse {
+		    display: block !important;
+		    height: auto !important;
+		    padding-bottom: 0;
+		    overflow: visible !important;
+		  }
+		}
+	}
+	
+	.collapsing {
+	  position: relative;
+	  height: 0;
+	  overflow: hidden;
+	  -webkit-transition-timing-function: ease;
+	       -o-transition-timing-function: ease;
+	          transition-timing-function: ease;
+	  -webkit-transition-duration: .35s;
+	       -o-transition-duration: .35s;
+	          transition-duration: .35s;
+	  -webkit-transition-property: height, visibility;
+	       -o-transition-property: height, visibility;
+	          transition-property: height, visibility;
 	}
 	.aadd-home > li> a, .aadd-home > li {
 		display: inline-block;

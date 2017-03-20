@@ -1,4 +1,11 @@
-<nav class="$nav_css_class" id="navigation" role="navigation">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-controls="navbar"> 
+	<span class="sr-only">Toggle navigation</span> 
+	<span class="icon-bar"></span> 
+	<span class="icon-bar"></span> 
+	<span class="icon-bar"></span> 
+</button>
+
+<nav class="$nav_css_class navbar-collapse collapse" id="navigation" role="navigation" aria-expanded="false">
 	<ul aria-label="#language ("site-pages")" role="menubar" class="nav navbar-nav">
 		#foreach ($nav_item in $nav_items)
 			#set ($nav_item_attr_has_popup="")
@@ -17,4 +24,14 @@
 			</li>
 		#end
 	</ul>
+	
+	<ul class="nav navbar-nav navbar-right aadd-home">
+    	<li><a href="#"><span class="flaticon-interface"></span></a></li>
+		<li><a a="" href="#" ><span class="flaticon-music"></span><span class="new-alerts">2</span></a></li>
+		<li><a class="aadd aadd-app-magic" href="#"></a></li>
+	    <li><a class="aadd aadd-app-host" href="#"></a></li>
+	    <li><a class="aadd aadd-app-pegaso" href="#"></a></li>
+	    <li><a class="aadd aadd-app-vega" href="#"></a></li>
+	    <li><a class="aadd aadd-app-iris" href="#"></a></li>
+    </ul>
 </nav>

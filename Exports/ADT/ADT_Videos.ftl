@@ -9,7 +9,7 @@ Autocomplete is also available and can be invoked by typing "${".
 
 <#if entries?has_content>
 	 <#list entries?chunk(3)as entriesList>
-	    <div class="row">
+	    <div class="row-fluid">
 	       <#list entriesList as curEntry >
 	            <#assign expirationDate = "" />
 	            <#assign entry = curEntry />
@@ -50,16 +50,18 @@ Autocomplete is also available and can be invoked by typing "${".
 
     <div class="span12 omega">
         <span class="indicador icon-video"></span>
-            <div class="panel-body big-textVideo">
-                    <h4 class="titularVideo">
-                    ${title}, ${Fecha_Videob}</h4>
-                    <#if fieldDescrVideo?length &gt; 220>
-                        <#assign textBoxSub = fieldDescrVideo?substring(0,220)/>
+            <div class="panel-body panel-big-text clearfix">
+                    <h4 class="titular">
+                    ${title}, <small>${Fecha_Videob}</small></h4>
+                    <p>
+                    <#if fieldDescrVideo?length &gt; 200>
+                        <#assign textBoxSub = fieldDescrVideo?substring(0,200)/>
                         ${textBoxSub}
                         <@liferay.language key="allfunds.template.points" /> 
                     <#else>
                         ${fieldDescrVideo}
                     </#if>
+                    </p>
             </div>
     </div>
 </div>

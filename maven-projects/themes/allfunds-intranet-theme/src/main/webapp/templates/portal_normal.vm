@@ -46,15 +46,6 @@ $theme.include($body_top_include)
 						#if ($has_navigation)
 							#parse ("$full_templates_path/navigation.vm")
 						#end
-						<ul class="nav navbar-nav navbar-right aadd-home">
-    	       				<li><a href="#"><span class="flaticon-interface"></span></a></li>
-	           				<li><a a="" href="#" ><span class="flaticon-music"></span><span class="new-alerts">2</span></a></li>
-							<li><a class="aadd aadd-app-magic" href="#"></a></li>
-				            <li><a class="aadd aadd-app-host" href="#"></a></li>
-				            <li><a class="aadd aadd-app-pegaso" href="#"></a></li>
-				            <li><a class="aadd aadd-app-vega" href="#"></a></li>
-				            <li><a class="aadd aadd-app-iris" href="#"></a></li>
-            			</ul>
 					</div>
 				</nav>
 			</div>
@@ -81,7 +72,7 @@ $theme.include($body_top_include)
 			<div class="span12">
 				#if ($has_navigation)
 					#foreach ($nav_item in $nav_items)
-					<div class="span2">
+					<div class="span2 mobile-20">
 						<ul>
 						$nav_item.getName()
 						#if ($nav_item.hasChildren())
