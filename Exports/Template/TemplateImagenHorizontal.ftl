@@ -23,8 +23,24 @@ Autocomplete is also available and can be invoked by typing "${".
 
 <#assign isVisible = "">
 
+    <#if tipoNoticia == "AllFunds Bank News">
+        <div class="span12 panel panel-default clearfix news">
+    <#elseif tipoNoticia == "CSR News">
+        <div class="span12 panel panel-default clearfix csr">
+    <#elseif tipoNoticia == "Fund Industry News">
+        <div class="span12 panel panel-default clearfix news">
+    <#elseif tipoNoticia == "Press Clipping">
+        <div class="span12 panel panel-default clearfix news">
+    <#elseif tipoNoticia == "CSR Events">
+        <div class="span12 panel panel-default clearfix csr">
+    <#elseif tipoNoticia == "Fund Industry Events">
+        <div class="span12 panel panel-default clearfix events">
+    <#elseif tipoNoticia == "Internal Events">
+        <div class="span12 panel panel-default clearfix empleados">
+    <#else>
+        <div class="span12 panel panel-default clearfix news">
+    </#if>
 
-<div class="span12 panel panel-default clearfix news">
     <#if (imagenNews.getData() != "")>
         <div class="span12 omega img-panel-big" style="background-image: url(${imagenNews.getData()});"></div>
     </#if>
