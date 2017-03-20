@@ -61,16 +61,18 @@ Autocomplete is also available and can be invoked by typing "${".
 
                         <div class="span12 omega">
                             <span class="indicador icon-video csr"></span>
-                            <div class="panel-body big-textVideo">
-                                <h4 class="titularVideo">
+                            <div class="panel-body panel-big-text clearfix">
+                                <h4 class="titular">
                                 ${title}, <small>${Fecha_Videob}</small></h4>
-                                <#if fieldDescrVideo?length &gt; 220>
-                                    <#assign textBoxSub = fieldDescrVideo?substring(0,220)/>
+                                <p>
+                                <#if fieldDescrVideo?length &gt; 200>
+                                    <#assign textBoxSub = fieldDescrVideo?substring(0,200)/>
                                     ${textBoxSub}
                                     <@liferay.language key="allfunds.template.points" /> 
                                 <#else>
                                     ${fieldDescrVideo}
                                 </#if>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -109,12 +111,12 @@ Autocomplete is also available and can be invoked by typing "${".
 
                         <div class="span12 omega">
                             <span class="indicador icon-solidario csr"></span>
-                            <div class="panel-body panel-big-textCSR">
-                                <h4 class="titularCSR">
+                            <div class="panel-body panel-big-text clearfix">
+                                <h4 class="titular">
                                 ${title}, <small>${Fecha_Noticiab}</small></h4>
                                 <p>
-                                <#if textBoxNoticia?length &gt; 220>
-                                    <#assign textBoxSub = textBoxNoticia?substring(0,220)/>
+                                <#if textBoxNoticia?length &gt; 200>
+                                    <#assign textBoxSub = textBoxNoticia?substring(0,200)/>
                                     ${textBoxSub}
                                     <@liferay.language key="allfunds.template.points" /> 
                                 <#else>
