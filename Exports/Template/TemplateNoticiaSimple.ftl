@@ -19,8 +19,23 @@ Autocomplete is also available and can be invoked by typing "${".
         <#assign tipoNoticia = categoryList.getName()>
     </#list>
 </#if>
-
-<div class="span6 panel panel-default clearfix news">
+    <#if tipoNoticia == "AllFunds Bank News">
+        <div class="span6 panel panel-default clearfix news">
+    <#elseif tipoNoticia == "CSR News">
+        <div class="span6 panel panel-default clearfix csr">
+    <#elseif tipoNoticia == "Fund Industry News">
+        <div class="span6 panel panel-default clearfix news">
+    <#elseif tipoNoticia == "Press Clipping">
+        <div class="span6 panel panel-default clearfix news">
+    <#elseif tipoNoticia == "CSR Events">
+        <div class="span6 panel panel-default clearfix csr">
+    <#elseif tipoNoticia == "Fund Industry Events">
+        <div class="span6 panel panel-default clearfix events">
+    <#elseif tipoNoticia == "Internal Events">
+        <div class="span6 panel panel-default clearfix empleados">
+    <#else>
+        <div class="span6 panel panel-default clearfix news">
+    </#if>
     <div class="span12 omega">
     <#if tipoNoticia == "AllFunds Bank News">
         <span class="indicador icon-noticia"></span>

@@ -6,6 +6,7 @@ Please use the left panel to quickly add commonly used variables.
 Autocomplete is also available and can be invoked by typing "${".
 -->
 <#assign x = 1>
+<#assign tipoVideo = "">
 
 <#if entries?has_content>
 	 <#list entries?chunk(3)as entriesList>
@@ -37,11 +38,21 @@ Autocomplete is also available and can be invoked by typing "${".
                 <#assign fieldDescrVideo = docXml.valueOf("//dynamic-element[@name='descriptionVideo']/dynamic-content/text()") />
                 <#assign video = docXml.valueOf("//dynamic-element[@name='video']/dynamic-content/text()") />
                 <#assign imgPreVideo = docXml.valueOf("//dynamic-element[@name='imgPreVideo']/dynamic-content/text()") />
-                
-
-                
-<div class="span4 panel panel-default clearfix news">
-
+        
+        
+        <#list categoryList as curCategory> 
+            <#assign tipoVideo = curCategory.getName()> 
+        </#list>
+        
+        <#if tipoVideo == "CSR Video">
+            <div class="span4 panel panel-default clearfix csr">
+        <#elseif tipoVideo?contains("Events") && !tipoVideo?contains("Internal")>
+            <div class="span4 panel panel-default clearfix events">
+        <#elseif tipoVideo?contains("Internal")>
+            <div class="span4 panel panel-default clearfix empleados">
+        <#else>
+            <div class="span4 panel panel-default clearfix news">
+        </#if>  
     <#if (imgPreVideo != "")>
             <div class="span12 omega img-panel-big" style="background-image: url(${imgPreVideo});">
                <a id="aLinkToVideo" data-toggle="modal" href="#myModalVideo${x}" class="linkToVideoJquery button"><span class="indicador icon-play-video"></span></a>

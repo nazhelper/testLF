@@ -9,7 +9,7 @@ Autocomplete is also available and can be invoked by typing "${".
 
 <#if entries?has_content>
     <#list entries?chunk(2)as entriesList>
-      <div class="row">
+      <div class="row-fluid">
 	   <#list entriesList as curEntry>
 	    <#assign expirationDate = "" />
 	            <#assign entry = curEntry />
@@ -52,7 +52,7 @@ Autocomplete is also available and can be invoked by typing "${".
 
                 
                <#if (video)?? && video != "">
-                    <div class="span5 panel panel-default clearfix news">
+                    <div class="span5 panel panel-default clearfix csr">
                         <#if (imgPreVideo != "")>
                             <div class="span12 omega img-panel-big" style="background-image: url(${imgPreVideo});">
                             <a id="aLinkToVideo" data-toggle="modal" href="#myModalVideo${x}" class="linkToVideoJquery button"><span class="indicador icon-play-video csr"></span></a>
@@ -102,7 +102,7 @@ Autocomplete is also available and can be invoked by typing "${".
  
                 <#elseif (imagenNews)?? && imagenNews != "">
                     
-                    <div class="span5 panel panel-default clearfix news">
+                    <div class="span5 panel panel-default clearfix csr">
                         <#if (imagenNews != "")>
                             <div class="span12 omega img-panel-big" style="background-image: url(${imagenNews});"></div>
                         </#if>
@@ -122,7 +122,7 @@ Autocomplete is also available and can be invoked by typing "${".
                                 </#if>
                                 <#if readMore?contains("pdf")> 
                                     <#if (urlPdfNews)??>
-                                        <a target="_blank" href="${urlPdfNews.getData()}">
+                                        <a target="_blank" href="${urlPdfNews}">
                                     </#if>
                                 <#elseif readMore?contains("image")>
                                     <#if (urlImage)??>
@@ -132,7 +132,7 @@ Autocomplete is also available and can be invoked by typing "${".
                                         <a>
                                 <#elseif readMore?contains("url")>
                                     <#if (urlExterna)??>
-                                        <a target="_blank" href="${urlExterna.getData()}">
+                                        <a target="_blank" href="${urlExterna}">
                                     </#if>
                                 </#if> 
                     	                <@liferay.language key="allfunds.template.readmore" />

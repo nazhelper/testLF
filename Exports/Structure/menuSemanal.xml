@@ -84,7 +84,7 @@
 				<![CDATA[Day of the Week]]>
 			</entry>
 			<entry name="predefinedValue">
-				<![CDATA[Lunes]]>
+				<![CDATA[Monday]]>
 			</entry>
 			<entry name="tip">
 				<![CDATA[]]>
@@ -175,7 +175,7 @@
 				<![CDATA[Day of the Week]]>
 			</entry>
 			<entry name="predefinedValue">
-				<![CDATA[Martes]]>
+				<![CDATA[Tuesday]]>
 			</entry>
 			<entry name="tip">
 				<![CDATA[]]>
@@ -266,7 +266,7 @@
 				<![CDATA[Day of the Week]]>
 			</entry>
 			<entry name="predefinedValue">
-				<![CDATA[Miercoles]]>
+				<![CDATA[Wednesday]]>
 			</entry>
 			<entry name="tip">
 				<![CDATA[]]>
@@ -357,7 +357,7 @@
 				<![CDATA[Day of the Week]]>
 			</entry>
 			<entry name="predefinedValue">
-				<![CDATA[Jueves]]>
+				<![CDATA[Thursday]]>
 			</entry>
 			<entry name="tip">
 				<![CDATA[]]>
@@ -448,7 +448,7 @@
 				<![CDATA[Day of the Week]]>
 			</entry>
 			<entry name="predefinedValue">
-				<![CDATA[Viernes]]>
+				<![CDATA[Friday]]>
 			</entry>
 			<entry name="tip">
 				<![CDATA[]]>
