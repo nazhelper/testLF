@@ -17,7 +17,6 @@
 .portlet-boundary .portlet, 
 .portlet-borderless-container .journal-content-article{
 	
-	border: 1px solid #ddd;
 	margin-bottom: 10px;
 	background-color: #fff;
 	border-radius: 0px;
@@ -587,6 +586,14 @@ h3.ui-accordion-header{
 
 .panel-clear-top{
 	margin-top: -10px;
+}
+
+.panel-footer {
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
 }
 
 .img-panel-big {

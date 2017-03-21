@@ -39,7 +39,7 @@ Autocomplete is also available and can be invoked by typing "${".
                 <#assign video = docXml.valueOf("//dynamic-element[@name='video']/dynamic-content/text()") />
                 <#assign imgPreVideo = docXml.valueOf("//dynamic-element[@name='imgPreVideo']/dynamic-content/text()") />
         
-        
+        <#assign tipoVideo = ""> 
         <#list categoryList as curCategory> 
             <#assign tipoVideo = curCategory.getName()> 
         </#list>

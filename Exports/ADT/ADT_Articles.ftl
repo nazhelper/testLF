@@ -18,8 +18,9 @@ Autocomplete is also available and can be invoked by typing "${".
 
 <#assign groupId = getterUtil.getLong(themeDisplay.getScopeGroupId())>
 
-
 <#if entries?has_content>
+<div class="panel panel-default panel-clear-top">
+<div class="panel-body">
 	<#list entries?chunk(4) as entryList>
 	    <div class="row-fluid">
 	    <#list entryList as curEntry>
@@ -37,4 +38,7 @@ Autocomplete is also available and can be invoked by typing "${".
         </#list>
         </div>
     </#list>
+<div class="clearfix"> </div>
+</div>
+</div>
 </#if>
