@@ -8,7 +8,8 @@
 <#assign rawMetaDataStructure = ddmStructureUtil.getClassStructures(companyId, rawClassId) />
 
 
-<div class="panel panel-default">
+<div class="panel panel-default panel-clear-top">
+<div class="panel-body">
 <#if entries?has_content>
 	<#list entries as entry>
         <#assign classPk = entry.getClassPK() />
@@ -67,4 +68,6 @@ themeDisplay.getScopeGroupId() + "/" + folderId + "/" + fileNameUrl/>
 	    </div>
 	</#list>
 </#if>
+<div class="clearfix"> </div>
+</div>
 </div>
