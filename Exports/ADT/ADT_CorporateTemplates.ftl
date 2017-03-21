@@ -26,13 +26,13 @@ Autocomplete is also available and can be invoked by typing "${".
                 <th><@liferay.language key="allfunds.adt.corporate.branding" /></th>
                 <th><@liferay.language key="allfunds.adt.corporate.date" /></th>
                 <th><@liferay.language key="allfunds.adt.corporate.applyto" /></th>
-                <th><@liferay.language key="allfunds.adt.corporate.details" /></th>
                 <th><@liferay.language key="allfunds.adt.corporate.templates" /></th>
             <tr>
         </thead>
         <tbody>
         <#if entries?has_content>
 	        <#list entries as curEntry>
+	            <#assign fileExtension = "">
 	            <#assign entry = curEntry />
                 <#assign assetRenderer = entry.getAssetRenderer() />
                 <#assign assetRendererb = entry.getCategories()/>
@@ -56,11 +56,28 @@ Autocomplete is also available and can be invoked by typing "${".
     	        <#assign Fecha_Noticiab = dateUtil.getDate(Fecha_Noticia_DateObj, "dd/MM/yyyy", locale)>
                 <#assign fieldRolCorp = docXml.valueOf("//dynamic-element[@name='rolVisible']/dynamic-content/text()") />
                 <#assign fieldOficGloSelect = docXml.valueOf("//dynamic-element[@name='oficGloSelect']/dynamic-content/text()") />
-                <#assign fieldDescrTextBox = docXml.valueOf("//dynamic-element[@name='descrTextBox']/dynamic-content/text()") />
-                <#assign fieldTemplateWord = docXml.valueOf("//dynamic-element[@name='templateWord']/dynamic-content/text()") />
-                <#assign fieldTemplateExcel = docXml.valueOf("//dynamic-element[@name='templateExcel']/dynamic-content/text()") />
-                <#assign fieldTemplatePP = docXml.valueOf("//dynamic-element[@name='templatePP']/dynamic-content/text()") />
-                <#assign fieldTemplatePDF = docXml.valueOf("//dynamic-element[@name='templatePDF']/dynamic-content/text()") />
+                <#assign fieldTempDocum = docXml.valueOf("//dynamic-element[@name='tempDocum']/dynamic-content/text()") />
+                
+                <#if (fieldTempDocum)?? || fieldTempDocum != "">
+                <#assign counter = 0 >
+                <#list fieldTempDocum?split("/") as x>
+                <#if counter == 2>
+                    <#assign groupId = x?number >
+                </#if>
+                <#if counter == 5>
+                    <#assign uuId = x >
+                </#if>
+                    <#assign counter = counter+1 >
+                </#list>
+                </#if>
+
+                
+                <#assign fileEntry = staticUtil["com.liferay.portlet.documentlibrary.service.DLFileEntryLocalServiceUtil"]>
+                
+                <#if (uuId)??>
+                    <#assign file = fileEntry.getFileEntryByUuidAndGroupId(uuId,groupId) >
+                    <#assign fileExtension = file.getExtension()?string>
+                </#if>
                 
                 <#assign isVisible = "false">
                 
@@ -76,26 +93,28 @@ Autocomplete is also available and can be invoked by typing "${".
                  <td>${title}</td>
                  <td>${Fecha_Noticiab}</td>
                  <td>${fieldRolCorp}</td>
-                 <td>${fieldDescrTextBox}</td>
                  <td>
-                    <#if fieldTemplateWord != "">
-                        <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-doc" href="${fieldTemplateWord}"> </a>
+                    <#if fileExtension?contains("doc")>
+                        <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-doc" href="${fileExtension}"> </a>
                     </#if>
-                    <#if fieldTemplateExcel != "">
-                        <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-xls" href="${fieldTemplateExcel}"> </a>
+                    <#if fileExtension?contains("xl")>
+                        <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-xls" href="${fileExtension}"> </a>
                     </#if>
-                    <#if fieldTemplatePP != "">
-                        <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-ppt" href="${fieldTemplatePP}"> </a>
+                    <#if fileExtension?contains("pp")>
+                        <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-ppt" href="${fileExtension}"> </a>
                     </#if>
-                    <#if fieldTemplatePDF != "">
-                        <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-pdf" href="${fieldTemplatePDF}"> </a>
+                    <#if fileExtension?contains("pdf")>
+                        <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-pdf" href="${fileExtension}"> </a>
                     </#if>
                  </td>
                 </tr>
                 </#if> 
 
+
+                <#assign fieldTempDocum = "">
 	        </#list>
         </#if>
+            
         </tbody>
     </table>
     </div>
