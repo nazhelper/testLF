@@ -62,7 +62,7 @@ Autocomplete is also available and can be invoked by typing "${".
                     </#if>
                 <#elseif readMore.getData()?contains("image")>
                     <#if (urlImage)??>
-                        <a data-toggle="modal" href="#myModal" class="button">
+                        <a data-toggle="modal" href="#myModal${journalArticleId}" class="button">
                     </#if>
                 <#elseif readMore.getData()?contains("none")>
                     <a>
@@ -71,7 +71,7 @@ Autocomplete is also available and can be invoked by typing "${".
                         <a target="_blank" href="${urlExterna.getData()}">
                     </#if>
                 </#if>
-            	    ${TextTitularNoticia.getData()},
+            	    ${.vars['reserved-article-title'].data},
             </a>
             <#assign FechaNoticia_Data = getterUtil.getLong(FechaNoticia.getData())>
             <#if (FechaNoticia_Data > 0)>
@@ -93,7 +93,7 @@ Autocomplete is also available and can be invoked by typing "${".
                     </#if>
                 <#elseif readMore.getData()?contains("image")>
                     <#if (urlImage)??>
-                        <a data-toggle="modal" href="#myModal" class="button">
+                        <a data-toggle="modal" href="#myModal${journalArticleId}" class="button">
                     </#if>
                 <#elseif readMore.getData()?contains("none")>
                     <a>
@@ -113,7 +113,7 @@ Autocomplete is also available and can be invoked by typing "${".
 </#if>
 </div>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal${journalArticleId}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
