@@ -52,9 +52,9 @@ Autocomplete is also available and can be invoked by typing "${".
 
                 
                <#if (video)?? && video != "">
-                    <div class="span5 panel panel-default clearfix csr">
+                    <div class="span6 panel panel-default clearfix csr">
                         <#if (imgPreVideo != "")>
-                            <div class="span12 omega img-panel-big" style="background-image: url(${imgPreVideo});">
+                            <div class="span12 omega img-panel-big" style="background-image: url(${imgPreVideo}); background-size: cover;">
                             <a id="aLinkToVideo" data-toggle="modal" href="#myModalVideo${x}" class="linkToVideoJquery button"><span class="indicador icon-play-video csr"></span></a>
                             </div>
                         </#if>
@@ -104,9 +104,9 @@ Autocomplete is also available and can be invoked by typing "${".
  
                 <#elseif (imagenNews)?? && imagenNews != "">
                     
-                    <div class="span5 panel panel-default clearfix csr">
+                    <div class="span6 panel panel-default clearfix csr">
                         <#if (imagenNews != "")>
-                            <div class="span12 omega img-panel-big" style="background-image: url(${imagenNews});"></div>
+                            <div class="span12 omega img-panel-big" style="background-image: url(${imagenNews}); background-size: cover;"></div>
                         </#if>
 
                         <div class="span12 omega">
