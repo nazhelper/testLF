@@ -38,13 +38,13 @@ Autocomplete is also available and can be invoked by typing "${".
             </p>
             <p class="pad-bottom"><@liferay.language key="allfunds.template.institutional.language" />
                 <#if languageSelect.getData() == "es">
-                        <img alt="Language" src="http://localhost:8080/html/themes/control_panel/images/language/es_ES.png">
+                        <img alt="Language" src="/html/themes/control_panel/images/language/es_ES.png">
                      <#elseif languageSelect.getData() == "en">
-                        <img alt="Language" src="http://localhost:8080/html/themes/control_panel/images/language/en_GB.png">
+                        <img alt="Language" src="/html/themes/control_panel/images/language/en_GB.png">
                     <#elseif languageSelect.getData() == "it">
-                        <img alt="Language" src="http://localhost:8080/html/themes/control_panel/images/language/it_IT.png">
+                        <img alt="Language" src="/html/themes/control_panel/images/language/it_IT.png">
                     <#elseif languageSelect.getData() == "por">
-                        <img alt="Language" src="http://localhost:8080/html/themes/control_panel/images/language/pt_PT.png">
+                        <img alt="Language" src="/html/themes/control_panel/images/language/pt_PT.png">
                 </#if>
             </p>
         </div>
