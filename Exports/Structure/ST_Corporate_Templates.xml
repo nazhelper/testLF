@@ -114,7 +114,7 @@
 		<dynamic-element name="option9119" type="option" value="1">
 			<meta-data locale="en_US">
 				<entry name="label">
-					<![CDATA[Oficina]]>
+					<![CDATA[Office]]>
 				</entry>
 			</meta-data>
 		</dynamic-element>
@@ -127,7 +127,7 @@
 		</dynamic-element>
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Oficina/Global]]>
+				<![CDATA[Office/Global]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[[""]]]>
