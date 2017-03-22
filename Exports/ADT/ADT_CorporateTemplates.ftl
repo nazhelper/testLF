@@ -95,16 +95,16 @@ Autocomplete is also available and can be invoked by typing "${".
                  <td>${fieldRolCorp}</td>
                  <td>
                     <#if fileExtension?contains("doc")>
-                        <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-doc" href="${fileExtension}"> </a>
+                        <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-doc" href="${fieldTempDocum}"> </a>
                     </#if>
                     <#if fileExtension?contains("xl")>
-                        <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-xls" href="${fileExtension}"> </a>
+                        <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-xls" href="${fieldTempDocum}"> </a>
                     </#if>
                     <#if fileExtension?contains("pp")>
-                        <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-ppt" href="${fileExtension}"> </a>
+                        <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-ppt" href="${fieldTempDocum}"> </a>
                     </#if>
                     <#if fileExtension?contains("pdf")>
-                        <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-pdf" href="${fileExtension}"> </a>
+                        <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-pdf" href="${fieldTempDocum}"> </a>
                     </#if>
                  </td>
                 </tr>

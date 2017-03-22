@@ -6,6 +6,7 @@ Please use the left panel to quickly add commonly used variables.
 Autocomplete is also available and can be invoked by typing "${".
 -->
 <#assign x = 1>
+<#assign categoria = "">
 
 <#if entries?has_content>
     <#list entries?chunk(2)as entriesList>
@@ -24,6 +25,12 @@ Autocomplete is also available and can be invoked by typing "${".
                 <#assign assetCategoryLocalServiceUtil = staticUtil["com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil"]>
                 <#assign articleResourcePK = journalArticleResourceLocalServiceUtil.getArticleResourcePrimKey(groupId, journalArticleId)/>
                 <#assign categoryList=assetCategoryLocalServiceUtil.getCategories("com.liferay.portlet.journal.model.JournalArticle",articleResourcePK) >
+                <#if (categoryList)??>
+                    <#list categoryList as currCategoryName>
+                        <#assign categoria = currCategoryName.getName()> 
+                    </#list>
+                </#if>
+                
                 <#assign docXml = saxReaderUtil.read(entry.getAssetRenderer().getArticle().getContentByLocale(locale)) />
                 <#assign assetRenderere = entry.getDescriptionMap()/>
                 <#assign viewURL = assetPublisherHelper.getAssetViewURL(renderRequest, renderResponse, entry) />
@@ -102,15 +109,20 @@ Autocomplete is also available and can be invoked by typing "${".
                     <#assign imgPreVideo = "" />
         
  
-                <#elseif (imagenNews)?? && imagenNews != "">
-                    
+                <#elseif (titularNoticia)?? && titularNoticia != "">
                     <div class="span6 panel panel-default clearfix csr">
                         <#if (imagenNews != "")>
                             <div class="span12 omega img-panel-big" style="background-image: url(${imagenNews}); background-size: cover;"></div>
                         </#if>
 
                         <div class="span12 omega">
-                            <span class="indicador icon-solidario csr"></span>
+                            <#if categoria?contains("News")>
+                                <span class="indicador icon-noticia"></span>
+                            <#elseif categoria?contains("Events")>
+                                <span class="indicador icon-event"></span>
+                            <#else>
+                                <span class="indicador icon-solidario"></span>
+                            </#if>
                             <div class="panel-body panel-big-text clearfix">
                                 <h4 class="titular">
                                 ${title}, <small>${Fecha_Noticiab}</small></h4>

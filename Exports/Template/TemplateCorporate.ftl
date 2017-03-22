@@ -20,15 +20,12 @@ ${rolVisible.getData()}
 
 ${oficGloSelect.getData()}
 
-${descrTextBox.getData()}<a href="${templateWord.getData()}">
-	${languageUtil.format(locale, "download-x", "Template Word")}
-</a>
-<a href="${templateExcel.getData()}">
-	${languageUtil.format(locale, "download-x", "Template Excel")}
-</a>
-<a href="${templatePP.getData()}">
-	${languageUtil.format(locale, "download-x", "Template PowerPoint")}
-</a>
-<a href="${templatePDF.getData()}">
-	${languageUtil.format(locale, "download-x", "Template PDF")}
-</a>
+${descrTextBox.getData()}
+
+<#if tempDocum.getSiblings()?has_content>
+	<#list tempDocum.getSiblings() as cur_tempDocum>
+		<a href="${cur_tempDocum.getData()}">
+			${languageUtil.format(locale, "download-x", "Documents")}
+		</a>
+	</#list>
+</#if>

@@ -127,7 +127,7 @@
 		</dynamic-element>
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Office/Global]]>
+				<![CDATA[Oficina/Global]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[[""]]]>
@@ -150,49 +150,10 @@
 			</entry>
 		</meta-data>
 	</dynamic-element>
-	<dynamic-element dataType="document-library" fieldNamespace="ddm" indexType="keyword" localizable="true" name="templateWord" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-documentlibrary" width="">
+	<dynamic-element dataType="document-library" fieldNamespace="ddm" indexType="keyword" localizable="true" name="tempDocum" readOnly="false" repeatable="true" required="false" showLabel="true" type="ddm-documentlibrary" width="">
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Template Word]]>
-			</entry>
-			<entry name="predefinedValue">
-				<![CDATA[]]>
-			</entry>
-			<entry name="tip">
-				<![CDATA[]]>
-			</entry>
-		</meta-data>
-	</dynamic-element>
-	<dynamic-element dataType="document-library" fieldNamespace="ddm" indexType="keyword" localizable="true" name="templateExcel" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-documentlibrary" width="">
-		<meta-data locale="en_US">
-			<entry name="label">
-				<![CDATA[Template Excel]]>
-			</entry>
-			<entry name="predefinedValue">
-				<![CDATA[]]>
-			</entry>
-			<entry name="tip">
-				<![CDATA[]]>
-			</entry>
-		</meta-data>
-	</dynamic-element>
-	<dynamic-element dataType="document-library" fieldNamespace="ddm" indexType="keyword" localizable="true" name="templatePP" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-documentlibrary" width="">
-		<meta-data locale="en_US">
-			<entry name="label">
-				<![CDATA[Template PowerPoint]]>
-			</entry>
-			<entry name="predefinedValue">
-				<![CDATA[]]>
-			</entry>
-			<entry name="tip">
-				<![CDATA[]]>
-			</entry>
-		</meta-data>
-	</dynamic-element>
-	<dynamic-element dataType="document-library" fieldNamespace="ddm" indexType="keyword" localizable="true" name="templatePDF" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-documentlibrary" width="">
-		<meta-data locale="en_US">
-			<entry name="label">
-				<![CDATA[Template PDF]]>
+				<![CDATA[Documents]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>

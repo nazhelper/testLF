@@ -17,23 +17,23 @@ Autocomplete is also available and can be invoked by typing "${".
     <#assign tipoVideo = curCategory.getName()>
 </#list>
 
+
 <#if tipoVideo == "CSR Video">
-        <div class="span9 csr">
+        <div class="panel panel-default csr clearfix">
     <#elseif tipoVideo?contains("Events") && !tipoVideo?contains("Internal")>
-        <div class="span9 events">
+        <div class="panel panel-default events clearfix">
     <#elseif tipoVideo?contains("Internal")>
-        <div class="span9 empleados">
+        <div class="panel panel-default empleados clearfix">
     <#else>
-        <div class="span9 news">
+        <div class="panel panel-default news clearfix">
 </#if>
-
-<span class="indicador icon-video homeIndicador"></span>
-<div class="span12 omega img-panel-big" style="background-image: url(${imgPreVideo.getData()});">
-     <a id="aLinkToVideo" data-toggle="modal" href="#myModalVideo" class="linkToVideoJquery button"><span class="indicador icon-play-video"></span></a>
+    <div class="img-panel-big" style="background-image: url(${imgPreVideo.getData()});">
+        <span class="indicador icon-video"> </span> 
+        <a id="aLinkToVideo" data-toggle="modal" href="#myModalVideoHome" class="linkToVideoJquery button"><span class="indicador icon-play-video"></span></a> 
+    </div>
 </div>
-</div>
 
-<div class="modal fade modalVideoPers" id="myModalVideo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
+<div class="modal fade modalVideoPers" id="myModalVideoHome" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
