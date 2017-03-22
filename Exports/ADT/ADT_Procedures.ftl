@@ -64,13 +64,13 @@ Autocomplete is also available and can be invoked by typing "${".
                  <td>${expirationDate}</td>
                  <td class="text-center language">
                  <#if fieldSelectLanguage == "es">
-                    <img alt="Language" src="http://localhost:8080/html/themes/control_panel/images/language/es_ES.png">
+                    <img alt="Language" src="/html/themes/control_panel/images/language/es_ES.png">
                  <#elseif fieldSelectLanguage == "en">
-                    <img alt="Language" src="http://localhost:8080/html/themes/control_panel/images/language/en_GB.png">
+                    <img alt="Language" src="/html/themes/control_panel/images/language/en_GB.png">
                  <#elseif fieldSelectLanguage == "it">
-                    <img alt="Language" src="http://localhost:8080/html/themes/control_panel/images/language/it_IT.png">
+                    <img alt="Language" src="/html/themes/control_panel/images/language/it_IT.png">
                 <#elseif fieldSelectLanguage == "por">
-                    <img alt="Language" src="http://localhost:8080/html/themes/control_panel/images/language/pt_PT.png">
+                    <img alt="Language" src="/html/themes/control_panel/images/language/pt_PT.png">
                  </#if>
                  </td>
                  <td class="text-center"> <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-pdf" href="${fieldTemplatePDF}"> </a> </td>
