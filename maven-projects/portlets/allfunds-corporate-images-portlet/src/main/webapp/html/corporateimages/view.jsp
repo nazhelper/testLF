@@ -4,7 +4,8 @@
 	<portlet:param name="<%=Constants.CMD%>" value="<%=Constants.READ%>"/>
 </portlet:resourceURL>
 <%
-Integer pageSize = 9;
+Integer pageSize = GetterUtil.getInteger(portletPreferences.getValue("pageSize", "9"));
+
 Long ddmStructureId_cfg = GetterUtil.getLong(portletPreferences.getValue("ddmStructureId", "0L"));
 DDMStructure structure = DDMStructureLocalServiceUtil.getDDMStructure(ddmStructureId_cfg);
 String xsd = structure.getXsd();

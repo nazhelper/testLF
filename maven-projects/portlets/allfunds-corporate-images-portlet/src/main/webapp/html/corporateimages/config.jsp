@@ -35,7 +35,7 @@ availablesST = DDMStructureLocalServiceUtil.getStructures(groupID, ClassNameLoca
     <aui:input name="<%= Constants.CMD %>" type="hidden" value="<%= Constants.UPDATE %>" />
 
     <!-- Preference control goes here -->
-    <aui:select name="preferences--ddmStructureId--" showEmptyOption="true">
+    <aui:select name="preferences--ddmStructureId--" showEmptyOption="true" label="allfunds.categories.structureId">
 		<%
 		for (DDMStructure structure : availablesST) {
 			if (structure.getStructureId() == ddmStructureId_cfg) {
@@ -53,7 +53,7 @@ availablesST = DDMStructureLocalServiceUtil.getStructures(groupID, ClassNameLoca
 		%>
 	</aui:select> 
 	
-	<aui:input name="preferences--pageSize--" value="<%=pageSize_cfg %>" autoSize="true" width="5em">
+	<aui:input name="preferences--pageSize--" label="allfunds.categories.pageSize" value="<%=pageSize_cfg %>" autoSize="true" style="width: 5em;">
 	
 	</aui:input>
     
