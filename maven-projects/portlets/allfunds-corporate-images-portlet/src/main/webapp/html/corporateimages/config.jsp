@@ -24,14 +24,10 @@
 <%  
 long groupID = themeDisplay.getScopeGroupId();
 Long ddmStructureId_cfg = GetterUtil.getLong(portletPreferences.getValue("ddmStructureId", "0L"));
-Long vocabularyKey_cfg = GetterUtil.getLong(portletPreferences.getValue("vocabularyKey", "0L"));
+Integer pageSize_cfg = GetterUtil.getInteger(portletPreferences.getValue("pageSize", "9"));
 
 List<DDMStructure> availablesST = new ArrayList<DDMStructure>();
 availablesST = DDMStructureLocalServiceUtil.getStructures(groupID, ClassNameLocalServiceUtil.getClassNameId(DLFileEntryMetadata.class));
-
-List<AssetVocabulary> vocabularies = new ArrayList<AssetVocabulary>();
-
-vocabularies = AssetVocabularyLocalServiceUtil.getGroupVocabularies(groupID);
 
 %>
 
@@ -55,24 +51,11 @@ vocabularies = AssetVocabularyLocalServiceUtil.getGroupVocabularies(groupID);
 			}
 		}
 		%>
-	</aui:select>
-    <aui:select name="preferences--vocabularyKey--" showEmptyOption="true">
-		<%
-		for (AssetVocabulary vocabulary : vocabularies) {
-			if (vocabulary.getVocabularyId() == vocabularyKey_cfg) {
-		%>
-			<aui:option label="<%=vocabulary.getTitle(locale)%>"
-				value="<%=vocabulary.getVocabularyId()%>" selected="true" />
-		<%
-			} else {
-		%>
-			<aui:option label="<%=vocabulary.getTitle(locale)%>"
-				value="<%=vocabulary.getVocabularyId()%>" />
-		<%
-			}
-		}
-		%>
-	</aui:select>    
+	</aui:select> 
+	
+	<aui:input name="preferences--pageSize--" value="<%=pageSize_cfg %>" autoSize="true" width="5em">
+	
+	</aui:input>
     
 	
     <aui:button-row>

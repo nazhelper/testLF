@@ -1,36 +1,84 @@
-<%@page import="com.liferay.portal.kernel.dao.orm.ProjectionFactoryUtil"%>
-<%@page import="com.liferay.portal.kernel.dao.orm.DynamicQuery"%>
-<%@page import="com.liferay.portlet.documentlibrary.model.DLFileEntryType"%>
-<%@page import="com.liferay.portlet.documentlibrary.service.DLFileEntryTypeLocalServiceUtil"%>
 <%@ include file="../init.jsp" %>
 
 <portlet:resourceURL var="loadImagesURL">
 	<portlet:param name="<%=Constants.CMD%>" value="<%=Constants.READ%>"/>
 </portlet:resourceURL>
 <%
+Integer pageSize = 9;
 Long ddmStructureId_cfg = GetterUtil.getLong(portletPreferences.getValue("ddmStructureId", "0L"));
-Long vocabularyKey_cfg = GetterUtil.getLong(portletPreferences.getValue("vocabularyKey", "0L"));
-%>
-		<div class="panel panel-default panel-clear-top">
-			<div class="panel-body" id="images-panel-body">
+DDMStructure structure = DDMStructureLocalServiceUtil.getDDMStructure(ddmStructureId_cfg);
+String xsd = structure.getXsd();
 
-			</div>
+Document structureDocument = SAXReaderUtil.read(xsd);
+Element xsdParentElement = structureDocument.getRootElement();
+List<Element> elementsXSD = xsdParentElement.elements();
+List<Element> categories = new ArrayList<Element>();
+
+for(Element element: elementsXSD){
+	String name = element.attributeValue("name", "");
+	if(name.equalsIgnoreCase("category")){
+		categories = element.elements("dynamic-element");
+		break;
+	}
+}
+%>
+
+<div class="panel panel-default panel-category">
+    <div class="panel-body">
+        <div class="boxform">
+            <label><%=LanguageUtil.get(locale, "allfunds.adt.categories.corporate.images")%></label>
+            <div class="checkbox inline">
+	    	    <%for(Element category: categories){ 
+	    	    	String value = category.attributeValue("value");
+	    	    	Element metaData = category.element("meta-data").element("entry");
+	    	    	String label = metaData.getText().trim();
+	    	    %>
+                <label class="inline" id="category">
+                    <input id="<%=value%>" name="CorporateImages" value="<%=value%>" type="checkbox" class="image-checkbox" checked="checked">
+                    <span></span>
+					<a href="#"></a>
+                    <%=label%>
+                </label>
+	    	    <%} %>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default panel-clear-top">
+	<div class="panel-body">
+		<div id="images-panel-body">
 		</div>
+		<input type="hidden" id="currentPage" name="currentPage" value="1"/>
+		<div class='clearfix'></div>
+		<div id="loadMore" class="">
+           	<div class="btn btn-block btn-info"><%=LanguageUtil.get(locale,"allfunds.adt.general.load.more")%></div>
+       	</div>
+	</div>
+</div>
 
 <script type="text/javascript">
-$(document).ready(function() {
-	var imagessPageSize = 10;
-	var currentPage = 1;
-	var firstEl = (currentPage - 1) * imagessPageSize;
+
+function loadImages(structureId, from, to, reset) {
+	//Get selected Categories
+	var categories = []; 
+	
+	var vocabulary = $("#category .image-checkbox:checked");
+	
+	for(var i=0; i<vocabulary.length; i++){
+	    var category = vocabulary.eq(i).val();
+	    categories.push(category);
+	}
+	    console.log(categories);
 	
 	jQuery.ajax({
 		type: "POST",
 		url: '<%=loadImagesURL%>',
 		async: false,
 		data: {
-			<portlet:namespace/>idStructure: <%=ddmStructureId_cfg%>,
-			<portlet:namespace/>from: firstEl,
-			<portlet:namespace/>pageSize: imagessPageSize
+			<portlet:namespace/>idStructure: structureId,
+			<portlet:namespace/>categories: categories,
+			<portlet:namespace/>from: from,
+			<portlet:namespace/>to: to
 		},
 		dataType: 'json',
 		error: function()
@@ -41,12 +89,16 @@ $(document).ready(function() {
 		complete: function(){
 		},
 		success: function(data){
-
+			
 			var images = data.images;
 			
+			var htmlTabla = "";
+			if(!reset){
+				htmlTabla =	document.getElementById("images-panel-body").innerHTML;
+			}else{
+				$("#images-panel-body").fadeOut();
+			}
 			if(images.length > 0){
-				var htmlTabla = "";
-				
 				for(var i in images){
 					var image = images[i];
 
@@ -76,28 +128,60 @@ $(document).ready(function() {
 					htmlTabla = htmlTabla.concat("<img src='"+image.imageURL+"' />");
 					htmlTabla = htmlTabla.concat("</div>");
 					htmlTabla = htmlTabla.concat("</div>");
-				
+
 				}
-				
-				htmlTabla = htmlTabla.concat("<div class='clearfix'></div>");
-				
 				document.getElementById("images-panel-body").innerHTML = htmlTabla;
-				
-				$( ".thumbnail" ).hover(
-					function() {
-						$(this).find('.caption').slideDown(250);
-					},
-					function() {
-						$(this).find('.caption').slideUp(250);
-						
-					}
-				);
+				$("#images-panel-body").fadeIn();
+
+			}else{
+				$("#images-panel-body").fadeOut();
 				
 			}
-	        
+			$('#currentPage').val(data.currentPage);
+
+			$(".thumbnail").hover(function() {
+				$(this).find('.caption').slideDown(250);
+			}, function() {
+				$(this).find('.caption').slideUp(250);
+			});
+			
+			var loadMore = data.loadMore;
+			
+			if(loadMore){
+				$('#loadMore').css("display", "block");
+			}else{
+				$('#loadMore').css("display", "none");
+			}
+
 		}
-	}); 
-	
-	
-} );
+	});
+}
+	$("#category .image-checkbox").on("click", function() {
+		var imagessPageSize = <%=pageSize%>;
+		var structureId = <%=ddmStructureId_cfg%>; 
+		var from = 0;
+		var to = from + imagessPageSize;
+		
+		loadImages(structureId, from, to, true);
+	});
+
+	$("#loadMore .btn").on("click", function() {
+		var imagessPageSize = <%=pageSize%>;
+		var structureId = <%=ddmStructureId_cfg%>; 
+		var currentPage = $('#currentPage').val();
+		var from = (currentPage - 1) * imagessPageSize;
+		var to = from + imagessPageSize;
+		
+		loadImages(structureId, from, to, false);
+	});
+
+	$(document).ready(function() {
+		var structureId = <%=ddmStructureId_cfg%>; 
+		var imagessPageSize = <%=pageSize%>;
+		var currentPage = $('#currentPage').val();
+		var from = (currentPage - 1) * imagessPageSize;
+		var to = from + imagessPageSize;
+		
+		loadImages(structureId, from, to, false);
+	});
 </script>

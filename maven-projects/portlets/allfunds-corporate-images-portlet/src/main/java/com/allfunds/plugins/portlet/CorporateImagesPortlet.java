@@ -1,9 +1,13 @@
 package com.allfunds.plugins.portlet;
 
+import com.liferay.portal.kernel.dao.orm.Criterion;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.Junction;
+import com.liferay.portal.kernel.dao.orm.OrderFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.ProjectionFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
@@ -27,6 +31,7 @@ import com.liferay.portlet.documentlibrary.service.DLFileEntryLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryMetadataLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryTypeLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.util.RawMetadataProcessor;
+import com.liferay.portlet.dynamicdatamapping.model.DDMContent;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUtil;
 import com.liferay.portlet.dynamicdatamapping.storage.Fields;
@@ -54,8 +59,9 @@ public class CorporateImagesPortlet extends MVCPortlet {
 		String action = ParamUtil.get(resourceRequest, Constants.CMD, "");
 	    if (action.equals(Constants.READ)) {
 	    	Long ddmStructureId = ParamUtil.getLong(resourceRequest, "idStructure", 0);
-//	    	Integer from = ParamUtil.getInteger(resourceRequest, "from", 0);
-//		    Integer pageSize = ParamUtil.getInteger(resourceRequest, "pageSize", 0);
+	    	Integer from = ParamUtil.getInteger(resourceRequest, "from", 0);
+		    Integer to = ParamUtil.getInteger(resourceRequest, "to", 0);
+		    String[] categories = ParamUtil.getParameterValues(resourceRequest, "categories[]", new String []{});
 		    
     		JSONArray jsonArrayImages = JSONFactoryUtil.createJSONArray();
     		JSONObject jsonObjectImage;    
@@ -63,27 +69,74 @@ public class CorporateImagesPortlet extends MVCPortlet {
 		    
 			    long groupID = themeDisplay.getScopeGroupId();
 			    Locale locale = themeDisplay.getLocale();
+			    Boolean loadMore = true;
 			    
+			    DecimalFormat formatInt = new DecimalFormat ("##");
 			    DecimalFormat formater = new DecimalFormat("0.##");
 	
 			    if(ddmStructureId != 0L){
-					DDMStructure structure = DDMStructureLocalServiceUtil.getDDMStructure(ddmStructureId);
-			    	
 			    	DLFileEntryType fileEntryType = DLFileEntryTypeLocalServiceUtil.getDDMStructureDLFileEntryTypes(ddmStructureId).get(0);
 			    	
-			    	DynamicQuery dq0 =  DynamicQueryFactoryUtil.forClass(DLFileVersion.class, PortalClassLoaderUtil.getClassLoader())
-			    							.setProjection(ProjectionFactoryUtil.property("fileEntryId"))
-			    							.add(PropertyFactoryUtil.forName("groupId").eq(groupID))
-			    							.add(PropertyFactoryUtil.forName("status").eq(WorkflowConstants.STATUS_APPROVED))
-			    							.add(PropertyFactoryUtil.forName("fileEntryTypeId").eq(fileEntryType.getFileEntryTypeId()));
+			    	
+			    	Junction disjunction = RestrictionsFactoryUtil.disjunction();
+			    	
+			    	if(categories.length > 0){
+				    	for (String category : categories) {
+				    		StringBuilder categoryFilter = new StringBuilder();
+					    	categoryFilter.append("%<dynamic-element%name=%category%>%");
+					    	categoryFilter.append("%<dynamic-content%>%");
+					    	categoryFilter.append("%<![CDATA[[%"+category+"%]]]>%");
+					    	categoryFilter.append("%</dynamic-content>%");
+					    	categoryFilter.append("%</dynamic-element>%");
+					    	
+					    	Criterion categoryfilterDQ = PropertyFactoryUtil.forName("xml").like(categoryFilter.toString());
+					    	disjunction.add(categoryfilterDQ);
+						}
+			    	}else{
+			    		StringBuilder categoryFilter = new StringBuilder();
+				    	Criterion categoryfilterDQ = PropertyFactoryUtil.forName("xml").like(categoryFilter.toString());
+				    	disjunction.add(categoryfilterDQ);
+			    	}
+			    	
+			    	
+			    	
+			    	DynamicQuery metaDataQuery = DynamicQueryFactoryUtil.forClass(DLFileEntryMetadata.class, PortalClassLoaderUtil.getClassLoader())
+			    								.setProjection(ProjectionFactoryUtil.property("DDMStorageId"))
+												.add(PropertyFactoryUtil.forName("fileEntryTypeId").eq(fileEntryType.getFileEntryTypeId()));
+			    	
+			    	DynamicQuery categoryQuery = DynamicQueryFactoryUtil.forClass(DDMContent.class, PortalClassLoaderUtil.getClassLoader())
+			    								.setProjection(ProjectionFactoryUtil.property("contentId"))
+			    								.add(PropertyFactoryUtil.forName("groupId").eq(groupID))
+												.add(PropertyFactoryUtil.forName("contentId").in(metaDataQuery))
+												.add(disjunction);
+			    	
+			    	DynamicQuery metaDataCatQuery = DynamicQueryFactoryUtil.forClass(DLFileEntryMetadata.class, PortalClassLoaderUtil.getClassLoader())
+			    								.setProjection(ProjectionFactoryUtil.property("fileVersionId"))
+			    								.add(PropertyFactoryUtil.forName("DDMStorageId").in(categoryQuery));
+			    	
+			    	DynamicQuery versionQuery =  DynamicQueryFactoryUtil.forClass(DLFileVersion.class, PortalClassLoaderUtil.getClassLoader())
+			    			.setProjection(ProjectionFactoryUtil.property("fileEntryId"))
+			    			.add(PropertyFactoryUtil.forName("fileVersionId").in(metaDataCatQuery))
+			    			.add(PropertyFactoryUtil.forName("status").eq(WorkflowConstants.STATUS_APPROVED));
+			    	
+			    	DynamicQuery queryCount = DynamicQueryFactoryUtil.forClass(DLFileEntry.class, PortalClassLoaderUtil.getClassLoader())
+											.add(PropertyFactoryUtil.forName("fileEntryId").in(versionQuery));
 			    	
 			    	DynamicQuery query = DynamicQueryFactoryUtil.forClass(DLFileEntry.class, PortalClassLoaderUtil.getClassLoader())
-			    							.add(PropertyFactoryUtil.forName("fileEntryId").in(dq0));
-			    	/* query.setLimit(from, pageSize); */
+			    						.add(PropertyFactoryUtil.forName("fileEntryId").in(versionQuery))
+			    						.addOrder(OrderFactoryUtil.desc("title"));
+			    	Long total =  DLFileEntryLocalServiceUtil.dynamicQueryCount(queryCount);
 			    	
+			    	query.setLimit(from, to); 
+
 			    	List<DLFileEntry> entries = (List<DLFileEntry>) DLFileEntryLocalServiceUtil.dynamicQuery(query);
+
+			    	Integer currentPage = to/(to-from) + 1;
+			    	if(to >= total){
+			    		loadMore = false;
+			    	}
 			    	
-			    	long rawClassId = ClassNameLocalServiceUtil.getClassNameId(RawMetadataProcessor.class);
+			    	Long rawClassId = ClassNameLocalServiceUtil.getClassNameId(RawMetadataProcessor.class);
 			    	List<DDMStructure> rawMetaDataStructure = DDMStructureLocalServiceUtil.getClassStructures(themeDisplay.getCompanyId(), rawClassId);
 			    	if(!entries.isEmpty()){
 			    		for(DLFileEntry entry: entries){ 
@@ -94,13 +147,14 @@ public class CorporateImagesPortlet extends MVCPortlet {
 							String imageURL = themeDisplay.getPortalURL() + themeDisplay.getPathContext() + "/documents/" + 
 												themeDisplay.getScopeGroupId() + "/" + folderId + "/" + fileNameURL ;
 							
+							
 							String formatsize = "KB";
 							float fileSize = entry.getSize() / 1024;
 							if(fileSize > 1024){
 								formatsize = "MB";
 								fileSize = fileSize / 1024;
 							}
-									
+							
 							DLFileEntryMetadata dlFileMetadata = DLFileEntryMetadataLocalServiceUtil
 																	.fetchFileEntryMetadata(rawMetaDataStructure.get(0).getStructureId(), 
 																							entryFileVersion.getFileVersionId());
@@ -123,8 +177,13 @@ public class CorporateImagesPortlet extends MVCPortlet {
 							}else{
 								formatClass = "span2";
 							}
+//							FileEntry fileEntry = DLAppServiceUtil.getFileEntry(entry.getFileEntryId());
+//							FileVersion fileVersion = (FileVersion) fileEntry.getLatestFileVersion();
+							
+							
+//							imageURL = DLUtil.getThumbnailSrc(fileEntry, fileVersion, null, themeDisplay);
 							String imageFormat = StringUtil.upperCase(entry.getExtension()) + " " + LanguageUtil.get(locale, "format");
-							String imageDimension = LanguageUtil.get(locale, "size") + ": " + imageWidth + " x " + imageLength;
+							String imageDimension = LanguageUtil.get(locale, "size") + ": " + formatInt.format(imageWidth) + " x " + formatInt.format(imageLength);
 							String imageSize = formater.format(fileSize) + " " + formatsize;
 							//Data for view
 							jsonObjectImage.put("officeClass", formatClass);
@@ -138,19 +197,24 @@ public class CorporateImagesPortlet extends MVCPortlet {
 							jsonArrayImages.put(jsonObjectImage);
 			    		}
 			    	}
+			    	
+			    	// Escritura de datos
+			    	JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
+			    	jsonObject.put("images", jsonArrayImages);
+			    	jsonObject.put("currentPage", currentPage);
+			    	jsonObject.put("loadMore", loadMore);
+			    	resourceResponse.setContentType("application/json");
+			    	PrintWriter writer = resourceResponse.getWriter();
+			    	writer.print(jsonObject.toString());
+			    	writer.flush();
+			    	writer.close();
 			    }
 			} catch (PortalException | SystemException e) {
 				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		    
-    		// Escritura de datos
-    		JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
-    		jsonObject.put("images", jsonArrayImages);
-    		resourceResponse.setContentType("application/json");
-    		PrintWriter writer = resourceResponse.getWriter();
-    		writer.print(jsonObject.toString());
-    		writer.flush();
-    		writer.close();
 	    }
 
 		
@@ -158,4 +222,7 @@ public class CorporateImagesPortlet extends MVCPortlet {
 		super.serveResource(resourceRequest, resourceResponse);
 	}
 
+	
+	
+	
 }
