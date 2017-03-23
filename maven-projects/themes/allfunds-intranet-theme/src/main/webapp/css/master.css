@@ -599,6 +599,10 @@ body, html {
 		background-position: -3px -195px;
 		border: 1px solid #ff4d4c !important;
 	}
+	.btn-download-ico {
+		background-position: -3px -226px;
+		border: 1px solid #006d7b !important;
+	}
 	.btn-download-doc {
 		background-position: -103px -195px;
 		border: 1px solid #00add8 !important;
@@ -666,11 +670,11 @@ body, html {
 	}
 	
 	.img-offices.span2 {
-	    width: 16.68% !important;
+	    width: 16.69% !important;
 	}
 	
 	.img-offices.span4 {
-	    width: 33.3333% !important;
+	    width: 33.3% !important;
 	}
 	
 	.header {

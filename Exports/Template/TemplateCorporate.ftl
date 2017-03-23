@@ -29,15 +29,16 @@ Autocomplete is also available and can be invoked by typing "${".
             <td>${.vars['reserved-article-title'].data}</td>
             <td><#assign valueDateCorp_Data = getterUtil.getLong(valueDateCorp.getData())>
                 <#if (valueDateCorp_Data > 0)>
-	                <#assign valueDateCorp_DateObj = dateUtil.newDate(valueDateCorp_Data)>
-	                ${dateUtil.getDate(valueDateCorp_DateObj, "dd/MM/yyyy", locale)}
+                 <#assign valueDateCorp_DateObj = dateUtil.newDate(valueDateCorp_Data)>
+                 ${dateUtil.getDate(valueDateCorp_DateObj, "dd/MM/yyyy", locale)}
                 </#if>
             </td>
             <td>${rolVisible.getData()}</td>
             <td>
             <#if (tempDocum)??>
                 <#if tempDocum.getSiblings()?has_content>
-	                <#list tempDocum.getSiblings() as cur_tempDocum>
+                 <#list tempDocum.getSiblings() as cur_tempDocum>
+                     <#if cur_tempDocum.getData() != "">
                             
                             <#assign counter = 0 >
                             <#assign tempDocumb = cur_tempDocum.getData()?string>
@@ -47,16 +48,20 @@ Autocomplete is also available and can be invoked by typing "${".
                                 </#if>
                                 <#if counter == 5>
                                     <#assign uuId = x >
+                                    <#if uuId?contains("?t=")>
+                                    	<#assign indexTo = uuId?index_of("?t=") >
+                                    	<#assign uuId = uuId?substring(0,indexTo) >
+                                    </#if>
                                 </#if>
                                 <#assign counter = counter+1 >
-	                        </#list>
-	                        
-	                        <#if (uuId)??>
+                         </#list>
+                         
+                         <#if (uuId)??>
                                 <#assign file = fileEntry.getFileEntryByUuidAndGroupId(uuId,groupId) >
                                 <#assign fileExtension = file.getExtension()?string>
                             </#if>
-		                    
-		                    <#if fileExtension?contains("doc")>
+                      
+                      <#if fileExtension?contains("doc")>
                                <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-doc" href="${cur_tempDocum.getData()}"> </a>
                             <#elseif fileExtension?contains("xl") || fileExtension?contains("csv")>
                                 <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-xls" href="${cur_tempDocum.getData()}"> </a>
@@ -65,9 +70,10 @@ Autocomplete is also available and can be invoked by typing "${".
                             <#elseif fileExtension?contains("pdf")>
                                 <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-pdf" href="${cur_tempDocum.getData()}" target="_blank"> </a>
                             <#else>
-                                <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-pdf" target="_blank"> </a>
+                                <a class="btnTable btn-default btn-rounder btn-rounder-tb btn-download-ico" href="${cur_tempDocum.getData()}" target="_blank"> </a>
                             </#if>
-	                </#list>
+                        </#if>
+                 </#list>
                 </#if>
             </#if>
             </td>
