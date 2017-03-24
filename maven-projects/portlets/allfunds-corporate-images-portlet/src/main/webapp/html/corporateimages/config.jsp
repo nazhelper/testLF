@@ -54,7 +54,9 @@ availablesST = DDMStructureLocalServiceUtil.getStructures(groupID, ClassNameLoca
 	</aui:select> 
 	
 	<aui:input name="preferences--pageSize--" label="allfunds.categories.pageSize" value="<%=pageSize_cfg %>" autoSize="true" style="width: 5em;">
-	
+	<aui:validator name="number"></aui:validator>
+	<aui:validator name="max">30</aui:validator>
+	 <aui:validator name="required"/>
 	</aui:input>
     
 	

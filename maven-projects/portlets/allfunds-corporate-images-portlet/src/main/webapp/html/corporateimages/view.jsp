@@ -5,25 +5,25 @@
 </portlet:resourceURL>
 <%
 Integer pageSize = GetterUtil.getInteger(portletPreferences.getValue("pageSize", "9"));
-
 Long ddmStructureId_cfg = GetterUtil.getLong(portletPreferences.getValue("ddmStructureId", "0L"));
-DDMStructure structure = DDMStructureLocalServiceUtil.getDDMStructure(ddmStructureId_cfg);
-String xsd = structure.getXsd();
 
-Document structureDocument = SAXReaderUtil.read(xsd);
-Element xsdParentElement = structureDocument.getRootElement();
-List<Element> elementsXSD = xsdParentElement.elements();
-List<Element> categories = new ArrayList<Element>();
-
-for(Element element: elementsXSD){
-	String name = element.attributeValue("name", "");
-	if(name.equalsIgnoreCase("category")){
-		categories = element.elements("dynamic-element");
-		break;
+if(ddmStructureId_cfg != 0L){
+	DDMStructure structure = DDMStructureLocalServiceUtil.getDDMStructure(ddmStructureId_cfg);
+	String xsd = structure.getXsd();
+	
+	Document structureDocument = SAXReaderUtil.read(xsd);
+	Element xsdParentElement = structureDocument.getRootElement();
+	List<Element> elementsXSD = xsdParentElement.elements();
+	List<Element> categories = new ArrayList<Element>();
+	
+	for(Element element: elementsXSD){
+		String name = element.attributeValue("name", "");
+		if(name.equalsIgnoreCase("category")){
+			categories = element.elements("dynamic-element");
+			break;
+		}
 	}
-}
 %>
-
 <div class="panel panel-default panel-category">
     <div class="panel-body">
         <div class="boxform">
@@ -56,7 +56,15 @@ for(Element element: elementsXSD){
        	</div>
 	</div>
 </div>
+<%
+}else{ 
 
+	renderRequest.setAttribute(WebKeys.PORTLET_CONFIGURATOR_VISIBILITY, Boolean.TRUE);
+%>
+	<div class="portlet-msg-info">
+		<liferay-ui:message key="allfunds.corporate.images.config.instance.required"/>
+	</div>
+<%} %>
 <script type="text/javascript">
 
 function loadImages(structureId, from, to, reset) {
