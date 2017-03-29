@@ -1,0 +1,94 @@
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element dataType="integer" fieldNamespace="ddm" indexType="keyword" localizable="true" name="orderLogo" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-integer" width="small">
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Order]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="image" fieldNamespace="wcm" indexType="keyword" localizable="true" name="previewLogo" readOnly="false" repeatable="false" required="false" showLabel="true" type="wcm-image" width="">
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Preview]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="image" fieldNamespace="wcm" indexType="keyword" localizable="true" name="logoJpg" readOnly="false" repeatable="false" required="false" showLabel="true" type="wcm-image" width="">
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Logo in JPG Format]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="image" fieldNamespace="wcm" indexType="keyword" localizable="true" name="logoVectorial" readOnly="false" repeatable="false" required="false" showLabel="true" type="wcm-image" width="">
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Logo in Vectorial Format]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="image" fieldNamespace="wcm" indexType="keyword" localizable="true" name="logoPng" readOnly="false" repeatable="false" required="false" showLabel="true" type="wcm-image" width="">
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Logo in PNG]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="image" fieldNamespace="wcm" indexType="keyword" localizable="true" name="logoNegative" readOnly="false" repeatable="false" required="false" showLabel="true" type="wcm-image" width="">
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Logo in Negative]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="document-library" fieldNamespace="ddm" indexType="keyword" localizable="true" name="useGuide" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-documentlibrary" width="">
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[Use Guide]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+</root>
