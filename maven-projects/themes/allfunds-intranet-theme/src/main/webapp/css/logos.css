@@ -8,10 +8,10 @@
     font-size: 12px !important;
 }
 
-.aui .row-fluid .span8 {
+.aui .row-fluid .span8.logo {
     width: 66.66666667%;
 }
-.aui .row-fluid .span4 {
+.aui .row-fluid .span4.logo {
     width: 33.33333333%;
 }
 

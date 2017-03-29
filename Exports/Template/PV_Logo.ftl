@@ -15,10 +15,10 @@ Autocomplete is also available and can be invoked by typing "${".
                     <div class="span6">
                         <#if (logoJpg.getData())?? && logoJpg.getData() != "">
                             <a href="${logoJpg.getData()}" target="_blank">
-                            <div role="button" class="span4 btn btn-recto btn-default">
+                            <div role="button" class="span4 logo btn btn-recto btn-default">
                         <#else>
                             <a>
-                            <div role="button" class="span4 btn btn-recto btn-default disabled">
+                            <div role="button" class="span4 logo btn btn-recto btn-default disabled">
                         </#if>
                             <p>Download</p>
                             <span class="icon icon-logo-jpg "></span>
@@ -27,10 +27,10 @@ Autocomplete is also available and can be invoked by typing "${".
                         </a>
                         <#if (logoVectorial.getData())?? && logoVectorial.getData() != "">
                             <a href="${logoVectorial.getData()}" target="_blank">
-                            <div role="button" class="span4 omega btn btn-recto btn-default">
+                            <div role="button" class="span4 logo omega btn btn-recto btn-default">
                         <#else>
                             <a>
-                            <div role="button" class="span4 omega btn btn-recto btn-default disabled">
+                            <div role="button" class="span4 logo omega btn btn-recto btn-default disabled">
                         </#if>
                             <p>Download</p>
                             <span class="icon icon-logo-pdf"></span>
@@ -39,10 +39,10 @@ Autocomplete is also available and can be invoked by typing "${".
                         </a>
                         <#if (logoPng.getData())?? && logoPng.getData() != "">
                             <a href="${logoPng.getData()}" target="_blank">
-                            <div role="button" class="span4 omega btn btn-recto btn-default">
+                            <div role="button" class="span4 logo omega btn btn-recto btn-default">
                         <#else>
                             <a>
-                            <div role="button" class="span4 omega btn btn-recto btn-default disabled">
+                            <div role="button" class="span4 logo omega btn btn-recto btn-default disabled">
                         </#if>
                             <p>Download</p>
                             <span class="icon icon-logo-png"></span>
@@ -51,10 +51,10 @@ Autocomplete is also available and can be invoked by typing "${".
                         </a>
                         <#if (logoNegative.getData())?? && logoNegative.getData() != "">
                             <a href="${logoNegative.getData()}" target="_blank">
-                            <div role="button" class="span4 omega btn btn-recto btn-default">
+                            <div role="button" class="span4 logo omega btn btn-recto btn-default">
                         <#else>
                             <a>
-                            <div role="button" class="span4 omega btn btn-recto btn-default disabled">
+                            <div role="button" class="span4 logo omega btn btn-recto btn-default disabled">
                         </#if>
                             <p>Download</p>
                             <span class="icon icon-logo-png background-inverse"></span>
@@ -63,10 +63,10 @@ Autocomplete is also available and can be invoked by typing "${".
                         </a>
                          <#if (useGuide.getData())?? && useGuide.getData() != "">
                             <a href="${useGuide.getData()}" target="_blank">
-                            <div role="button" class="span8 omega btn btn-recto btn-default">
+                            <div role="button" class="span8 logo omega btn btn-recto btn-default">
                         <#else>
                             <a>
-                            <div role="button" class="span8 omega btn btn-recto btn-default disabled">
+                            <div role="button" class="span8 logo omega btn btn-recto btn-default disabled">
                         </#if>
                             <div class="text-center">
                                 <p class="content-s">Download Guidelines</p>
