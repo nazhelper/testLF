@@ -22,7 +22,7 @@
 	List<DLFolder> folders = DLFolderLocalServiceUtil.getFolders(themeDisplay.getScopeGroupId(), DLFolderid, Boolean.FALSE);
 	Map<DLFolder, Map> allTheFolders = dl.getFoldersView(folders, themeDisplay.getScopeGroupId());
 %>
-		<div class="panel panel-default panel-clear-top">
+		<div>
 			<div class="panel-body">
 			 <ul id='<portlet:namespace/>tree' class="tree">
 			 	
@@ -36,18 +36,20 @@
 					}			
 					List<DLFileEntry> entries = DLFileEntryLocalServiceUtil.getFileEntries(themeDisplay.getScopeGroupId(), DLFolderid); 
 					for(DLFileEntry entry : entries){
-						DLFileEntry fileEntry = entry.toEscapedModel();	
-						long fileEntryId = fileEntry.getFileEntryId();
-						long folderId = fileEntry.getFolderId();
-						String name = fileEntry.getName();
-						String extension = fileEntry.getExtension();
-						String title = fileEntry.getTitle();
-						String fileUrl = themeDisplay.getPortalURL() + themeDisplay.getPathContext() + "/documents/" + themeDisplay.getScopeGroupId() + "//" + folderId +  "//" + HttpUtil.encodeURL(HtmlUtil.unescape(title));
+						if(!entry.isInTrash()){
+							DLFileEntry fileEntry = entry.toEscapedModel();	
+							long fileEntryId = fileEntry.getFileEntryId();
+							long folderId = fileEntry.getFolderId();
+							String name = fileEntry.getName();
+							String extension = fileEntry.getExtension();
+							String title = fileEntry.getTitle();
+							String fileUrl = themeDisplay.getPortalURL() + themeDisplay.getPathContext() + "/documents/" + themeDisplay.getScopeGroupId() + "//" + folderId +  "//" + HttpUtil.encodeURL(HtmlUtil.unescape(title));
 						
 					%>
 					<li><a href="<%=fileUrl%>" target="_blank"><%=entry.getTitle()%></a></li>
 					<%
-					}					
+						}
+					}
 					%>
 			</ul>
 			</div>
