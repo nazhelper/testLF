@@ -35,12 +35,20 @@
 			</wap-template-path>
 			<thumbnail-path>/three_columns_156025.png</thumbnail-path>
 		</layout-template>
-		<layout-template id="column_1_center" name="1 Column (Center Content)">
+		<layout-template id="column_1_center"
+			name="1 Column (Center Content)">
 			<template-path>/column_1_center.tpl</template-path>
-			<wap-template-path> 
+			<wap-template-path>
 				/column_1_center.wap.tpl
 			</wap-template-path>
 			<thumbnail-path>/column_1_center.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="allfundstabsx3" name="Allfunds Tabs x 3">
+			<template-path>/allfundstabsx3.tpl</template-path>
+			<wap-template-path>
+				/allfundstabsx3.wap.tpl
+			</wap-template-path>
+			<thumbnail-path>/allfundstabsx3.png</thumbnail-path>
 		</layout-template>
 	</custom>
 </layout-templates>

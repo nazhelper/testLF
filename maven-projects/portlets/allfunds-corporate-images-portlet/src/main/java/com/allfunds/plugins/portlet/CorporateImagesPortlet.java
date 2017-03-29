@@ -1,28 +1,32 @@
 package com.allfunds.plugins.portlet;
 
-import com.liferay.portal.kernel.dao.orm.Criterion;
-import com.liferay.portal.kernel.dao.orm.DynamicQuery;
-import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
-import com.liferay.portal.kernel.dao.orm.Junction;
-import com.liferay.portal.kernel.dao.orm.OrderFactoryUtil;
-import com.liferay.portal.kernel.dao.orm.ProjectionFactoryUtil;
-import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
-import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.language.LanguageUtil;
+import com.liferay.portal.kernel.search.BooleanClauseOccur;
+import com.liferay.portal.kernel.search.BooleanQuery;
+import com.liferay.portal.kernel.search.BooleanQueryFactoryUtil;
+import com.liferay.portal.kernel.search.Document;
+import com.liferay.portal.kernel.search.Hits;
+import com.liferay.portal.kernel.search.SearchContext;
+import com.liferay.portal.kernel.search.SearchContextFactory;
+import com.liferay.portal.kernel.search.SearchEngineUtil;
+import com.liferay.portal.kernel.search.Sort;
+import com.liferay.portal.kernel.search.TermQuery;
+import com.liferay.portal.kernel.search.TermQueryFactoryUtil;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
-import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
 import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.service.ClassNameLocalServiceUtil;
 import com.liferay.portal.theme.ThemeDisplay;
+import com.liferay.portal.util.PortalUtil;
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.documentlibrary.model.DLFileEntryMetadata;
 import com.liferay.portlet.documentlibrary.model.DLFileEntryType;
@@ -31,7 +35,6 @@ import com.liferay.portlet.documentlibrary.service.DLFileEntryLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryMetadataLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryTypeLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.util.RawMetadataProcessor;
-import com.liferay.portlet.dynamicdatamapping.model.DDMContent;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUtil;
 import com.liferay.portlet.dynamicdatamapping.storage.Fields;
@@ -41,6 +44,7 @@ import com.liferay.util.bridges.mvc.MVCPortlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -48,6 +52,7 @@ import java.util.Map;
 import javax.portlet.PortletException;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Portlet implementation class CorporateImagesPortlet
@@ -55,8 +60,10 @@ import javax.portlet.ResourceResponse;
 public class CorporateImagesPortlet extends MVCPortlet {
 	@Override
 	public void serveResource(ResourceRequest resourceRequest, ResourceResponse resourceResponse) throws IOException, PortletException {
+		HttpServletRequest httpServletRequest = PortalUtil.getHttpServletRequest(resourceRequest);
 		ThemeDisplay themeDisplay = (ThemeDisplay) resourceRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		String action = ParamUtil.get(resourceRequest, Constants.CMD, "");
+		
 	    if (action.equals(Constants.READ)) {
 	    	Long ddmStructureId = ParamUtil.getLong(resourceRequest, "idStructure", 0);
 	    	Integer from = ParamUtil.getInteger(resourceRequest, "from", 0);
@@ -77,59 +84,52 @@ public class CorporateImagesPortlet extends MVCPortlet {
 			    if(ddmStructureId != 0L){
 			    	DLFileEntryType fileEntryType = DLFileEntryTypeLocalServiceUtil.getDDMStructureDLFileEntryTypes(ddmStructureId).get(0);
 			    	
-			    	
-			    	Junction disjunction = RestrictionsFactoryUtil.disjunction();
-			    	
-			    	if(categories.length > 0){
-				    	for (String category : categories) {
-				    		StringBuilder categoryFilter = new StringBuilder();
-					    	categoryFilter.append("%<dynamic-element%name=%category%>%");
-					    	categoryFilter.append("%<dynamic-content%>%");
-					    	categoryFilter.append("%<![CDATA[[%"+category+"%]]]>%");
-					    	categoryFilter.append("%</dynamic-content>%");
-					    	categoryFilter.append("%</dynamic-element>%");
-					    	
-					    	Criterion categoryfilterDQ = PropertyFactoryUtil.forName("xml").like(categoryFilter.toString());
-					    	disjunction.add(categoryfilterDQ);
-						}
-			    	}else{
-			    		StringBuilder categoryFilter = new StringBuilder();
-				    	Criterion categoryfilterDQ = PropertyFactoryUtil.forName("xml").like(categoryFilter.toString());
-				    	disjunction.add(categoryfilterDQ);
-			    	}
-			    	
-			    	
-			    	
-			    	DynamicQuery metaDataQuery = DynamicQueryFactoryUtil.forClass(DLFileEntryMetadata.class, PortalClassLoaderUtil.getClassLoader())
-			    								.setProjection(ProjectionFactoryUtil.property("DDMStorageId"))
-												.add(PropertyFactoryUtil.forName("fileEntryTypeId").eq(fileEntryType.getFileEntryTypeId()));
-			    	
-			    	DynamicQuery categoryQuery = DynamicQueryFactoryUtil.forClass(DDMContent.class, PortalClassLoaderUtil.getClassLoader())
-			    								.setProjection(ProjectionFactoryUtil.property("contentId"))
-			    								.add(PropertyFactoryUtil.forName("groupId").eq(groupID))
-												.add(PropertyFactoryUtil.forName("contentId").in(metaDataQuery))
-												.add(disjunction);
-			    	
-			    	DynamicQuery metaDataCatQuery = DynamicQueryFactoryUtil.forClass(DLFileEntryMetadata.class, PortalClassLoaderUtil.getClassLoader())
-			    								.setProjection(ProjectionFactoryUtil.property("fileVersionId"))
-			    								.add(PropertyFactoryUtil.forName("DDMStorageId").in(categoryQuery));
-			    	
-			    	DynamicQuery versionQuery =  DynamicQueryFactoryUtil.forClass(DLFileVersion.class, PortalClassLoaderUtil.getClassLoader())
-			    			.setProjection(ProjectionFactoryUtil.property("fileEntryId"))
-			    			.add(PropertyFactoryUtil.forName("fileVersionId").in(metaDataCatQuery))
-			    			.add(PropertyFactoryUtil.forName("status").eq(WorkflowConstants.STATUS_APPROVED));
-			    	
-			    	DynamicQuery queryCount = DynamicQueryFactoryUtil.forClass(DLFileEntry.class, PortalClassLoaderUtil.getClassLoader())
-											.add(PropertyFactoryUtil.forName("fileEntryId").in(versionQuery));
-			    	
-			    	DynamicQuery query = DynamicQueryFactoryUtil.forClass(DLFileEntry.class, PortalClassLoaderUtil.getClassLoader())
-			    						.add(PropertyFactoryUtil.forName("fileEntryId").in(versionQuery))
-			    						.addOrder(OrderFactoryUtil.desc("title"));
-			    	Long total =  DLFileEntryLocalServiceUtil.dynamicQueryCount(queryCount);
-			    	
-			    	query.setLimit(from, to); 
+			    	SearchContext searchContext = SearchContextFactory.getInstance(httpServletRequest);
+		    		searchContext.setEntryClassNames( new String[] { DLFileEntry.class.getName() } );
+		    		BooleanQuery booleanQuery = BooleanQueryFactoryUtil.create(searchContext);
+		    		TermQuery groupQuery = TermQueryFactoryUtil.create(searchContext, "scopeGroupId", groupID);
+		    		TermQuery classQuery = TermQueryFactoryUtil.create(searchContext, "entryClassName", DLFileEntry.class.getName());
+		    		TermQuery statusQuery = TermQueryFactoryUtil.create(searchContext, "status", WorkflowConstants.STATUS_APPROVED);
+		    		TermQuery typeQuery = TermQueryFactoryUtil.create(searchContext, "fileEntryTypeId", fileEntryType.getFileEntryTypeId());
+		    		BooleanQuery categoriesQuery = BooleanQueryFactoryUtil.create(searchContext);
+		    		TermQuery categoryQuery = null;
+		    		
+		    		booleanQuery.add(groupQuery, BooleanClauseOccur.MUST);
+		    		booleanQuery.add(classQuery, BooleanClauseOccur.MUST);
+		    		booleanQuery.add(statusQuery, BooleanClauseOccur.MUST);
+		    		booleanQuery.add(typeQuery, BooleanClauseOccur.MUST);
+		    		
+		    		String categoryField = "ddm/" + fileEntryType.getDDMStructures().get(0).getStructureId() +  "/category_" + locale;
+		    		
+			    		for(String categoryId: categories){
+			    			categoryQuery = TermQueryFactoryUtil.create(searchContext, categoryField, categoryId);
+			    			categoriesQuery.add(categoryQuery, BooleanClauseOccur.SHOULD);
+			    		}
+			    		booleanQuery.add(categoriesQuery, BooleanClauseOccur.MUST);
+		    		
+		    		
+		    		Sort[] sorts = new Sort[] {new Sort("localized_title_"+locale+"_sortable", true)};
+		    		searchContext.setSorts(sorts);
+		    		
+		    		SearchContext searchContextCount = searchContext;
 
-			    	List<DLFileEntry> entries = (List<DLFileEntry>) DLFileEntryLocalServiceUtil.dynamicQuery(query);
+		    		searchContext.setStart(from);
+		    		searchContext.setEnd(to);
+		    		
+		    		Integer total = SearchEngineUtil.search(searchContextCount, booleanQuery).getLength();
+		    		
+		    		Hits hits =  SearchEngineUtil.search(searchContext, booleanQuery);
+		    		
+		    		List<DLFileEntry> entries = new ArrayList<DLFileEntry>();
+		    		for(Document doc: hits.getDocs()){
+		    			String uid = doc.get("uid");
+		    			Long dlFileEntry = Long.parseLong(StringUtil.extractLast(uid, "20_PORTLET_"));
+		    			
+		    			if(Validator.isNotNull(dlFileEntry)){
+		    				DLFileEntry fileEntry = DLFileEntryLocalServiceUtil.getDLFileEntry(dlFileEntry);
+		    				entries.add(fileEntry);
+		    			}
+		    		}
 
 			    	Integer currentPage = to/(to-from) + 1;
 			    	if(to >= total){
@@ -177,11 +177,7 @@ public class CorporateImagesPortlet extends MVCPortlet {
 							}else{
 								formatClass = "span2";
 							}
-//							FileEntry fileEntry = DLAppServiceUtil.getFileEntry(entry.getFileEntryId());
-//							FileVersion fileVersion = (FileVersion) fileEntry.getLatestFileVersion();
-							
-							
-//							imageURL = DLUtil.getThumbnailSrc(fileEntry, fileVersion, null, themeDisplay);
+
 							String imageFormat = StringUtil.upperCase(entry.getExtension()) + " " + LanguageUtil.get(locale, "format");
 							String imageDimension = LanguageUtil.get(locale, "size") + ": " + formatInt.format(imageWidth) + " x " + formatInt.format(imageLength);
 							String imageSize = formater.format(fileSize) + " " + formatsize;
