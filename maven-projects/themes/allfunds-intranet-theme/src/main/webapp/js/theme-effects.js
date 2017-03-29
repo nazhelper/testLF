@@ -50,5 +50,4 @@ $(document).ready(function(){
 		var index = $('.closeButtonJquery').index(this);
 		  $('.videoCommunicationJquery').get(index).pause();
 	});
-	
 });
