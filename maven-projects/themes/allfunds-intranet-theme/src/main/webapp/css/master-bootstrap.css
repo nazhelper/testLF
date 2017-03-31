@@ -167,9 +167,6 @@ legend {
   padding: 0;
   border: 0;
 }
-textarea {
-  overflow: auto;
-}
 optgroup {
   font-weight: bold;
 }
@@ -1121,6 +1118,10 @@ body {
   line-height: 1.42857143;
   color: #333;
   background-color: #fff;
+}
+.aui textarea {
+  overflow: auto;
+  height: auto;
 }
 input,
 button,

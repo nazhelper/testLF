@@ -15,9 +15,8 @@
 
 /*Default portlet styles */
 
-.portlet-boundary .portlet, 
-.portlet-borderless-container .journal-content-article{
-	
+.portlet-boundary .portlet{
+	border: 1px solid #ddd;
 	margin-bottom: 10px;
 	background-color: #fff;
 	border-radius: 0px;

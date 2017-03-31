@@ -16,7 +16,7 @@ import javax.portlet.ActionResponse;
 import javax.portlet.PortletConfig;
 import javax.portlet.PortletPreferences;
 
-public class PublisherConfig extends DefaultConfigurationAction  {
+public class AllfundsPublisherConfig extends DefaultConfigurationAction  {
 
 	
 	@Override
