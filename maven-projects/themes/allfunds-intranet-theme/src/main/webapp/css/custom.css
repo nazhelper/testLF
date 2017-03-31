@@ -1183,6 +1183,7 @@ body.site.dialog-iframe-popup {
 	border-color: #04424a;
 	color: #ffffff !important;
 }
+
 /* All Together Program */
 
 .allfundstabsx3 > div > .nav{
@@ -1190,8 +1191,9 @@ body.site.dialog-iframe-popup {
 }
 
 .allfundstabsx3 p {
-	padding: 15px 15px 0px 15px !important;
+	padding: 15px 15px 0px 15px ;
 }
+
 .allfundstabsx3 p:last-child {
-	padding: 15px 15px 15px 15px !important;
+	padding: 15px 15px 15px 15px;
 }
