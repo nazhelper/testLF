@@ -1,26 +1,21 @@
 package com.allfunds.plugins.portlet;
 
-import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.json.JSONArray;
-import com.liferay.portal.kernel.json.JSONFactoryUtil;
-import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portlet.documentlibrary.model.DLFolder;
 import com.liferay.portlet.documentlibrary.service.DLFolderLocalServiceUtil;
-import com.liferay.util.bridges.mvc.MVCPortlet;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DLFolderPorletUtils extends MVCPortlet {
+public class DLFolderPorletUtils {
 
-	private Map<Integer, Map> internalFolders = new HashMap<Integer, Map>();
-	Map<DLFolder, Map> internalFoldersViews = new HashMap<DLFolder,Map>();
-	private Integer index = 0;
+	private static Map<Integer, Map> internalFolders = new HashMap<Integer, Map>();
+	private static Map<DLFolder, Map> internalFoldersViews = new HashMap<DLFolder,Map>();
+	private static Integer index = 0;
 
-	public Map<Integer, Map> getFolders(List<DLFolder> folders, long groupId,
+	public static Map<Integer, Map> getFolders(List<DLFolder> folders, long groupId,
 			String guion) throws SystemException {
 		Map<Long, String> foldersTest = new HashMap<Long, String>();
 		for (DLFolder dlFolder : folders) {
@@ -44,7 +39,7 @@ public class DLFolderPorletUtils extends MVCPortlet {
 		return internalFolders;
 	}
 
-	public Map<DLFolder, Map> getFoldersView(List<DLFolder> folders, long groupId)
+	public static Map<DLFolder, Map> getFoldersView(List<DLFolder> folders, long groupId)
 			throws SystemException {
 		Map <DLFolder, Map> internalFolders = new HashMap<DLFolder, Map>();
 		for (DLFolder dlFolder : folders) {			

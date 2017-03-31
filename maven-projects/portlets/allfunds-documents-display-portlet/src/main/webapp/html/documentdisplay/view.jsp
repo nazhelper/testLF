@@ -1,13 +1,3 @@
-<%@page import="com.liferay.portal.kernel.util.HtmlUtil"%>
-<%@page import="com.liferay.portal.kernel.util.HttpUtil"%>
-<%@page import="com.liferay.portal.kernel.dao.orm.ProjectionFactoryUtil"%>
-<%@page import="com.liferay.portal.kernel.dao.orm.DynamicQuery"%>
-<%@page import="com.liferay.portlet.documentlibrary.model.DLFileEntryType"%>
-<%@page import="com.liferay.portlet.documentlibrary.service.DLFileEntryTypeLocalServiceUtil"%>
-<%@page import="com.allfunds.plugins.portlet.DLFolderPorletUtils"%>
-<%@page import="com.liferay.portlet.documentlibrary.model.DLFolder"%>
-<%@page import="com.liferay.portlet.documentlibrary.service.DLFolderLocalServiceUtil"%>
-<%@page import="com.liferay.portlet.documentlibrary.service.DLFolderLocalService"%>
 <%@include file="../init.jsp" %>
 
 
@@ -18,9 +8,8 @@
 <%
 	Long DLFolderid = GetterUtil.getLong(portletPreferences.getValue("DLFolderid", "0L"));
 	Integer x = 0;
-	DLFolderPorletUtils dl = new DLFolderPorletUtils();
 	List<DLFolder> folders = DLFolderLocalServiceUtil.getFolders(themeDisplay.getScopeGroupId(), DLFolderid, Boolean.FALSE);
-	Map<DLFolder, Map> allTheFolders = dl.getFoldersView(folders, themeDisplay.getScopeGroupId());
+	Map<DLFolder, Map> allTheFolders = DLFolderPorletUtils.getFoldersView(folders, themeDisplay.getScopeGroupId());
 %>
 		<div>
 			<div class="panel-body">
@@ -73,7 +62,6 @@ $.fn.extend({
 			}
 		  };
 		  
-
 			var tree = $(this);
 			var len = tree.find('li').has("ul").length;
 			tree.addClass("tree");

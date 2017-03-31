@@ -1182,4 +1182,17 @@ body.site.dialog-iframe-popup {
 	border-color: #04424a;
 	color: #ffffff !important;
 }
-/*Tablas*/
+
+/* All Together Program */
+
+.allfundstabsx3 > div > .nav{
+	margin-bottom: 0px !important;
+}
+
+.allfundstabsx3 p {
+	padding: 15px 15px 0px 15px ;
+}
+
+.allfundstabsx3 p:last-child {
+	padding: 15px 15px 15px 15px;
+}
