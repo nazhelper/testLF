@@ -1,0 +1,35 @@
+#myModal {
+	height: auto !important;
+}
+
+.marginTopParrafo{
+	margin-top: 20% !important;
+}
+
+.marginTopParrafoTitular{
+	margin-top: 3% !important;
+}
+
+.marginTopParrafoTitular2{
+	margin-top: 1.4% !important;
+}
+.noticiaMargenIzquierda{
+	margin-left: 0px !important;
+}
+
+.marginTopParrafoHorizontal{
+	margin-top: 7% !important;
+}
+
+#modalImgText{
+	background: none repeat scroll 0% 0% #000;
+    color: white;
+    padding: 7px 15px;
+    width: 100%;	
+}
+
+#containerModalImg{
+position: absolute;
+    bottom: 0px;
+    width: 100%;
+}

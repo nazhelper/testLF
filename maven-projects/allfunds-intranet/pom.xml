@@ -1,0 +1,61 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.allfunds.intranet</groupId>
+	<artifactId>allfunds-intranet</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>allfunds-intranet-hooks</module>
+		<module>allfunds-intranet-layouttpl</module>
+		<module>allfunds-intranet-portlets</module>
+		<module>allfunds-intranet-themes</module>
+	</modules>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>com.liferay.maven.plugins</groupId>
+					<artifactId>liferay-maven-plugin</artifactId>
+					<version>${liferay.maven.plugin.version}</version>
+					<executions>
+						<execution>
+							<phase>generate-sources</phase>
+							<goals>
+								<goal>build-css</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<autoDeployDir>${liferay.auto.deploy.dir}</autoDeployDir>
+						<appServerDeployDir>${liferay.app.server.deploy.dir}</appServerDeployDir>
+						<appServerLibGlobalDir>${liferay.app.server.lib.global.dir}</appServerLibGlobalDir>
+						<appServerPortalDir>${liferay.app.server.portal.dir}</appServerPortalDir>
+						<liferayVersion>${liferay.version}</liferayVersion>
+						<pluginType>portlet</pluginType>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<encoding>UTF-8</encoding>
+						<source>1.7</source>
+						<target>1.7</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>
+
+
