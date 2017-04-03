@@ -40,7 +40,7 @@ $(function() {
 });
 
 $(document).ready(function(){
-
+	
 	$('.linkToVideoJquery').click(function(){
 		var index = $('.linkToVideoJquery').index(this);
 		  $('.videoCommunicationJquery').get(index).play();

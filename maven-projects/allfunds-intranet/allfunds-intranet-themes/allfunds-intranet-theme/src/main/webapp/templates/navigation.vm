@@ -26,7 +26,7 @@
 	</ul>
 	
 	<ul class="nav navbar-nav navbar-right aadd-home">
-    	<li><a href="#"><span class="flaticon-interface"></span></a></li>
+    	<li><a href="/group/guest/contact"><span class="flaticon-interface"></span></a></li>
 		<li><a a="" href="#" ><span class="flaticon-music"></span><span class="new-alerts">2</span></a></li>
 		<li><a class="aadd aadd-app-magic" href="#"></a></li>
 	    <li><a class="aadd aadd-app-host" href="#"></a></li>

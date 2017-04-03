@@ -3,16 +3,19 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>allfunds-intranet-layouttpl</artifactId>
 	<packaging>pom</packaging>
-
+	<properties>
+		<plugin.type>layouttpl</plugin.type>
+	</properties>
+	
 	<parent>
 		<groupId>com.allfunds.intranet</groupId>
 		<artifactId>allfunds-intranet</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0.0</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<modules>
-		<module>allfunds-layouts</module>
+		<module>allfunds-intranet-layouttpls</module>
 	</modules>
 
 	<dependencies>

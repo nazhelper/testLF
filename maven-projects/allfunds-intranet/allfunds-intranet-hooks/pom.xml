@@ -3,17 +3,20 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>allfunds-intranet-hooks</artifactId>
 	<packaging>pom</packaging>
-
+	<properties>
+		<plugin.type>hook</plugin.type>
+	</properties>
+	
 	<parent>
 		<groupId>com.allfunds.intranet</groupId>
 		<artifactId>allfunds-intranet</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0.0</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<modules>
-		<module>allfunds-language-hook</module>
-		<module>allfunds-lookAndFeel-adapter</module>
+		<module>allfunds-intranet-language-hook</module>
+		<module>allfunds-intranet-lookAndFeel-adapter</module>
 	</modules>
 
 	<build>

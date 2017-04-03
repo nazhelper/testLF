@@ -1,2 +1,0 @@
-#set ($css_class = "${css_class}")
-#set ($site_default_url = "/group/guest/home")
