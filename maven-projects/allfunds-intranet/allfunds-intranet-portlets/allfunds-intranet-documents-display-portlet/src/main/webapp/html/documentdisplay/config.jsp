@@ -7,7 +7,7 @@
 <% 
 	Long DLFolderid = GetterUtil.getLong(portletPreferences.getValue("DLFolderid", "0L"));
 	Long groupId = themeDisplay.getScopeGroupId();
-	Map<Integer, Map<?,?>> systemFolders = new HashMap<Integer, Map<?,?>>();
+	Map<Integer, Map> systemFolders = new HashMap<Integer, Map>();
 	List<DLFolder> baseFolders = DLFolderLocalServiceUtil.getFolders(groupId, DLFolderConstants.DEFAULT_PARENT_FOLDER_ID, Boolean.FALSE);
 	systemFolders = DLFolderPorletUtils.getFolders(baseFolders, groupId, "");
 %>
@@ -26,7 +26,7 @@
 				}
 			%>
 		<%
-			for(Map.Entry<Integer, Map<?,?>> entry : systemFolders.entrySet()){
+			for(Map.Entry<Integer, Map> entry : systemFolders.entrySet()){
 				Map.Entry<Long,String> folderMap = (Map.Entry<Long,String>) entry.getValue().entrySet().iterator().next();
 				Long dlFolderId = folderMap.getKey();
 				String folderName = folderMap.getValue();
