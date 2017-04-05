@@ -1,7 +1,23 @@
-<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet"%>
-<%@ taglib uri="http://alloy.liferay.com/tld/aui" prefix="aui" %>
+<%@page import="com.allfunds.intranet.plugins.portlet.Constants"%>
+<%@page import="java.util.Objects"%>
+<%@ include file="../init.jsp" %>
 <portlet:defineObjects />
 
+<%  
+long groupID = themeDisplay.getScopeGroupId();
+Long ddmStructureId_cfg = GetterUtil.getLong(portletPreferences.getValue("ddmStructureId", "0L"));
+String errorMessage = Constants.ERROR_STRUCTURE;
+String successMessage = Constants.SUCCESS_MESSAGE;
+
+if(ddmStructureId_cfg.longValue() != 0L){
+	List<JournalArticle> allJournalsArticles = JournalArticleLocalServiceUtil.getArticles(groupID);
+%>
+
+<liferay-portlet:actionURL var="sendEmail" name="sendEmailAction"/>
+<liferay-ui:error key="errorStructure" message="<%=errorMessage%>"/>
+<liferay-ui:success key="successEmail" message="<%=successMessage%>"/>
+
+<aui:form action="<%=sendEmail%>" method="post" name="emailForm">
 <div class="card hovercard">
 	<div class="cardheader contact"></div>
 	<div class=" text-left">
@@ -9,25 +25,41 @@
 			<h4><%//TODO leer variable título %></h4>
 			<p><%//TODO leer variable texto introducción %></p>
 		</div>
+		
 		<div class="panel-body">
-			<aui:fieldset >
+			<aui:fieldset>
 				<aui:layout>
 	      			<aui:column columnWidth="50" first="true">
-						<aui:input name="username" label="Your name" placeholder="name"  />
+						<aui:input name="username" label="Your name" placeholder="name" >
+							<aui:validator name="required"/>
+							<aui:validator name="alpha"/>
+						</aui:input>
 					</aui:column>
 					<aui:column columnWidth="50" last="true">
-						<%//TODO leer opciones de la config %>
 						<aui:select name="areaSelect" label="Area">
-							<aui:option value="human-resources">Human Resources</aui:option>
-							<aui:option value="marketing">Marketing Department</aui:option>
+							<% for (JournalArticle article : allJournalsArticles){ 
+								if(!article.isInTrash()){
+									if(JournalArticleLocalServiceUtil.isLatestVersion(groupID, article.getArticleId(), article.getVersion())){
+										if(article.getStructureId().equals(Objects.toString(ddmStructureId_cfg))){			
+									%>			
+										<aui:option label="<%=article.getTitleCurrentValue()%>" value="<%=article.getArticleId()%>"></aui:option>
+									<% 		
+													}
+												}
+											}
+										}
+									%>
 						</aui:select>
 					</aui:column>
 				</aui:layout>
 			</aui:fieldset>
 			<aui:fieldset>
 				<aui:column columnWidth="100" first="true" last="true">
-					<aui:input name="comment" type="textarea" label="Your comment" rows="5" cols="5" placeholder="comment"></aui:input>
-				</aui:column>
+					<aui:input name="comment" type="textarea" label="Your comment" rows="5" cols="5" placeholder="comment">
+						 <aui:validator name="required"/>
+						<aui:validator name="alphanum"/>				
+					</aui:input>
+				</aui:column> 
 			</aui:fieldset>
 		</div>
 		<div class="panel-footer clearfix">
@@ -39,3 +71,12 @@
 		</div>
 	</div>
 </div>
+</aui:form>
+<%
+}else{ 
+	renderRequest.setAttribute(WebKeys.PORTLET_CONFIGURATOR_VISIBILITY, Boolean.TRUE);
+%>
+	<div class="portlet-msg-info">
+		<liferay-ui:message key="allfunds.corporate.structure.required"/>
+	</div>
+<%}%>

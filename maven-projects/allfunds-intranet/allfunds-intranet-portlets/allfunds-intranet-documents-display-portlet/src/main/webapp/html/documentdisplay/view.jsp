@@ -1,3 +1,9 @@
+<%@page import="com.liferay.portal.security.permission.ActionKeys"%>
+<%@page import="com.liferay.portal.kernel.util.WebKeys"%>
+<%@page import="java.util.Objects"%>
+<%@page import="com.liferay.portal.util.PortalUtil"%>
+<%@page import="com.liferay.portal.service.ResourcePermissionLocalServiceUtil"%>
+<%@page import="com.liferay.portal.model.ResourcePermission"%>
 <%@include file="../init.jsp" %>
 
 
@@ -7,24 +13,31 @@
 
 <%
 	Long DLFolderid = GetterUtil.getLong(portletPreferences.getValue("DLFolderid", "0L"));
+	Long companyId = PortalUtil.getDefaultCompanyId();
+	Long groupID = themeDisplay.getScopeGroupId();
 	Integer x = 0;
+	List <ResourcePermission> rp = new ArrayList <ResourcePermission> ();
 	List<DLFolder> folders = DLFolderLocalServiceUtil.getFolders(themeDisplay.getScopeGroupId(), DLFolderid, Boolean.FALSE);
-	Map<DLFolder, Map<?,?>> allTheFolders = DLFolderPorletUtils.getFoldersView(folders, themeDisplay.getScopeGroupId());
+	Map<DLFolder, Map> allTheFolders = DLFolderPorletUtils.getFoldersView(folders, themeDisplay.getScopeGroupId());
 %>
 		<div>
 			<div class="panel-body">
 			 <ul id='<portlet:namespace/>tree' class="tree">
-			 	
 				<%
-					for(Map.Entry<DLFolder, Map<?,?>> entry : allTheFolders.entrySet()){		
+					for(Map.Entry<DLFolder, Map> entry : allTheFolders.entrySet()){
+						boolean showfolder = false;
+						showfolder = permissionChecker.hasPermission(groupID, entry.getKey().getModelClassName(), entry.getKey().getFolderId(), ActionKeys.VIEW);
+						if(showfolder){
 				%>
 				<li>
 					<allfunds:field-folder folderMap="<%=entry.getValue()%>" folder="<%=entry.getKey()%>"></allfunds:field-folder>
 				</li>		
 					<%
+						}	
 					}			
 					List<DLFileEntry> entries = DLFileEntryLocalServiceUtil.getFileEntries(themeDisplay.getScopeGroupId(), DLFolderid); 
 					for(DLFileEntry entry : entries){
+						boolean showFile = false;
 						if(!entry.isInTrash()){
 							DLFileEntry fileEntry = entry.toEscapedModel();	
 							long fileEntryId = fileEntry.getFileEntryId();
@@ -33,10 +46,12 @@
 							String extension = fileEntry.getExtension();
 							String title = fileEntry.getTitle();
 							String fileUrl = themeDisplay.getPortalURL() + themeDisplay.getPathContext() + "/documents/" + themeDisplay.getScopeGroupId() + "//" + folderId +  "//" + HttpUtil.encodeURL(HtmlUtil.unescape(title));
-						
-					%>
-					<li><a href="<%=fileUrl%>" target="_blank"><%=entry.getTitle()%></a></li>
-					<%
+							showFile = permissionChecker.hasPermission(groupID, DLFileEntry.class.getName(), fileEntry.getPrimaryKey(), ActionKeys.VIEW);
+							if(showFile){
+						%>
+							<li><a href="<%=fileUrl%>" target="_blank"><%=entry.getTitle()%></a></li>
+						<%
+							}
 						}
 					}
 					%>
