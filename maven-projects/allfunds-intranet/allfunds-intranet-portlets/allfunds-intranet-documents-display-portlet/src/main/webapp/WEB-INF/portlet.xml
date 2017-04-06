@@ -6,7 +6,7 @@
 		<portlet-name>document-display</portlet-name>
 		<display-name>Document Display</display-name>
 		<portlet-class>
-			com.allfunds.intranet.plugins.portlet.DocumentDisplayPortlet
+			com.allfunds.plugins.portlet.DocumentDisplayPortlet
 		</portlet-class>
 		<init-param>
 			<name>view-template</name>
