@@ -1,4 +1,4 @@
-.aui .dockbar.navbar-static-top {
+.dockbar.navbar-static-top {
 	position: unset;
 	float: right;
 	
@@ -132,7 +132,7 @@
 	}
 }
 
-.aui .controls-hidden .dockbar.navbar-static-top #_145_navAddControlsNavbarCollapse li.toggle-controls .toggle-controls-link {
+.controls-hidden .dockbar.navbar-static-top #_145_navAddControlsNavbarCollapse li.toggle-controls .toggle-controls-link {
     background: #F5AF45;
 	clip: rect(auto auto auto auto);
 	position: static;

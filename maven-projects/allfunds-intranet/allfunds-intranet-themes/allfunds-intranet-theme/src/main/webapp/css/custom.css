@@ -2,7 +2,8 @@
 /* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
 
 /* CSS Document */
-
+@import url(bootstrap-datepicker3.css);
+@import url(bootstrap-datepicker3.standalone.css);
 @import url(master.css);
 @import url(master-dockbar.css);
 @import url(master-bootstrap.css);
@@ -337,13 +338,53 @@ h3.ui-accordion-header{
 }
 
 .aui {
+	.btn-group > .btn:first-child {
+	    -moz-border-radius-topleft: 30px;
+	    -webkit-border-top-left-radius: 30px;
+	    border-top-left-radius: 30px;
+	    -webkit-border-bottom-left-radius: 30px;
+	    -moz-border-radius-bottomleft: 30px;
+	    border-bottom-left-radius: 30px;
+	}	
+	
+	.btn-group > .btn:last-child, .btn-group > .dropdown-toggle {
+	    -webkit-border-top-right-radius: 30px;
+	    -moz-border-radius-topright: 30px;
+	    border-top-right-radius: 30px;
+	    -webkit-border-bottom-right-radius: 30px;
+	    -moz-border-radius-bottomright: 30px;
+	    border-bottom-right-radius: 30px;
+	}
+	
+	.input-daterange .input-group-addon {
+	    padding: 10px 7px 7px;
+	    border-width: 1px;
+	}
+	
+	.datepicker table tr td, .datepicker table tr th {
+	    border-radius: 0px; 
+	}
+	
+	.btn-danger{
+	    color: #fff;
+	    background-color: #d9534f;
+	    border-color: #d43f3a;
+	    box-shadow: none;
+	    text-shadow: none;
+	}
+	
+
 	.btn-info {
 	  color: #fff;
 	  background-color: #5bc0de;
 	  border-color: #46b8da;
 	  border-radius: 30px;
-	  border-width: 0px;
+	  border-width: 1px;
+	  border-style: solid;
+	  box-shadow: none;
+	  text-shadow: none;
 	}
+	
 	.btn-info:focus,
 	.btn-info.focus {
 	  color: #fff;
