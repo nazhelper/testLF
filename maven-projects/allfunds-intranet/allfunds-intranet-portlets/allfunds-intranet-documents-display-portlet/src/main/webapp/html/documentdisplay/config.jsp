@@ -31,19 +31,19 @@
 				Long dlFolderId = folderMap.getKey();
 				String folderName = folderMap.getValue();
 
-			 		if(dlFolderId.longValue() == DLFolderid.longValue()){
-		%>
-				<aui:option label="<%=folderName%>"
-				value="<%=dlFolderId%>" selected="true"/>
-		<%			
+			 	if(dlFolderId.longValue() == DLFolderid.longValue()){
+			%>
+					<aui:option label="<%=folderName%>"
+					value="<%=dlFolderId%>" selected="true"/>
+			<%			
 				}else{
-		%>
+			%>
 					<aui:option label="<%=folderName%>"
 					value="<%=dlFolderId%>"/>
-		<%
-				}
-			} 
-		%>
+			<%
+					}
+				} 
+			%>
 	</aui:select>
 
 	

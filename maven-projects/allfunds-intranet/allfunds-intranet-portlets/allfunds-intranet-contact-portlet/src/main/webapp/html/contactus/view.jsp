@@ -1,5 +1,4 @@
 <%@page import="com.allfunds.intranet.plugins.portlet.Constants"%>
-<%@page import="java.util.Objects"%>
 <%@ include file="../init.jsp" %>
 <portlet:defineObjects />
 
@@ -8,6 +7,8 @@ long groupID = themeDisplay.getScopeGroupId();
 Long ddmStructureId_cfg = GetterUtil.getLong(portletPreferences.getValue("ddmStructureId", "0L"));
 String errorMessage = Constants.ERROR_STRUCTURE;
 String successMessage = Constants.SUCCESS_MESSAGE;
+String errorEmailArea = Constants.ERROR_EMAILAREA;
+String errorEmailIncorrect = Constants.ERROR_MAIL_INCORRECT;
 
 if(ddmStructureId_cfg.longValue() != 0L){
 	List<JournalArticle> allJournalsArticles = JournalArticleLocalServiceUtil.getArticles(groupID);
@@ -15,6 +16,8 @@ if(ddmStructureId_cfg.longValue() != 0L){
 
 <liferay-portlet:actionURL var="sendEmail" name="sendEmailAction"/>
 <liferay-ui:error key="errorStructure" message="<%=errorMessage%>"/>
+<liferay-ui:error key="errorMailArea" message="<%=errorEmailArea%>"/>
+<liferay-ui:error key="errorEmailIncorrect" message="<%=errorEmailIncorrect%>"/>
 <liferay-ui:success key="successEmail" message="<%=successMessage%>"/>
 
 <aui:form action="<%=sendEmail%>" method="post" name="emailForm">
@@ -22,10 +25,9 @@ if(ddmStructureId_cfg.longValue() != 0L){
 	<div class="cardheader contact"></div>
 	<div class=" text-left">
 		<div class="panel-body">
-			<h4><%//TODO leer variable título %></h4>
-			<p><%//TODO leer variable texto introducción %></p>
-		</div>
-		
+			<h4><liferay-ui:message key="allfunds.estructure.contactus"/></h4>
+			<p><liferay-ui:message key="allfunds.estructure.contactus.description"/></p>
+		</div>		
 		<div class="panel-body">
 			<aui:fieldset>
 				<aui:layout>
@@ -40,8 +42,8 @@ if(ddmStructureId_cfg.longValue() != 0L){
 							<% for (JournalArticle article : allJournalsArticles){ 
 								if(!article.isInTrash()){
 									if(JournalArticleLocalServiceUtil.isLatestVersion(groupID, article.getArticleId(), article.getVersion())){
-										if(article.getStructureId().equals(Objects.toString(ddmStructureId_cfg))){			
-									%>			
+										if(article.getStructureId().equals(Objects.toString(ddmStructureId_cfg)) && !article.getTitleCurrentValue().isEmpty()){			
+									%>		
 										<aui:option label="<%=article.getTitleCurrentValue()%>" value="<%=article.getArticleId()%>"></aui:option>
 									<% 		
 													}
@@ -56,8 +58,7 @@ if(ddmStructureId_cfg.longValue() != 0L){
 			<aui:fieldset>
 				<aui:column columnWidth="100" first="true" last="true">
 					<aui:input name="comment" type="textarea" label="Your comment" rows="5" cols="5" placeholder="comment">
-						 <aui:validator name="required"/>
-						<aui:validator name="alphanum"/>				
+						 <aui:validator name="required"/>			
 					</aui:input>
 				</aui:column> 
 			</aui:fieldset>
@@ -65,7 +66,6 @@ if(ddmStructureId_cfg.longValue() != 0L){
 		<div class="panel-footer clearfix">
 			<aui:button-row cssClass="btn-group pull-right" role="group">
 				<aui:button icon="glyphicon glyphicon-send" cssClass="btn btn-info" name="saveButton" type="submit" class="btn btn-info" value="send" role="button" />
-		
 				<aui:button icon="flaticon-paint reducido" cssClass="btn btn-danger" name="cancelButton" type="button" value="cleaner" role="button" />
 			</aui:button-row>
 		</div>

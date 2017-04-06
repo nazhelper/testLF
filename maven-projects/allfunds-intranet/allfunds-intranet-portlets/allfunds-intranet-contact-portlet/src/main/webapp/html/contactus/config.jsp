@@ -21,7 +21,7 @@ availablesST = DDMStructureLocalServiceUtil.getStructures(groupID, ClassNameLoca
     <aui:select name="preferences--ddmStructureId--" showEmptyOption="false" label="allfunds.estructure.structureId">
 		<%
 		for (DDMStructure structure : availablesST) {
-			if (structure.getStructureId() == ddmStructureId_cfg) {
+			if (structure.getStructureKey().equals(Objects.toString(ddmStructureId_cfg.longValue()))) {
 		%>
 			<aui:option label="<%=structure.getName(locale, true)%>"
 				value="<%=structure.getStructureKey()%>" selected="true" />

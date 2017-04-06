@@ -8,6 +8,7 @@ import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.util.PrefsPropsUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.DocumentException;
@@ -56,7 +57,7 @@ public class ContactUsPortlet extends MVCPortlet {
 		String username = actionRequest.getParameter("username");
 		String comment = actionRequest.getParameter("comment");
 		String areaSelect = actionRequest.getParameter("areaSelect");
-		String body = username+": "+comment;
+		String body = "";
 		// Email de la persona logeada
 		String emailUser = themeDisplay.getUser().getEmailAddress();
 		Document document = null;
@@ -68,9 +69,12 @@ public class ContactUsPortlet extends MVCPortlet {
 			document = SAXReaderUtil.read(new StringReader(journalArticle.getContent()));
 			if(journalArticle.toString().contains("email")){
 				Node node = document.selectSingleNode("/root/dynamic-element[@name='emailArea']/dynamic-content");
-				if (node.getText().length() > 0) {
+				if (node.getText() != null && !node.getText().isEmpty()) {
+					if(Validator.isEmailAddress(node.getText()) && Validator.isEmailAddress(emailUser)){
 					//Email del area
 					email = node.getText();
+					body = "<h3> Direccion de Correo Electronico del Usuario: "+emailUser+"</h3>\n"+" <h4>Usuario: "+username+"</h4>\n"+"<p> Comentarios del usuario: "+comment+"</p>";
+					mailMessage.setHTMLFormat(Boolean.TRUE);
 					mailMessage.setBody(body);
 					mailMessage.setSubject(Constants.SUBJECT);
 					//Email del usuario logado
@@ -79,6 +83,11 @@ public class ContactUsPortlet extends MVCPortlet {
 					mailMessage.setTo(new InternetAddress(email));
 					MailServiceUtil.sendEmail(mailMessage);
 					SessionMessages.add(actionRequest, "successEmail");
+					} else {
+						SessionErrors.add(actionRequest, "errorEmailIncorrect");
+					}
+		    	} else {
+		    		SessionErrors.add(actionRequest, "errorMailArea");
 		    	}
 			} else {
 				SessionErrors.add(actionRequest, "errorStructure");
